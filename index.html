@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAZXR — Modélisation 3D pour la mode marocaine</title>
+<link rel="canonical" href="https://lazxr.com/">
+<meta name="description" content="LAZXR modélise vos pièces en 3D. Un seul modèle génère vos visuels e-commerce, réseaux sociaux, essayages virtuels — sans shooting. Livraison en 48h à Casablanca.">
+<meta property="og:image" content="https://lazxr.com/LAZXR-Logo.png">
+<meta property="og:title" content="LAZXR — Un modèle 3D. Des possibilités infinies.">
+<meta property="og:description" content="Modélisation 3D pour la mode marocaine. Visuels e-commerce en 48h, sans shooting. À partir de 400 MAD/pièce.">
+<meta property="og:url" content="https://lazxr.com/">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="LAZXR-Logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style>
+:root{
+  --cream:#FAF8F3;--cream2:#F0EDE4;--cream3:#E5E0D5;
+  --ink:#0D0D0B;--ink2:#1A1A16;--ink3:#252520;
+  --gold:#B8976A;--gold2:#D4B896;--gold3:#E8D5B8;--gold-dim:rgba(184,151,106,.15);
+  --muted:#8A8878;--text:#3A3A2E;--white:#FFF;
+  --border:rgba(184,151,106,.18);
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.75;overflow-x:hidden}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 5vw;transition:background .4s,border-color .4s,padding .3s}
+.nav--top{background:transparent;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav--scrolled{background:rgba(250,248,243,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1rem 5vw}
+.nav--scrolled .nav-link{color:var(--ink)!important}
+.nav--scrolled .nav-link::after{background:var(--ink)!important}
+.nav--scrolled .brand-logo{filter:brightness(0)!important}
+.brand-logo{height:36px;width:auto;display:block;filter:brightness(0) invert(1);transition:filter .4s}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-link{color:rgba(255,255,255,.7);text-decoration:none;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:400;transition:color .3s;position:relative}
+.nav-link::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:rgba(255,255,255,.5);transition:width .3s}
+.nav-link:hover{color:#fff}
+.nav-link:hover::after{width:100%}
+.nav-cta-link{background:var(--gold)!important;color:var(--ink)!important;padding:.45rem 1.4rem;font-weight:500;letter-spacing:.1em;border-radius:0}
+.nav-cta-link::after{display:none!important}
+.nav-cta-link:hover{opacity:.88!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;width:28px;height:20px;position:relative;z-index:700}
+.nav-hamburger span{display:block;width:100%;height:1.5px;background:#fff;position:absolute;left:0;transition:all .3s}
+.nav--scrolled .nav-hamburger span{background:var(--ink)}
+.nav-hamburger span:nth-child(1){top:0}
+.nav-hamburger span:nth-child(2){top:50%;transform:translateY(-50%)}
+.nav-hamburger span:nth-child(3){bottom:0}
+.nav-hamburger.open span:nth-child(1){top:50%;transform:translateY(-50%) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){bottom:50%;transform:translateY(50%) rotate(-45deg)}
+
+/* ── HERO (DARK) ── */
+.hero{min-height:100vh;background:var(--ink);position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 5vw 5rem;gap:4vw;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 70% 40%,rgba(184,151,106,.08),transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--ink),transparent);pointer-events:none;z-index:1}
+.hero-left{position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:.7rem;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;opacity:0;animation:fadeUp .8s .2s forwards}
+.hero-tag::before{content:'';width:24px;height:1px;background:var(--gold)}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,5vw,5.2rem);line-height:1.02;color:var(--cream);opacity:0;animation:fadeUp .8s .35s forwards}
+h1 em{font-style:italic;color:var(--gold);font-weight:400}
+.hero-sub{font-size:.95rem;color:rgba(250,248,243,.5);max-width:440px;margin-top:1.6rem;line-height:1.85;opacity:0;animation:fadeUp .8s .5s forwards}
+.hero-sub strong{color:rgba(250,248,243,.8);font-weight:400}
+.hero-actions{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .65s forwards}
+.btn-p{background:var(--gold);color:var(--ink);padding:.85rem 2.2rem;text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-p:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(184,151,106,.25)}
+.btn-g{border:1px solid rgba(184,151,106,.3);color:var(--gold2);padding:.85rem 1.8rem;text-decoration:none;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;transition:all .3s}
+.btn-g:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:3.5rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.06);opacity:0;animation:fadeUp .8s .8s forwards}
+.hs-num{font-family:var(--serif);font-size:2.4rem;font-weight:400;color:var(--gold2);line-height:1}
+.hs-label{font-size:.68rem;color:rgba(250,248,243,.35);margin-top:.3rem;letter-spacing:.06em}
+
+/* 3D Configurator */
+.hero-right{position:relative;z-index:2;opacity:0;animation:fadeUp 1s .5s forwards;display:flex;flex-direction:column;gap:0}
+.product-bar{display:flex;gap:.5rem;margin-bottom:0}
+.product-btn{flex:1;display:flex;align-items:center;gap:.5rem;padding:.6rem .8rem;background:rgba(255,255,255,.03);border:1px solid rgba(184,151,106,.12);border-bottom:none;cursor:pointer;transition:all .3s}
+.product-btn:hover{border-color:rgba(184,151,106,.3);background:rgba(184,151,106,.05)}
+.product-btn.active{border-color:var(--gold);background:rgba(184,151,106,.08)}
+.product-btn-icon{width:28px;height:28px;border-radius:50%;background:rgba(184,151,106,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.product-btn.active .product-btn-icon{background:var(--gold)}
+.product-btn-icon svg{width:14px;height:14px;stroke:var(--gold2);fill:none;stroke-width:1.5}
+.product-btn.active .product-btn-icon svg{stroke:var(--ink)}
+.product-btn-text{display:flex;flex-direction:column}
+.product-btn-name{font-size:.7rem;font-weight:500;color:rgba(250,248,243,.6);letter-spacing:.05em}
+.product-btn.active .product-btn-name{color:var(--gold2)}
+.product-btn-type{font-size:.55rem;color:rgba(250,248,243,.25);letter-spacing:.03em}
+.model-container{position:relative;width:100%;background:linear-gradient(180deg,#F5F1E8 0%,#EDE8DC 50%,#E5E0D5 100%);border:1px solid rgba(184,151,106,.15);border-radius:0}
+.model-container model-viewer{width:100%;height:420px;--poster-color:transparent;display:block}
+.model-hint{text-align:center;padding:.4rem 0 .6rem;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.color-panel{padding:1rem 1.2rem;background:rgba(255,255,255,.04);border:1px solid rgba(184,151,106,.12);border-top:none}
+.color-panel-title{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.color-panel-title span{color:rgba(250,248,243,.25);font-size:.5rem;letter-spacing:.12em;font-weight:300;margin-left:.5rem}
+.scene-bar{display:flex;gap:0;margin-bottom:.7rem;border:1px solid rgba(184,151,106,.1);overflow:hidden}
+.scene-btn{flex:1;padding:.45rem .4rem;background:transparent;border:none;border-right:1px solid rgba(184,151,106,.1);color:rgba(250,248,243,.35);font-family:var(--sans);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.3rem}
+.scene-btn:last-child{border-right:none}
+.scene-btn:hover{color:rgba(250,248,243,.6);background:rgba(184,151,106,.05)}
+.scene-btn.active{background:rgba(184,151,106,.1);color:var(--gold)}
+.scene-btn svg{width:12px;height:12px;flex-shrink:0}
+.zone-tabs{display:flex;gap:.35rem;margin-bottom:.6rem}
+.zone-tab{background:rgba(255,255,255,.04);border:1px solid rgba(184,151,106,.12);color:rgba(250,248,243,.4);padding:.35rem .6rem;font-family:var(--sans);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .3s;flex:1;text-align:center}
+.zone-tab:hover{border-color:rgba(184,151,106,.25);color:rgba(250,248,243,.6)}
+.zone-tab.active{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:500}
+.color-swatches{display:flex;gap:.5rem;flex-wrap:wrap}
+.color-swatch{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .25s;position:relative;flex-shrink:0}
+.color-swatch:hover{transform:scale(1.12);box-shadow:0 0 12px rgba(184,151,106,.25)}
+.color-swatch.active{border-color:var(--gold);box-shadow:0 0 0 2px rgba(184,151,106,.2)}
+.color-swatch::after{content:'';position:absolute;inset:3px;border-radius:50%;border:1px solid rgba(255,255,255,.12)}
+.color-picker-swatch{background:conic-gradient(red,yellow,lime,aqua,blue,magenta,red)!important;cursor:pointer;overflow:hidden;position:relative}
+.color-picker-swatch::after{content:'+';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5);border:none;border-radius:50%}
+.color-picker-swatch input[type="color"]{position:absolute;width:100%;height:100%;opacity:0;cursor:pointer;border:none;padding:0}
+.zone-status{margin-top:.5rem;display:flex;align-items:center}
+.zone-indicator{font-size:.62rem;color:rgba(250,248,243,.35);display:flex;align-items:center;gap:.3rem}
+.zone-label{letter-spacing:.05em}
+.zone-value{color:var(--gold2);font-weight:400}
+.zone-sep{opacity:.25;margin:0 .15rem}
+.color-demo-tag{display:none}
+
+/* Personalisation panel */
+.perso-panel{display:none}
+.perso-toggle{width:100%;background:none;border:1px solid rgba(184,151,106,.12);color:var(--gold);font-family:var(--sans);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;padding:.55rem;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.perso-toggle:hover{background:rgba(184,151,106,.06);border-color:rgba(184,151,106,.3)}
+.perso-toggle.open{background:rgba(184,151,106,.1);border-color:var(--gold)}
+.perso-toggle svg{width:14px;height:14px;transition:transform .3s}
+.perso-toggle.open svg{transform:rotate(45deg)}
+.perso-content{display:none;margin-top:.8rem}
+.perso-content.show{display:block}
+.perso-section{margin-bottom:.8rem}
+.perso-label{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,248,243,.4);margin-bottom:.4rem}
+.perso-input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(184,151,106,.12);color:var(--cream);padding:.5rem .7rem;font-family:var(--sans);font-size:.82rem;outline:none;transition:border-color .3s}
+.perso-input:focus{border-color:var(--gold)}
+.perso-input::placeholder{color:rgba(250,248,243,.2)}
+.perso-row{display:flex;gap:.5rem}
+.perso-font-btn{flex:1;padding:.4rem .3rem;background:rgba(255,255,255,.04);border:1px solid rgba(184,151,106,.1);color:rgba(250,248,243,.5);font-size:.72rem;cursor:pointer;transition:all .3s;text-align:center}
+.perso-font-btn:hover{border-color:rgba(184,151,106,.25)}
+.perso-font-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(184,151,106,.08)}
+.perso-pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem}
+.perso-pos-btn{padding:.5rem .3rem;background:rgba(255,255,255,.04);border:1px solid rgba(184,151,106,.1);color:rgba(250,248,243,.4);font-size:.55rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-align:center}
+.perso-pos-btn:hover{border-color:rgba(184,151,106,.25);color:rgba(250,248,243,.6)}
+.perso-pos-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(184,151,106,.08)}
+.perso-upload-btn{width:100%;padding:.55rem;background:none;border:1px dashed rgba(184,151,106,.2);color:rgba(250,248,243,.4);font-family:var(--sans);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.perso-upload-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(184,151,106,.04)}
+.perso-color-row{display:flex;gap:.4rem;margin-top:.4rem}
+.perso-color-dot{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .2s}
+.perso-color-dot:hover{transform:scale(1.15)}
+.perso-color-dot.active{border-color:var(--gold)}
+/* Text overlay on model */
+.text-overlay{position:absolute;pointer-events:none;font-size:1.2rem;font-weight:500;z-index:5;text-shadow:0 1px 4px rgba(0,0,0,.15);transition:all .3s;opacity:0}
+.text-overlay.visible{opacity:1}
+.text-overlay.pos-chest{top:45%;left:50%;transform:translate(-50%,-50%)}
+.text-overlay.pos-back{top:45%;left:50%;transform:translate(-50%,-50%)}
+.text-overlay.pos-sleeve{top:38%;left:25%;transform:translate(-50%,-50%) rotate(-12deg);font-size:.9rem}
+
+/* Scene switcher */
+.scene-bar{display:flex;gap:0;margin-bottom:.8rem;border:1px solid rgba(184,151,106,.12);border-radius:2px;overflow:hidden}
+.scene-btn{flex:1;padding:.55rem .5rem;background:transparent;border:none;border-right:1px solid rgba(184,151,106,.12);color:rgba(250,248,243,.4);font-family:var(--sans);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.scene-btn:last-child{border-right:none}
+.scene-btn:hover{color:rgba(250,248,243,.7);background:rgba(184,151,106,.06)}
+.scene-btn.active{background:rgba(184,151,106,.12);color:var(--gold)}
+.scene-btn svg{width:14px;height:14px;flex-shrink:0}
+
+/* Hotspot annotations */
+.hotspot{display:block;width:28px;height:28px;border-radius:50%;border:2px solid var(--gold);background:rgba(184,151,106,.2);backdrop-filter:blur(4px);cursor:pointer;transition:all .3s;position:relative}
+.hotspot:hover{background:var(--gold);transform:scale(1.2)}
+.hotspot::before{content:attr(data-label);position:absolute;white-space:nowrap;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--cream);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .7rem;border-radius:2px;opacity:0;pointer-events:none;transition:opacity .3s;border:1px solid rgba(184,151,106,.2)}
+.hotspot:hover::before{opacity:1}
+.hotspot::after{content:'';position:absolute;inset:4px;border-radius:50%;background:var(--gold);opacity:.5;transition:opacity .3s}
+.hotspot:hover::after{opacity:1}
+.hotspot-info{display:none;position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%);background:var(--ink);border:1px solid rgba(184,151,106,.25);padding:.8rem 1rem;border-radius:2px;min-width:180px;z-index:10}
+.hotspot-info.show{display:block}
+.hotspot-info-title{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.hotspot-info-desc{font-size:.75rem;color:rgba(250,248,243,.6);line-height:1.5}
+
+/* Gold line separator */
+.gold-line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.3}
+
+/* ── SECTIONS ── */
+.sec{padding:6rem 5vw}
+.sec--dark{background:var(--ink);color:var(--cream)}
+.sec--cream{background:var(--cream)}
+.sec--cream2{background:var(--cream2)}
+.s-tag{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.s-tag::before{content:'';width:20px;height:1px;background:var(--gold)}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,3.2vw,3rem);line-height:1.12;letter-spacing:-.01em}
+h2 em{font-style:italic;color:var(--gold)}
+.sec--dark h2{color:var(--cream)}
+.sec--cream h2,.sec--cream2 h2{color:var(--ink)}
+
+/* ── AVANT/APRÈS ── */
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:4vw;margin-top:3rem}
+.vs-col-title{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem}
+.vs-dot{width:5px;height:5px;border-radius:50%}
+.vs-dot--red{background:#C4645A}
+.vs-dot--gold{background:var(--gold)}
+.vs-item{padding:1rem 1.3rem;margin-bottom:.6rem;font-size:.88rem;line-height:1.65;border-radius:2px}
+.vs-item--old{background:rgba(196,100,90,.06);border-left:2px solid rgba(196,100,90,.25);color:#9A5A52}
+.vs-item--new{background:var(--gold-dim);border-left:2px solid var(--gold);color:var(--cream)}
+
+/* ── 4 STEPS ── */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
+.step-card{text-align:center;padding:2.5rem 1.5rem;border:1px solid var(--border);border-radius:2px;transition:all .4s;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.step-card:hover::before{transform:scaleX(1)}
+.step-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(184,151,106,.1)}
+.step-icon{width:48px;height:48px;margin:0 auto 1.2rem;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.step-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.step-num{font-family:var(--serif);font-size:.7rem;letter-spacing:.15em;color:var(--gold);margin-bottom:.6rem}
+.step-card h4{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-bottom:.5rem;font-weight:600}
+.step-card p{font-size:.82rem;color:var(--muted);line-height:1.7}
+.step-tag{display:inline-block;margin-top:.8rem;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);padding:.2rem .7rem;border-radius:100px}
+
+/* ── TARIFS ── */
+.offers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;border:1px solid var(--border);overflow:hidden}
+.o-card{display:flex;flex-direction:column;border-right:1px solid var(--border);transition:background .3s}
+.o-card:last-child{border-right:none}
+.o-card:hover{background:var(--cream2)}
+.o-card.ft{background:var(--ink)}
+.o-card.ft:hover{background:var(--ink2)}
+.o-head{padding:2rem 1.6rem 1.4rem;position:relative}
+.o-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .9rem;font-weight:500}
+.o-moment{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.o-card.ft .o-moment{color:var(--gold2)}
+.o-name{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:.3rem}
+.o-card.ft .o-name{color:var(--cream)}
+.o-price{font-family:var(--serif);font-size:2.2rem;font-weight:400;line-height:1}
+.o-card.ft .o-price{color:var(--gold2)}
+.o-price sub{font-size:.8rem;font-family:var(--sans);font-weight:300;color:var(--muted)}
+.o-card.ft .o-price sub{color:rgba(250,248,243,.4)}
+.o-desc{font-size:.78rem;color:var(--muted);margin-top:.5rem;line-height:1.55}
+.o-card.ft .o-desc{color:rgba(250,248,243,.5)}
+.o-body{padding:1.4rem 1.6rem;flex:1;border-top:1px solid var(--border)}
+.o-card.ft .o-body{border-top-color:rgba(255,255,255,.06)}
+.o-body li{list-style:none;font-size:.8rem;padding:.45rem 0;border-bottom:1px solid rgba(184,151,106,.08);display:flex;gap:.6rem;align-items:flex-start;line-height:1.5}
+.o-card.ft .o-body li{color:rgba(250,248,243,.7);border-bottom-color:rgba(255,255,255,.05)}
+.o-body li:last-child{border-bottom:none}
+.o-body li::before{content:'\2014';color:var(--gold);font-size:.6rem;flex-shrink:0;margin-top:.35rem}
+.o-foot{padding:.8rem 1.6rem 1.8rem}
+.o-cta{display:block;text-align:center;padding:.75rem;border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;transition:all .3s}
+.o-card.ft .o-cta{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:500}
+.o-cta:hover{border-color:var(--gold);color:var(--gold)}
+.o-card.ft .o-cta:hover{opacity:.85}
+.o-note{margin-top:1.5rem;font-size:.78rem;color:rgba(250,248,243,.4);line-height:1.7;text-align:center}
+
+/* ── CAS CLIENT (DARK) ── */
+.case-numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3rem;border:1px solid rgba(184,151,106,.15);overflow:hidden}
+.cn{padding:2.5rem 2rem;text-align:center;border-right:1px solid rgba(184,151,106,.15)}
+.cn:last-child{border-right:none}
+.cn-val{font-family:var(--serif);font-size:clamp(2.5rem,4vw,4rem);font-weight:400;color:var(--gold);line-height:1}
+.cn-label{font-size:.68rem;color:rgba(250,248,243,.4);margin-top:.5rem;line-height:1.4;letter-spacing:.04em}
+.case-body{display:grid;grid-template-columns:1fr 1.5fr;gap:4vw;margin-top:3rem;align-items:start}
+.case-chip{display:inline-block;border:1px solid rgba(184,151,106,.2);color:var(--gold);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .7rem;border-radius:100px;margin-bottom:1rem}
+.case-body h3{font-family:var(--serif);font-size:1.4rem;color:var(--cream);line-height:1.25;margin-bottom:.8rem;font-weight:400}
+.case-body p{color:rgba(250,248,243,.5);font-size:.85rem;line-height:1.8;margin-bottom:1rem}
+.case-quote{border-left:2px solid rgba(184,151,106,.3);padding:.6rem 1rem;font-family:var(--serif);font-style:italic;font-size:.92rem;color:rgba(250,248,243,.45);line-height:1.65;margin-bottom:1rem}
+.case-link{color:var(--gold);text-decoration:none;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .3s}
+.case-link:hover{border-color:var(--gold)}
+
+/* ── CONTACT ── */
+.contact-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:6vw;margin-top:3rem;align-items:start}
+.c-info h3{font-family:var(--serif);font-size:1.6rem;color:var(--ink);margin-bottom:1rem;font-weight:400;line-height:1.3}
+.c-info p{color:var(--muted);font-size:.88rem;line-height:1.85;margin-bottom:1.5rem}
+.c-pills{display:flex;flex-direction:column;gap:.6rem}
+.c-pill{padding:.9rem 1.1rem;background:var(--cream2);border:1px solid var(--border);transition:border-color .3s}
+.c-pill:hover{border-color:var(--gold)}
+.c-pill-text{font-size:.8rem;line-height:1.5}
+.c-pill-text strong{color:var(--ink);display:block;margin-bottom:.1rem;font-weight:500;font-size:.72rem;letter-spacing:.06em}
+.c-pill-text a{color:var(--gold);text-decoration:none}
+.c-form{display:flex;flex-direction:column;gap:.8rem}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.cf-g{display:flex;flex-direction:column;gap:.3rem}
+.cf-l{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.cf-i,.cf-s,.cf-t{background:var(--cream);border:1px solid var(--border);padding:.8rem 1rem;color:var(--text);font-family:var(--sans);font-size:.88rem;outline:none;transition:border-color .3s;-webkit-appearance:none}
+.cf-i:focus,.cf-s:focus,.cf-t:focus{border-color:var(--gold)}
+.cf-t{resize:vertical;min-height:100px}
+.cf-submit{background:var(--ink);color:var(--cream);border:none;padding:.9rem 2.2rem;font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all .3s;align-self:flex-start}
+.cf-submit:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:3rem;border-top:1px solid rgba(184,151,106,.1)}
+.f-logo{margin-bottom:.8rem}
+.footer-logo{height:30px;width:auto;opacity:.9}
+.f-desc{font-size:.75rem;color:rgba(250,248,243,.35);line-height:1.7}
+.f-col h5{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.f-col a{display:block;color:rgba(250,248,243,.4);text-decoration:none;font-size:.78rem;margin-bottom:.5rem;transition:color .3s}
+.f-col a:hover{color:var(--cream)}
+.f-bottom{padding:1.2rem 5vw;background:var(--ink);border-top:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.f-bottom p{color:rgba(250,248,243,.2);font-size:.7rem}
+
+/* ── FLOATING ── */
+.float-btn{position:fixed;bottom:2rem;right:2rem;z-index:400;display:flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--ink);padding:.7rem 1.4rem;border-radius:100px;text-decoration:none;font-size:.72rem;letter-spacing:.06em;font-weight:500;box-shadow:0 4px 24px rgba(184,151,106,.3);transition:transform .3s,box-shadow .3s}
+.float-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(184,151,106,.4)}
+.float-btn svg{flex-shrink:0}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+
+/* Config summary strip */
+.config-summary{background:var(--ink2);border-top:1px solid rgba(184,151,106,.1);border-bottom:1px solid rgba(184,151,106,.1);padding:1rem 5vw}
+.config-summary-inner{display:flex;align-items:center;justify-content:center;gap:1.2rem;flex-wrap:wrap}
+.cs-item{display:flex;align-items:center;gap:.4rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);font-weight:400}
+.cs-item svg{opacity:.6;flex-shrink:0}
+.cs-dot{width:3px;height:3px;border-radius:50%;background:rgba(184,151,106,.3);flex-shrink:0}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-hamburger{display:block}
+  .nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:var(--ink);flex-direction:column;padding:5rem 2rem 2rem;gap:1.5rem;box-shadow:-4px 0 20px rgba(0,0,0,.2);transition:right .35s ease;z-index:600}
+  .nav-links.open{right:0}
+  .nav-links li{display:block}
+  .nav-link{color:rgba(250,248,243,.7)!important;font-size:.85rem}
+  .nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:550;opacity:0;pointer-events:none;transition:opacity .3s}
+  .nav-overlay.open{opacity:1;pointer-events:auto}
+
+  /* Hero mobile: stack vertically */
+  .hero{grid-template-columns:1fr;padding:6rem 5vw 2rem;min-height:auto;gap:1.5rem}
+  h1{font-size:38px}
+  .hero-sub{font-size:.88rem}
+  .hero-actions{flex-direction:column;gap:10px}
+  .btn-p,.btn-g{width:100%;text-align:center;justify-content:center;padding:.75rem 1.5rem}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap;padding-top:1.5rem;margin-top:2rem}
+
+  /* 3D configurator mobile */
+  .hero-right{margin-top:0}
+  .product-bar{gap:.35rem}
+  .product-btn{padding:.5rem .6rem;gap:.4rem}
+  .product-btn-icon{width:24px;height:24px}
+  .product-btn-icon svg{width:12px;height:12px}
+  .product-btn-name{font-size:.62rem}
+  .product-btn-type{font-size:.5rem}
+  .model-container model-viewer{height:320px}
+  .model-hint{font-size:.5rem;padding:.3rem 0 .5rem}
+  .color-panel{padding:.8rem .9rem}
+  .color-panel-title{font-size:.52rem;margin-bottom:.5rem}
+  .color-panel-title span{display:none}
+  .scene-bar{margin-bottom:.5rem}
+  .scene-btn{padding:.35rem .25rem;font-size:.5rem;gap:.2rem}
+  .scene-btn svg{width:10px;height:10px}
+  .zone-tabs{margin-bottom:.5rem;gap:.25rem}
+  .zone-tab{padding:.3rem .4rem;font-size:.52rem;letter-spacing:.05em}
+  .color-swatches{gap:.4rem}
+  .color-swatch{width:26px;height:26px}
+  .zone-status{margin-top:.35rem}
+  .zone-indicator{font-size:.55rem}
+  .hotspot{width:22px;height:22px}
+  .hotspot::before{font-size:.5rem;padding:.2rem .5rem}
+  .hotspot-info{min-width:150px;padding:.6rem .8rem}
+  .hotspot-info-title{font-size:.58rem}
+  .hotspot-info-desc{font-size:.65rem}
+  .perso-panel{padding:.7rem .9rem}
+  .perso-toggle{font-size:.52rem;padding:.45rem}
+  .perso-input{font-size:.75rem;padding:.4rem .6rem}
+  .perso-font-btn{font-size:.62rem;padding:.35rem .2rem}
+  .perso-pos-btn{font-size:.5rem;padding:.4rem .2rem}
+  .perso-color-dot{width:22px;height:22px}
+  .text-overlay{font-size:1rem}
+  .text-overlay.pos-sleeve{font-size:.7rem}
+
+  /* Other sections mobile */
+  .vs-grid,.case-body,.contact-layout{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .offers-grid{grid-template-columns:1fr}
+  .o-card{border-right:none;border-bottom:1px solid var(--border)}
+  footer{grid-template-columns:1fr}
+  h2{font-size:28px}
+  .cf-submit{width:100%;text-align:center;justify-content:center}
+  .cf-row{grid-template-columns:1fr}
+  .sec{padding:3.5rem 20px}
+  .case-numbers{grid-template-columns:1fr}
+  .cn{border-right:none;border-bottom:1px solid rgba(184,151,106,.15)}
+  .cn:last-child{border-bottom:none}
+  .float-btn span{display:none}
+  .float-btn{padding:.75rem}
+  .config-summary{padding:.7rem 16px}
+  .config-summary-inner{gap:.5rem .7rem}
+  .cs-item{font-size:.55rem;letter-spacing:.08em}
+}
+@media(max-width:480px){
+  .nav{padding:.8rem 14px}
+  .brand-logo{height:22px}
+  .hero{padding:5.5rem 16px 1.5rem}
+  h1{font-size:32px;line-height:.98}
+  h2{font-size:24px}
+  .hero-sub{font-size:.82rem}
+  .steps-grid{grid-template-columns:1fr}
+  .sec{padding:3rem 16px}
+  .model-container model-viewer{height:260px}
+  .color-swatch{width:24px;height:24px}
+  .product-btn-type{display:none}
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav nav--top" id="navbar">
+  <a href="#" style="text-decoration:none"><img src="./lazxr-logo-white.png" alt="LAZXR" class="brand-logo"><span class="sr-only">LAZXR</span></a>
+  <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#methode" class="nav-link">Méthode</a></li>
+    <li><a href="#offres" class="nav-link">Tarifs</a></li>
+    <li><a href="#preuve" class="nav-link">Résultats</a></li>
+    <li><a href="#contact" class="nav-link nav-cta-link">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ① HERO (DARK) -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Modélisation 3D · Mode & Textile · Maroc</div>
+    <h1>Un modèle 3D.<br><em>Des possibilités</em><br>infinies.</h1>
+    <p class="hero-sub">LAZXR modélise chaque pièce de votre collection en 3D. À partir de ce modèle unique, générez vos <strong>visuels e-commerce</strong>, vos contenus réseaux sociaux, vos essayages virtuels — sans jamais refaire un shooting.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-p">Modéliser ma première pièce →</a>
+      <a href="#offres" class="btn-g">Voir les tarifs</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hs-num">1</div><div class="hs-label">modèle 3D</div></div>
+      <div><div class="hs-num">∞</div><div class="hs-label">visuels et usages</div></div>
+      <div><div class="hs-num">48h</div><div class="hs-label">de livraison</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="product-bar">
+      <button class="product-btn active" onclick="switchProduct('polo', this)">
+        <div class="product-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16"/><path d="M12 3v6"/><path d="M8 3l4 3 4-3"/></svg></div>
+        <div class="product-btn-text"><span class="product-btn-name">Polo</span><span class="product-btn-type">Piqué coton · 39 matériaux</span></div>
+      </button>
+      <button class="product-btn" onclick="switchProduct('hoodie', this)">
+        <div class="product-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 4 5 4 9v12h16V9c0-4-4-7-8-7z"/><path d="M8 22v-5a4 4 0 018 0v5"/><circle cx="12" cy="10" r="2"/></svg></div>
+        <div class="product-btn-text"><span class="product-btn-name">Sweat</span><span class="product-btn-type">Hoodie fin · 1 matériau</span></div>
+      </button>
+    </div>
+    <div class="model-container">
+      <model-viewer id="mv"
+        src="./DG100218.glb"
+        camera-controls
+        auto-rotate
+        rotation-per-second="14deg"
+        shadow-intensity="0.6"
+        exposure="1.2"
+        camera-orbit="30deg 75deg 2.5m"
+        min-camera-orbit="auto auto 1.5m"
+        max-camera-orbit="auto auto 5m"
+        style="background:transparent">
+
+        <button class="hotspot hs-polo" slot="hotspot-p1"
+          data-position="0 0.32 0.04" data-normal="0 0.5 1"
+          data-label="Col" onclick="toggleInfo(this)">
+          <div class="hotspot-info"><div class="hotspot-info-title">Col piqué</div><div class="hotspot-info-desc">Tricot côtelé piqué coton 200 GSM. Tenue structurée, finition premium.</div></div>
+        </button>
+        <button class="hotspot hs-polo" slot="hotspot-p2"
+          data-position="0 0.18 0.08" data-normal="0 0 1"
+          data-label="Boutons" onclick="toggleInfo(this)">
+          <div class="hotspot-info"><div class="hotspot-info-title">Boutons</div><div class="hotspot-info-desc">Personnalisables indépendamment. Matériau, couleur, et finition modifiables en 1 clic.</div></div>
+        </button>
+        <button class="hotspot hs-polo" slot="hotspot-p3"
+          data-position="0.12 0.05 0.06" data-normal="0.5 0 1"
+          data-label="Tissu" onclick="toggleInfo(this)">
+          <div class="hotspot-info"><div class="hotspot-info-title">Piqué coton 200 GSM</div><div class="hotspot-info-desc">Texture simulée fidèlement. Le rendu reproduit le tombé et la maille réels.</div></div>
+        </button>
+        <button class="hotspot hs-polo" slot="hotspot-p4"
+          data-position="-0.18 0.12 0.02" data-normal="-1 0 0.3"
+          data-label="Manche" onclick="toggleInfo(this)">
+          <div class="hotspot-info"><div class="hotspot-info-title">Manche courte</div><div class="hotspot-info-desc">Coupe et volume modélisés en 3D. Déclinable en manche longue sans rescan.</div></div>
+        </button>
+
+        <button class="hotspot hs-hoodie" slot="hotspot-h1"
+          data-position="0 0.35 0.08" data-normal="0 0.5 1"
+          data-label="Capuche" onclick="toggleInfo(this)" style="display:none">
+          <div class="hotspot-info"><div class="hotspot-info-title">Capuche</div><div class="hotspot-info-desc">Volume et tombé simulés fidèlement en 3D. Personnalisable en couleur.</div></div>
+        </button>
+        <button class="hotspot hs-hoodie" slot="hotspot-h2"
+          data-position="0.15 0.08 0.08" data-normal="0.5 0 1"
+          data-label="Tissu" onclick="toggleInfo(this)" style="display:none">
+          <div class="hotspot-info"><div class="hotspot-info-title">Tissu extérieur</div><div class="hotspot-info-desc">Modélisation fidèle de la texture et du poids. Coloris illimités depuis le même modèle.</div></div>
+        </button>
+        <button class="hotspot hs-hoodie" slot="hotspot-h3"
+          data-position="-0.1 -0.05 0.07" data-normal="-0.5 0 1"
+          data-label="Poche" onclick="toggleInfo(this)" style="display:none">
+          <div class="hotspot-info"><div class="hotspot-info-title">Poche kangourou</div><div class="hotspot-info-desc">Coutures et découpes modélisées en 3D. Visible sous tous les angles.</div></div>
+        </button>
+
+      </model-viewer>
+      <div class="text-overlay" id="textOverlay"></div>
+      <div class="model-hint">Tournez · Zoomez · Cliquez sur les points</div>
+    </div>
+
+    <div class="color-panel">
+      <div class="color-panel-title">Configurateur interactif <span>Explorez les possibilités</span></div>
+
+      <div class="scene-bar">
+        <button class="scene-btn active" onclick="setScene('natural', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          Naturel
+        </button>
+        <button class="scene-btn" onclick="setScene('studio', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+          Studio
+        </button>
+        <button class="scene-btn" onclick="setScene('golden', this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 18a5 5 0 00-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="10.22" x2="19.78" y2="11.64"/></svg>
+          Doré
+        </button>
+      </div>
+
+      <div class="zone-tabs" id="zoneTabs">
+        <button class="zone-tab active" onclick="selectZone('body', this)">Tissu</button>
+        <button class="zone-tab" onclick="selectZone('collar', this)">Col</button>
+        <button class="zone-tab" onclick="selectZone('buttons', this)">Boutons</button>
+      </div>
+
+      <div class="color-swatches" id="swatches">
+        <div class="color-swatch active" data-r="1" data-g="1" data-b="1" data-name="Blanc" onclick="applyZoneColor(this)" style="background:#FFFFFF;border:1px solid rgba(255,255,255,.2)"></div>
+        <div class="color-swatch" data-r="0.1" data-g="0.1" data-b="0.08" data-name="Noir" onclick="applyZoneColor(this)" style="background:#1A1A14"></div>
+        <div class="color-swatch" data-r="0.12" data-g="0.18" data-b="0.32" data-name="Bleu marine" onclick="applyZoneColor(this)" style="background:#1F2E52"></div>
+        <div class="color-swatch" data-r="0.54" data-g="0.15" data-b="0.21" data-name="Rouge grenat" onclick="applyZoneColor(this)" style="background:#8B2635"></div>
+        <div class="color-swatch" data-r="0.11" data-g="0.3" data-b="0.24" data-name="Vert émeraude" onclick="applyZoneColor(this)" style="background:#1B4D3E"></div>
+        <div class="color-swatch" data-r="0.72" data-g="0.59" data-b="0.42" data-name="Or sable" onclick="applyZoneColor(this)" style="background:#B8976A"></div>
+        <label class="color-swatch color-picker-swatch" title="Choisir une couleur">
+          <input type="color" id="colorPicker" value="#8B2635" onchange="applyPickerColor(this.value)" oninput="applyPickerColor(this.value)">
+        </label>
+      </div>
+
+      <div class="zone-status">
+        <div class="zone-indicator" id="zoneStatus">
+          <span class="zone-label">Zone :</span>
+          <span class="zone-value" id="currentZone">Tissu</span>
+          <span class="zone-sep">·</span>
+          <span class="zone-label">Couleur :</span>
+          <span class="zone-value" id="currentColor">Blanc</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="perso-panel">
+      <button class="perso-toggle" id="persoToggle" onclick="togglePerso()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Personnaliser texte / logo
+      </button>
+      <div class="perso-content" id="persoContent">
+
+        <div class="perso-section">
+          <div class="perso-label">Votre texte</div>
+          <input type="text" class="perso-input" id="persoText" placeholder="Ex : VOTRE MARQUE" maxlength="30" oninput="updateTextOverlay()">
+        </div>
+
+        <div class="perso-section">
+          <div class="perso-label">Police</div>
+          <div class="perso-row">
+            <button class="perso-font-btn active" style="font-family:'DM Sans',sans-serif" onclick="setFont('DM Sans', this)" data-font="'DM Sans',sans-serif">Sans-serif</button>
+            <button class="perso-font-btn" style="font-family:'Playfair Display',serif" onclick="setFont('Playfair Display', this)" data-font="'Playfair Display',serif">Serif</button>
+            <button class="perso-font-btn" style="font-family:'Courier New',monospace" onclick="setFont('Courier New', this)" data-font="'Courier New',monospace">Mono</button>
+            <button class="perso-font-btn" style="font-family:Georgia,serif;font-style:italic" onclick="setFont('Georgia', this)" data-font="Georgia,serif">Italique</button>
+          </div>
+        </div>
+
+        <div class="perso-section">
+          <div class="perso-label">Couleur du texte</div>
+          <div class="perso-color-row">
+            <div class="perso-color-dot active" style="background:#FFFFFF" onclick="setTextColor('#FFFFFF', this)"></div>
+            <div class="perso-color-dot" style="background:#1A1A14" onclick="setTextColor('#1A1A14', this)"></div>
+            <div class="perso-color-dot" style="background:#B8976A" onclick="setTextColor('#B8976A', this)"></div>
+            <div class="perso-color-dot" style="background:#8B2635" onclick="setTextColor('#8B2635', this)"></div>
+            <div class="perso-color-dot" style="background:#1F2E52" onclick="setTextColor('#1F2E52', this)"></div>
+            <div class="perso-color-dot" style="background:#1B4D3E" onclick="setTextColor('#1B4D3E', this)"></div>
+          </div>
+        </div>
+
+        <div class="perso-section">
+          <div class="perso-label">Position</div>
+          <div class="perso-pos-grid">
+            <button class="perso-pos-btn active" onclick="setTextPos('chest', this)">Poitrine</button>
+            <button class="perso-pos-btn" onclick="setTextPos('back', this)">Dos</button>
+            <button class="perso-pos-btn" onclick="setTextPos('sleeve', this)">Manche</button>
+          </div>
+        </div>
+
+        <div class="perso-section">
+          <div class="perso-label">Ou uploadez votre logo</div>
+          <label class="perso-upload-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Choisir un fichier (PNG, JPG, SVG)
+            <input type="file" id="logoUpload" accept="image/*" style="display:none" onchange="handleLogoUpload(event)">
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="config-summary">
+  <div class="config-summary-inner">
+    <div class="cs-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>2 produits</div>
+    <div class="cs-dot"></div>
+    <div class="cs-item">3 ambiances</div>
+    <div class="cs-dot"></div>
+    <div class="cs-item">4 zones</div>
+    <div class="cs-dot"></div>
+    <div class="cs-item">couleurs illimitées</div>
+    <div class="cs-dot"></div>
+    <div class="cs-item">0 reshooting</div>
+  </div>
+</div>
+
+<!-- ② AVANT / APRÈS (DARK) -->
+<section class="sec sec--dark">
+  <div class="s-tag rv">Le problème</div>
+  <h2 class="rv">Votre collection est prête.<br><em>Pas vos visuels.</em></h2>
+  <p class="rv" style="color:rgba(250,248,243,.4);font-size:.9rem;margin-top:.6rem;max-width:500px;line-height:1.8">Et si un seul modèle 3D remplaçait tous vos shootings ?</p>
+  <div class="vs-grid rv">
+    <div>
+      <div class="vs-col-title" style="color:rgba(250,248,243,.4)"><div class="vs-dot vs-dot--red"></div>Shooting traditionnel</div>
+      <div class="vs-item vs-item--old">Votre styliste a fini. Votre photographe est bookée dans 3 semaines.</div>
+      <div class="vs-item vs-item--old">5 000 à 15 000 MAD par shooting — pour des photos que vous ne réutiliserez jamais.</div>
+      <div class="vs-item vs-item--old">Nouvelle couleur ? Nouveau shooting.</div>
+      <div class="vs-item vs-item--old">Vos concurrents en ligne publient plus vite que vous.</div>
+    </div>
+    <div>
+      <div class="vs-col-title" style="color:var(--gold)"><div class="vs-dot vs-dot--gold"></div>Avec LAZXR</div>
+      <div class="vs-item vs-item--new">Chaque pièce devient un modèle 3D — un actif permanent, propriété de votre marque.</div>
+      <div class="vs-item vs-item--new">400 MAD la pièce. Le modèle est à vous. Les visuels se multiplient sans surcoût.</div>
+      <div class="vs-item vs-item--new">Nouvelle couleur, nouveau fond, nouveau format ? Même modèle, zéro surcoût.</div>
+      <div class="vs-item vs-item--new">Demain : essayage virtuel, catalogue AR, showroom en ligne. Même modèle.</div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ③ COMMENT ÇA MARCHE (CREAM) -->
+<section class="sec sec--cream" id="methode">
+  <div class="s-tag rv">Comment ça marche</div>
+  <h2 class="rv">De votre pièce à son <em>jumeau 3D.</em> En 4 jours.</h2>
+  <div class="steps-grid rv">
+    <div class="step-card">
+      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-num">Étape I</div>
+      <h4>Brief</h4>
+      <p>Envoyez-nous votre pièce et dites-nous ce dont vous avez besoin.</p>
+      <span class="step-tag">Jour 1</span>
+    </div>
+    <div class="step-card">
+      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-num">Étape II</div>
+      <h4>Modélisation</h4>
+      <p>On crée le modèle 3D : coupes, volumes, textures, tombé du tissu. Fidèle au réel.</p>
+      <span class="step-tag">24–48h</span>
+    </div>
+    <div class="step-card">
+      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="step-num">Étape III</div>
+      <h4>Création</h4>
+      <p>Visuels e-commerce, mises en scène, formats social. Tout depuis le modèle 3D.</p>
+      <span class="step-tag">+24h</span>
+    </div>
+    <div class="step-card">
+      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="22.08" x2="12" y2="12" stroke-linecap="round"/></svg></div>
+      <div class="step-num">Étape IV</div>
+      <h4>Livraison</h4>
+      <p>Visuels HD + fichier 3D (GLB/USDZ). Le modèle vous appartient — réutilisez-le sans limite.</p>
+      <span class="step-tag">Prêt à publier</span>
+    </div>
+  </div>
+</section>
+
+<!-- ④ TARIFS (CREAM2) -->
+<section class="sec sec--cream2" id="offres">
+  <div class="s-tag rv">Tarifs</div>
+  <h2 class="rv">Choisissez votre <em>point d'entrée.</em></h2>
+  <p class="rv" style="color:var(--muted);font-size:.88rem;margin-top:.6rem;max-width:520px;line-height:1.8">Chaque offre inclut le modèle 3D — il vous appartient pour toujours. Les visuels sont le premier usage. La suite dépend de vous.</p>
+  <div class="offers-grid rv">
+    <div class="o-card">
+      <div class="o-head"><div class="o-moment">Découverte</div><div class="o-name">LAZXR Start</div><div class="o-price">400<sub> MAD / pièce</sub></div><div class="o-desc">Testez la 3D sur 1 à 3 pièces.</div></div>
+      <ul class="o-body"><li>1 modèle 3D par pièce</li><li>3 visuels e-commerce</li><li>Fichier 3D livré — il est à vous</li><li>Livraison en 48h</li></ul>
+      <div class="o-foot"><a href="#contact" class="o-cta">Tester sur 1 pièce →</a></div>
+    </div>
+    <div class="o-card ft">
+      <div class="o-head"><div class="o-badge">Marques</div><div class="o-moment">Lancement collection</div><div class="o-name">LAZXR Collection</div><div class="o-price">3 500<sub> MAD</sub></div><div class="o-desc">Lancez votre collection complète.</div></div>
+      <ul class="o-body"><li>5 modèles 3D</li><li>20 visuels produits</li><li>Mises en scène lifestyle</li><li>Déclinaisons couleurs + social</li></ul>
+      <div class="o-foot"><a href="#contact" class="o-cta">Lancer ma collection →</a></div>
+    </div>
+    <div class="o-card">
+      <div class="o-head"><div class="o-moment">Production continue</div><div class="o-name">LAZXR Studio</div><div class="o-price">4 500<sub> MAD / mois</sub></div><div class="o-desc">Du contenu chaque mois.</div></div>
+      <ul class="o-body"><li>2 modèles 3D / mois</li><li>20 visuels marketing</li><li>Priorité production</li><li>Support créatif continu</li></ul>
+      <div class="o-foot"><a href="#contact" class="o-cta">Démarrer le studio →</a></div>
+    </div>
+    <div class="o-card">
+      <div class="o-head"><div class="o-moment">Partenariat</div><div class="o-name">Programme Atelier</div><div class="o-price">Sur<sub> demande</sub></div><div class="o-desc">3D intégrée à votre R&D.</div></div>
+      <ul class="o-body"><li>Prototypage virtuel</li><li>Simulation textile</li><li>Pipeline 3D sur mesure</li><li>Partenariat long terme</li></ul>
+      <div class="o-foot"><a href="#contact" class="o-cta">Discutons-en →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ CAS CLIENT (DARK) -->
+<section class="sec sec--dark" id="preuve">
+  <div class="s-tag rv">Proof of concept</div>
+  <h2 class="rv">Lazna a lancé sans photographe.<br><em>40% du stock vendu en 1 mois.</em></h2>
+  <div class="case-numbers rv">
+    <div class="cn"><div class="cn-val">40%</div><div class="cn-label">du stock vendu en 1 mois</div></div>
+    <div class="cn"><div class="cn-val">0</div><div class="cn-label">MAD de budget shooting</div></div>
+    <div class="cn"><div class="cn-val">100%</div><div class="cn-label">contenu 3D accepté par les clients</div></div>
+  </div>
+  <div class="case-body rv">
+    <div>
+      <div class="case-chip">Cas client · Foulards femme premium · Casablanca</div>
+      <h3>Chaque pièce modélisée en 3D. Chaque visuel généré depuis le modèle. Zéro shooting.</h3>
+    </div>
+    <div>
+      <p>Lazna a lancé sa boutique en ligne avec l'intégralité de son contenu visuel créé par LAZXR — sans studio, sans mannequin, sans photographe. Les clients n'ont vu aucune différence. Ils ont simplement acheté.</p>
+      <div class="case-quote">"Un contenu visuel professionnel livré en quelques jours, pour une fraction du coût d'un shooting classique."</div>
+      <a href="https://lazna-casablanca.com" target="_blank" class="case-link">Visiter lazna-casablanca.com →</a>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ⑥ CONTACT (CREAM) -->
+<section class="sec sec--cream" id="contact">
+  <div class="s-tag rv">Contact</div>
+  <h2 class="rv">Voyez ce que la 3D peut faire<br><em>pour votre marque.</em></h2>
+  <div class="contact-layout rv">
+    <div class="c-info">
+      <h3>Envoyez-nous une pièce. On la modélise, on génère 3 visuels, et vous décidez.</h3>
+      <p>48h, zéro engagement. Vous gardez les visuels et le modèle 3D quoi qu'il arrive.</p>
+      <div class="c-pills">
+        <div class="c-pill"><div class="c-pill-text"><strong>Localisation</strong>Casablanca, Maroc — projets nationwide</div></div>
+        <div class="c-pill"><div class="c-pill-text"><strong>Délai</strong>Réponse sous 24h, livraison en 48h</div></div>
+        <div class="c-pill"><div class="c-pill-text"><strong>Téléphone</strong><a href="tel:+212646634420">+212 6 46 63 44 20</a></div></div>
+        <div class="c-pill"><div class="c-pill-text"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#25464a4b514446516549445f5d570b464a48"><span class="__cf_email__" data-cfemail="c1a2aeafb5a0a2b581ada0bbb9b3efa2aeac">[email&#160;protected]</span></a></div></div>
+      </div>
+    </div>
+    <form class="c-form" onsubmit="handleSubmit(event)">
+      <div class="cf-row">
+        <div class="cf-g"><label class="cf-l">Nom</label><input type="text" class="cf-i" placeholder="Votre nom" required></div>
+        <div class="cf-g"><label class="cf-l">Email</label><input type="email" class="cf-i" placeholder="email@marque.ma" required></div>
+      </div>
+      <div class="cf-g"><label class="cf-l">Nom de votre marque</label><input type="text" class="cf-i" placeholder="Ex : Maison Dar, Studio Kaftan..."></div>
+      <div class="cf-g"><label class="cf-l">Offre souhaitée</label>
+        <select class="cf-s"><option value="">Choisir une offre</option><option>LAZXR Start — 400 MAD / pièce</option><option>LAZXR Collection — 3 500 MAD</option><option>LAZXR Studio — 4 500 MAD / mois</option><option>Programme Atelier — partenariat</option><option>Projet sur mesure</option></select>
+      </div>
+      <div class="cf-g"><label class="cf-l">Décrivez votre projet</label><textarea class="cf-t" placeholder="Quelles pièces souhaitez-vous modéliser ? Combien ? Pour quel usage ?"></textarea></div>
+      <button type="submit" class="cf-submit">Modéliser ma première pièce →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div><div class="f-logo"><img src="lazxr-logo-white.png" alt="LAZXR" class="footer-logo"></div><div class="f-desc">Modélisation 3D pour la mode marocaine.<br>Un modèle, des possibilités infinies.</div></div>
+  <div class="f-col"><h5>Tarifs</h5><a href="#offres">LAZXR Start</a><a href="#offres">LAZXR Collection</a><a href="#offres">LAZXR Studio</a><a href="#offres">Programme Atelier</a></div>
+  <div class="f-col"><h5>Contact</h5><a href="#contact">Modéliser ma pièce</a><a href="/cdn-cgi/l/email-protection#b9dad6d7cdd8dacdf9d5d8c3c1cb97dad6d4"><span class="__cf_email__" data-cfemail="9ffcf0f1ebfefcebdff3fee5e7edb1fcf0f2">[email&#160;protected]</span></a><a href="tel:+212646634420">+212 6 46 63 44 20</a><a href="https://www.linkedin.com/company/lazxr/" target="_blank" rel="noopener">LinkedIn →</a></div>
+</footer>
+<div class="f-bottom"><p>© 2026 LAZXR · Casablanca, Maroc</p><p>Conçu pour les marques mode marocaines.</p></div>
+
+<!-- FLOATING -->
+<a href="tel:+212646634420" class="float-btn">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  <span>+212 6 46 63 44 20</span>
+</a>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Nav scroll behavior
+const nav = document.getElementById('navbar');
+let lastY = 0;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y > 80) { nav.classList.remove('nav--top'); nav.classList.add('nav--scrolled'); }
+  else { nav.classList.add('nav--top'); nav.classList.remove('nav--scrolled'); }
+  lastY = y;
+}, { passive: true });
+
+// Reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('in'), i * 60); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px 60px 0px' });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Form
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.cf-submit');
+  btn.textContent = 'Message envoyé ✓';
+  btn.style.background = '#4a9e6a';
+  btn.style.color = '#fff';
+  btn.disabled = true;
+}
+
+// Mobile nav
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+  document.querySelector('.nav-hamburger').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('navOverlay').classList.remove('open');
+    document.querySelector('.nav-hamburger').classList.remove('open');
+  });
+});
+
+// 3D Configurator — multi-product, multi-zone
+const mvEl = document.getElementById('mv');
+let activeProduct = 'polo';
+let activeZone = 'body';
+
+const products = {
+  polo: {
+    src: './DG100218.glb',
+    camera: '30deg 75deg 2.5m',
+    zones: {
+      body: { label: 'Tissu', materials: [] },
+      collar: { label: 'Col', materials: [] },
+      buttons: { label: 'Boutons', materials: [] }
+    },
+    mapMaterials: (materials) => {
+      materials.forEach((mat, i) => {
+        const name = mat.name || '';
+        if (name.startsWith('Material2184364')) {
+          products.polo.zones.buttons.materials.push(i);
+        } else if (i <= 4) {
+          products.polo.zones.collar.materials.push(i);
+        } else {
+          products.polo.zones.body.materials.push(i);
+        }
+      });
+    }
+  },
+  hoodie: {
+    src: './Hoodie_Thin.glb',
+    camera: '30deg 75deg auto',
+    zones: {
+      body: { label: 'Tissu', materials: [] }
+    },
+    mapMaterials: (materials) => {
+      materials.forEach((mat, i) => {
+        products.hoodie.zones.body.materials.push(i);
+      });
+    }
+  }
+};
+
+function switchProduct(name, btn) {
+  if (name === activeProduct) return;
+  activeProduct = name;
+  document.querySelectorAll('.product-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Reset zone materials for new product
+  const prod = products[name];
+  Object.values(prod.zones).forEach(z => z.materials = []);
+
+  // Switch model
+  mvEl.src = prod.src;
+  mvEl.cameraOrbit = prod.camera;
+
+  // Toggle hotspots
+  document.querySelectorAll('.hs-polo').forEach(h => h.style.display = name === 'polo' ? 'block' : 'none');
+  document.querySelectorAll('.hs-hoodie').forEach(h => h.style.display = name === 'hoodie' ? 'block' : 'none');
+  document.querySelectorAll('.hotspot-info.show').forEach(el => el.classList.remove('show'));
+
+  // Rebuild zone tabs
+  buildZoneTabs(prod);
+
+  // Update zone indicator
+  activeZone = Object.keys(prod.zones)[0];
+  document.getElementById('currentZone').textContent = prod.zones[activeZone].label;
+  document.getElementById('currentColor').textContent = 'Original';
+}
+
+function buildZoneTabs(prod) {
+  const container = document.getElementById('zoneTabs');
+  container.innerHTML = '';
+  const keys = Object.keys(prod.zones);
+  keys.forEach((key, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'zone-tab' + (i === 0 ? ' active' : '');
+    btn.textContent = prod.zones[key].label;
+    btn.onclick = function() { selectZone(key, this); };
+    container.appendChild(btn);
+  });
+}
+
+if (mvEl) {
+  mvEl.addEventListener('load', () => {
+    const model = mvEl.model;
+    if (!model || !model.materials) return;
+    const prod = products[activeProduct];
+    Object.values(prod.zones).forEach(z => z.materials = []);
+    prod.mapMaterials(model.materials);
+  });
+}
+
+function selectZone(zone, btn) {
+  activeZone = zone;
+  document.querySelectorAll('.zone-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const prod = products[activeProduct];
+  document.getElementById('currentZone').textContent = prod.zones[zone] ? prod.zones[zone].label : zone;
+}
+
+function applyZoneColor(el) {
+  document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('currentColor').textContent = el.dataset.name;
+
+  const r = parseFloat(el.dataset.r);
+  const g = parseFloat(el.dataset.g);
+  const b = parseFloat(el.dataset.b);
+  const model = mvEl ? mvEl.model : null;
+  if (!model || !model.materials) return;
+
+  const prod = products[activeProduct];
+  const indices = prod.zones[activeZone] ? prod.zones[activeZone].materials : [];
+  indices.forEach(i => {
+    const mat = model.materials[i];
+    if (!mat) return;
+    const bc = mat.pbrMetallicRoughness.baseColorFactor;
+    bc[0] = r; bc[1] = g; bc[2] = b;
+    mat.pbrMetallicRoughness.setBaseColorFactor(bc);
+  });
+}
+
+// Color picker (full spectrum)
+function applyPickerColor(hex) {
+  const r = parseInt(hex.substring(1,3), 16) / 255;
+  const g = parseInt(hex.substring(3,5), 16) / 255;
+  const b = parseInt(hex.substring(5,7), 16) / 255;
+
+  document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+  document.querySelector('.color-picker-swatch').classList.add('active');
+  document.getElementById('currentColor').textContent = hex.toUpperCase();
+
+  const model = mvEl ? mvEl.model : null;
+  if (!model || !model.materials) return;
+
+  const prod = products[activeProduct];
+  const indices = prod.zones[activeZone] ? prod.zones[activeZone].materials : [];
+  indices.forEach(i => {
+    const mat = model.materials[i];
+    if (!mat) return;
+    const bc = mat.pbrMetallicRoughness.baseColorFactor;
+    bc[0] = r; bc[1] = g; bc[2] = b;
+    mat.pbrMetallicRoughness.setBaseColorFactor(bc);
+  });
+}
+
+// Scene / ambiance switcher
+const scenes = {
+  natural: { bg: 'linear-gradient(180deg,#F5F1E8 0%,#EDE8DC 50%,#E5E0D5 100%)', exposure: 1.2, shadow: 0.6 },
+  studio: { bg: 'linear-gradient(180deg,#FFFFFF 0%,#FAFAFA 50%,#F5F5F0 100%)', exposure: 1.5, shadow: 0.2 },
+  golden: { bg: 'linear-gradient(180deg,#F5E6D0 0%,#E8D5B8 40%,#D4B896 100%)', exposure: 1.0, shadow: 0.8 }
+};
+const modelBox = document.querySelector('.model-container');
+
+function setScene(name, btn) {
+  document.querySelectorAll('.scene-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const s = scenes[name];
+  if (modelBox) modelBox.style.background = s.bg;
+  if (mvEl) { mvEl.exposure = s.exposure; mvEl.shadowIntensity = s.shadow; }
+}
+
+// Hotspot toggle
+function toggleInfo(hotspot) {
+  const info = hotspot.querySelector('.hotspot-info');
+  if (!info) return;
+  document.querySelectorAll('.hotspot-info.show').forEach(el => {
+    if (el !== info) el.classList.remove('show');
+  });
+  info.classList.toggle('show');
+}
+
+// Close hotspot infos when clicking elsewhere
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.hotspot')) {
+    document.querySelectorAll('.hotspot-info.show').forEach(el => el.classList.remove('show'));
+  }
+});
+
+// Personalization tools
+let currentFont = "'DM Sans',sans-serif";
+let currentTextColor = '#FFFFFF';
+let currentTextPos = 'chest';
+const overlay = document.getElementById('textOverlay');
+
+function togglePerso() {
+  const btn = document.getElementById('persoToggle');
+  const content = document.getElementById('persoContent');
+  btn.classList.toggle('open');
+  content.classList.toggle('show');
+}
+
+function updateTextOverlay() {
+  const text = document.getElementById('persoText').value.trim();
+  if (!overlay) return;
+  if (!text) { overlay.classList.remove('visible'); return; }
+  overlay.textContent = text;
+  overlay.style.fontFamily = currentFont;
+  overlay.style.color = currentTextColor;
+  overlay.className = 'text-overlay visible pos-' + currentTextPos;
+}
+
+function setFont(font, btn) {
+  currentFont = btn.dataset.font || font;
+  document.querySelectorAll('.perso-font-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updateTextOverlay();
+}
+
+function setTextColor(color, dot) {
+  currentTextColor = color;
+  document.querySelectorAll('.perso-color-dot').forEach(d => d.classList.remove('active'));
+  dot.classList.add('active');
+  updateTextOverlay();
+}
+
+function setTextPos(pos, btn) {
+  currentTextPos = pos;
+  document.querySelectorAll('.perso-pos-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updateTextOverlay();
+}
+
+function handleLogoUpload(event) {
+  const file = event.target.files[0];
+  if (!file || !overlay) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    overlay.
