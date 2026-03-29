@@ -1,0 +1,14 @@
+{
+  "name": "lazxr-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "watch": "node auto-git.js",
+    "status": "git branch -vv && echo --- && git status --short",
+    "promote:preprod": "git checkout preprod && git pull origin preprod && git merge develop --no-ff -m 'promote: develop → preprod' && git push origin preprod && git checkout develop && echo '✓ develop → preprod done — check https://preprod--lazxr.netlify.app'",
+    "promote:main": "git checkout main && git pull origin main && git merge preprod --no-ff -m 'release: preprod → main' && git push origin main && git checkout develop && echo '✓ preprod → main done — check https://lazxr.com'"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0"
+  }
+}
