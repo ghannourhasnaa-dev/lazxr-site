@@ -178,6 +178,77 @@ h1 em{font-style:italic;color:var(--gold);font-weight:400}
 /* Gold line separator */
 .gold-line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.3}
 
+/* ── PLATFORM PREVIEW ── */
+.platform-sec{padding:7rem 5vw;background:var(--ink);position:relative;overflow:hidden}
+.platform-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 60%,rgba(184,151,106,.06),transparent 70%);pointer-events:none}
+.platform-header{text-align:center;margin-bottom:4rem;position:relative;z-index:2}
+.platform-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(184,151,106,.08);border:1px solid rgba(184,151,106,.2);padding:.4rem 1.2rem;border-radius:100px;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.platform-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulseDot 2s infinite}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.platform-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,3rem);color:var(--cream);font-weight:400;line-height:1.15;margin-bottom:1.2rem}
+.platform-header h2 em{color:var(--gold);font-style:italic}
+.platform-header p{color:rgba(250,248,243,.4);font-size:.9rem;max-width:560px;margin:0 auto;line-height:1.8}
+
+/* Pipeline flow */
+.platform-pipeline{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:4rem;flex-wrap:wrap}
+.pp-step{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1.2rem 1.5rem;position:relative}
+.pp-icon{width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(184,151,106,.2);display:flex;align-items:center;justify-content:center;background:rgba(184,151,106,.04);transition:all .6s}
+.pp-step.visible .pp-icon{border-color:var(--gold);background:rgba(184,151,106,.1);box-shadow:0 4px 20px rgba(184,151,106,.15)}
+.pp-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.pp-label{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(250,248,243,.35);transition:color .6s}
+.pp-step.visible .pp-label{color:var(--gold)}
+.pp-arrow{color:rgba(184,151,106,.2);font-size:1.2rem;margin:0 .3rem;flex-shrink:0}
+.pp-arrow svg{width:20px;height:20px;stroke:rgba(184,151,106,.25);fill:none;stroke-width:1.5}
+
+/* Platform mockup */
+.platform-mockup{max-width:900px;margin:0 auto;border-radius:12px;border:1px solid rgba(184,151,106,.15);overflow:hidden;background:var(--ink2);box-shadow:0 40px 80px rgba(0,0,0,.4),0 0 0 1px rgba(184,151,106,.08);position:relative;opacity:0;transform:translateY(40px) scale(.96);transition:all 1s cubic-bezier(.22,1,.36,1)}
+.platform-mockup.visible{opacity:1;transform:translateY(0) scale(1)}
+.pm-topbar{display:flex;align-items:center;padding:.6rem 1rem;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(184,151,106,.08);gap:.5rem}
+.pm-dots{display:flex;gap:5px}
+.pm-dot{width:8px;height:8px;border-radius:50%;background:rgba(250,248,243,.1)}
+.pm-dot:first-child{background:rgba(255,95,87,.6)}
+.pm-dot:nth-child(2){background:rgba(255,189,46,.6)}
+.pm-dot:nth-child(3){background:rgba(39,201,63,.6)}
+.pm-title{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,248,243,.25);margin-left:.8rem}
+.pm-body{display:grid;grid-template-columns:180px 1fr;min-height:340px}
+.pm-sidebar{background:rgba(0,0,0,.2);border-right:1px solid rgba(184,151,106,.08);padding:1.2rem 0}
+.pm-nav-item{display:flex;align-items:center;gap:.6rem;padding:.55rem 1.2rem;font-size:.68rem;color:rgba(250,248,243,.3);letter-spacing:.04em;cursor:default;transition:all .3s}
+.pm-nav-item:hover{color:rgba(250,248,243,.6);background:rgba(184,151,106,.04)}
+.pm-nav-item.active{color:var(--gold);background:rgba(184,151,106,.08);border-right:2px solid var(--gold)}
+.pm-nav-item svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5;flex-shrink:0}
+.pm-main{padding:1.2rem;display:flex;flex-direction:column;gap:.8rem}
+.pm-toprow{display:flex;align-items:center;justify-content:space-between;padding:0 .2rem}
+.pm-search{background:rgba(255,255,255,.04);border:1px solid rgba(184,151,106,.1);color:var(--cream);padding:.4rem .8rem;font-family:var(--sans);font-size:.65rem;border-radius:4px;width:200px;outline:none}
+.pm-search::placeholder{color:rgba(250,248,243,.2)}
+.pm-count{font-size:.6rem;color:rgba(250,248,243,.25);letter-spacing:.06em}
+.pm-library{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+.pm-item{background:rgba(184,151,106,.03);border:1px solid rgba(184,151,106,.08);border-radius:6px;overflow:hidden;cursor:default;transition:all .3s}
+.pm-item:hover{border-color:rgba(184,151,106,.25);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.pm-item-thumb{height:100px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pm-item-thumb model-viewer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pm-item-thumb svg{width:60px;height:70px;opacity:.7;transition:opacity .3s}
+.pm-item:hover .pm-item-thumb svg{opacity:1}
+.pm-item-thumb .pm-item-bg{position:absolute;inset:0;opacity:.08;transition:opacity .3s}
+.pm-item:hover .pm-item-thumb .pm-item-bg{opacity:.15}
+.pm-item-info{padding:.5rem .6rem;border-top:1px solid rgba(184,151,106,.06)}
+.pm-item-name{font-size:.6rem;color:var(--cream);font-weight:500;letter-spacing:.03em;margin-bottom:.15rem}
+.pm-item-meta{font-size:.5rem;color:rgba(250,248,243,.2);letter-spacing:.04em}
+.pm-item-badge{position:absolute;top:6px;right:6px;background:rgba(184,151,106,.15);border:1px solid rgba(184,151,106,.2);color:var(--gold);font-size:.45rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:3px}
+.pm-statusbar{display:flex;align-items:center;gap:.8rem;padding:.4rem .2rem 0;border-top:1px solid rgba(184,151,106,.06)}
+.pm-stat{font-size:.52rem;color:rgba(250,248,243,.2);letter-spacing:.05em}
+.pm-stat strong{color:var(--gold);font-weight:500}
+
+/* Coming soon CTA */
+.platform-cta{text-align:center;margin-top:3.5rem;position:relative;z-index:2}
+.platform-cta h3{font-family:var(--serif);font-size:1.4rem;color:var(--cream);font-weight:400;margin-bottom:.6rem}
+.platform-cta p{font-size:.82rem;color:rgba(250,248,243,.35);margin-bottom:1.8rem;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.7}
+.platform-notify{display:flex;gap:.5rem;max-width:400px;margin:0 auto}
+.platform-notify input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(184,151,106,.15);color:var(--cream);padding:.7rem 1rem;font-family:var(--sans);font-size:.8rem;outline:none;border-radius:2px;transition:border-color .3s}
+.platform-notify input:focus{border-color:var(--gold)}
+.platform-notify input::placeholder{color:rgba(250,248,243,.2)}
+.platform-notify button{background:var(--gold);color:var(--ink);border:none;padding:.7rem 1.4rem;font-family:var(--sans);font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;border-radius:2px;white-space:nowrap}
+.platform-notify button:hover{background:var(--gold2)}
+
 /* ── SECTIONS ── */
 .sec{padding:6rem 5vw}
 .sec--dark{background:var(--ink);color:var(--cream)}
@@ -190,15 +261,48 @@ h2 em{font-style:italic;color:var(--gold)}
 .sec--dark h2{color:var(--cream)}
 .sec--cream h2,.sec--cream2 h2{color:var(--ink)}
 
-/* ── AVANT/APRÈS ── */
-.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:4vw;margin-top:3rem}
-.vs-col-title{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem}
-.vs-dot{width:5px;height:5px;border-radius:50%}
-.vs-dot--red{background:#C4645A}
-.vs-dot--gold{background:var(--gold)}
-.vs-item{padding:1rem 1.3rem;margin-bottom:.6rem;font-size:.88rem;line-height:1.65;border-radius:2px}
-.vs-item--old{background:rgba(196,100,90,.06);border-left:2px solid rgba(196,100,90,.25);color:#9A5A52}
-.vs-item--new{background:var(--gold-dim);border-left:2px solid var(--gold);color:var(--cream)}
+/* ── PROBLEM / COMPARISON ── */
+.problem-intro{text-align:center;max-width:600px;margin:0 auto 4rem}
+.problem-intro p{color:rgba(250,248,243,.4);font-size:.9rem;margin-top:.8rem;line-height:1.8}
+
+.compare-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:0}
+.cmp-card{border:1px solid rgba(184,151,106,.1);border-radius:4px;overflow:hidden;opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.22,1,.36,1)}
+.cmp-card.visible{opacity:1;transform:translateY(0)}
+.cmp-card:nth-child(2){transition-delay:.15s}
+.cmp-card:nth-child(3){transition-delay:.3s}
+
+.cmp-top{padding:2rem 1.5rem;text-align:center;position:relative}
+.cmp-icon{width:56px;height:56px;border-radius:50%;margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center}
+.cmp-icon svg{width:26px;height:26px;fill:none;stroke-width:1.5}
+.cmp-metric{font-family:var(--serif);font-size:2.4rem;font-weight:400;line-height:1;margin-bottom:.4rem}
+.cmp-label{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;opacity:.5}
+
+.cmp-divider{height:1px;background:rgba(184,151,106,.12);margin:0 1.5rem;position:relative;overflow:visible}
+.cmp-divider::after{content:'vs';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--ink2);padding:0 .6rem;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(184,151,106,.4)}
+
+.cmp-bottom{padding:2rem 1.5rem;text-align:center;position:relative}
+
+.cmp-old .cmp-top{background:rgba(160,70,60,.04)}
+.cmp-old .cmp-icon{border:1.5px solid rgba(196,100,90,.3);background:rgba(196,100,90,.06)}
+.cmp-old .cmp-icon svg{stroke:rgba(196,100,90,.6)}
+.cmp-old .cmp-metric{color:rgba(196,100,90,.7)}
+.cmp-old .cmp-label{color:rgba(196,100,90,.5)}
+
+.cmp-new .cmp-bottom{background:rgba(184,151,106,.04)}
+.cmp-new .cmp-icon{border:1.5px solid var(--gold);background:rgba(184,151,106,.08)}
+.cmp-new .cmp-icon svg{stroke:var(--gold)}
+.cmp-new .cmp-metric{color:var(--gold)}
+.cmp-new .cmp-label{color:var(--gold)}
+
+.cmp-text{font-size:.78rem;line-height:1.7;max-width:240px;margin:0 auto}
+.cmp-old .cmp-text{color:rgba(250,248,243,.25)}
+.cmp-new .cmp-text{color:rgba(250,248,243,.5)}
+
+.cmp-arrow{display:flex;justify-content:center;margin:.8rem 0;opacity:.3}
+.cmp-arrow svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.5}
+
+.compare-bottom{text-align:center;margin-top:3rem}
+.compare-bottom p{color:rgba(250,248,243,.3);font-size:.78rem;font-style:italic;max-width:480px;margin:0 auto;line-height:1.7}
 
 /* ── 4 STEPS ── */
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
@@ -213,12 +317,49 @@ h2 em{font-style:italic;color:var(--gold)}
 .step-card p{font-size:.82rem;color:var(--muted);line-height:1.7}
 .step-tag{display:inline-block;margin-top:.8rem;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);padding:.2rem .7rem;border-radius:100px}
 
+/* Interactive Timeline */
+.timeline{margin-top:3.5rem;position:relative;padding-left:50%}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--border);transform:translateX(-50%)}
+.timeline-fill{position:absolute;left:50%;top:0;width:2px;background:var(--gold);transform:translateX(-50%);height:0;transition:height .1s linear}
+.tl-step{position:relative;margin-bottom:4rem;display:flex;align-items:flex-start;opacity:0;transform:translateX(60px);transition:all .7s cubic-bezier(.22,1,.36,1)}
+.tl-step.visible{opacity:1;transform:translateX(0)}
+.tl-step:nth-child(odd){padding-left:4rem;padding-right:0;flex-direction:row}
+.tl-step:nth-child(even){padding-left:0;padding-right:4rem;flex-direction:row-reverse;text-align:right;margin-left:-100%;width:100%}
+.tl-step:nth-child(even){transform:translateX(-60px)}
+.tl-step:nth-child(even).visible{transform:translateX(0)}
+.tl-dot{position:absolute;left:-14px;top:8px;width:28px;height:28px;border-radius:50%;border:2px solid var(--border);background:var(--cream);display:flex;align-items:center;justify-content:center;z-index:3;transition:all .5s;font-family:var(--serif);font-size:.7rem;color:var(--muted)}
+.tl-step:nth-child(even) .tl-dot{left:auto;right:-14px}
+.tl-step.visible .tl-dot{border-color:var(--gold);background:var(--gold);color:var(--ink);box-shadow:0 4px 16px rgba(184,151,106,.35)}
+.tl-icon{width:64px;height:64px;border-radius:50%;border:1.5px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(184,151,106,.04);margin-bottom:1rem;transition:all .6s}
+.tl-step.visible .tl-icon{border-color:var(--gold);background:rgba(184,151,106,.08)}
+.tl-icon svg{width:28px;height:28px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .8s .3s ease}
+.tl-step.visible .tl-icon svg{stroke-dashoffset:0}
+.tl-step:nth-child(even) .tl-body{display:flex;flex-direction:column;align-items:flex-end}
+.tl-body h4{font-family:var(--serif);font-size:1.3rem;color:var(--ink);margin-bottom:.5rem;font-weight:400}
+.tl-body p{font-size:.88rem;color:var(--muted);line-height:1.8;max-width:380px}
+.tl-tag{display:inline-flex;align-items:center;gap:.35rem;margin-top:.8rem;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);padding:.3rem .8rem;border-radius:100px;background:rgba(184,151,106,.04)}
+.tl-tag svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.5}
+
+/* Animated Counters */
+.cn-val{font-family:var(--serif);font-size:3.2rem;font-weight:400;color:var(--gold2);line-height:1}
+.cn-val .counter{display:inline}
+
+/* Enhanced scroll reveals */
+.rv{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.22,1,.36,1)}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv-left{opacity:0;transform:translateX(-40px);transition:all .8s cubic-bezier(.22,1,.36,1)}
+.rv-left.vis{opacity:1;transform:translateX(0)}
+.rv-right{opacity:0;transform:translateX(40px);transition:all .8s cubic-bezier(.22,1,.36,1)}
+.rv-right.vis{opacity:1;transform:translateX(0)}
+
 /* ── TARIFS ── */
 .offers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;border:1px solid var(--border);overflow:hidden}
-.o-card{display:flex;flex-direction:column;border-right:1px solid var(--border);transition:background .3s}
+.o-card{display:flex;flex-direction:column;border-right:1px solid var(--border);transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s,background .3s;will-change:transform}
 .o-card:last-child{border-right:none}
 .o-card:hover{background:var(--cream2)}
-.o-card.ft{background:var(--ink)}
+.o-card.ft{background:var(--ink);box-shadow:0 0 0 1px var(--gold-dim),0 8px 30px rgba(184,151,106,.08);position:relative}
+.o-card.ft::after{content:'';position:absolute;inset:-1px;border:1px solid var(--gold);opacity:.15;pointer-events:none;transition:opacity .4s}
+.o-card.ft:hover::after{opacity:.4}
 .o-card.ft:hover{background:var(--ink2)}
 .o-head{padding:2rem 1.6rem 1.4rem;position:relative}
 .o-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .9rem;font-weight:500}
@@ -361,8 +502,15 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   .text-overlay.pos-sleeve{font-size:.7rem}
 
   /* Other sections mobile */
-  .vs-grid,.case-body,.contact-layout{grid-template-columns:1fr}
-  .steps-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .compare-cards,.case-body,.contact-layout{grid-template-columns:1fr}
+  .timeline{padding-left:2.5rem}
+  .timeline::before,.timeline-fill{left:16px}
+  .tl-step,.tl-step:nth-child(even){padding-left:3rem;padding-right:0;flex-direction:row;text-align:left;margin-left:0;width:auto;transform:translateY(30px)}
+  .tl-step.visible,.tl-step:nth-child(even).visible{transform:translateY(0)}
+  .tl-dot,.tl-step:nth-child(even) .tl-dot{left:-30px;right:auto}
+  .tl-step:nth-child(even) .tl-body{align-items:flex-start}
+  .tl-icon{width:52px;height:52px}
+  .tl-icon svg{width:22px;height:22px}
   .offers-grid{grid-template-columns:1fr}
   .o-card{border-right:none;border-bottom:1px solid var(--border)}
   footer{grid-template-columns:1fr}
@@ -378,6 +526,10 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   .config-summary{padding:.7rem 16px}
   .config-summary-inner{gap:.5rem .7rem}
   .cs-item{font-size:.55rem;letter-spacing:.08em}
+  .pm-body{grid-template-columns:140px 1fr}
+  .pm-library{grid-template-columns:repeat(3,1fr)}
+  .platform-pipeline{gap:0}
+  .pp-step{padding:.8rem 1rem}
 }
 @media(max-width:480px){
   .nav{padding:.8rem 14px}
@@ -386,11 +538,23 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   h1{font-size:32px;line-height:.98}
   h2{font-size:24px}
   .hero-sub{font-size:.82rem}
-  .steps-grid{grid-template-columns:1fr}
+  .tl-body h4{font-size:1.1rem}
+  .cn-val{font-size:2.4rem}
   .sec{padding:3rem 16px}
   .model-container model-viewer{height:260px}
   .color-swatch{width:24px;height:24px}
   .product-btn-type{display:none}
+  .pm-body{grid-template-columns:1fr}
+  .pm-sidebar{display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid rgba(184,151,106,.08);padding:.5rem}
+  .pm-nav-item{white-space:nowrap;font-size:.6rem;padding:.4rem .8rem}
+  .pm-nav-item.active{border-right:none;border-bottom:2px solid var(--gold)}
+  .pm-library{grid-template-columns:repeat(2,1fr)}
+  .pm-item-thumb{height:75px}
+  .pm-statusbar{flex-wrap:wrap;gap:.4rem}
+  .platform-pipeline{flex-direction:column;gap:.5rem}
+  .pp-arrow{transform:rotate(90deg)}
+  .platform-notify{flex-direction:column}
+  .platform-sec{padding:4rem 16px}
 }
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -406,7 +570,6 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   <ul class="nav-links" id="navLinks">
     <li><a href="#methode" class="nav-link">Méthode</a></li>
     <li><a href="#offres" class="nav-link">Tarifs</a></li>
-    <li><a href="#preuve" class="nav-link">Résultats</a></li>
     <li><a href="#contact" class="nav-link nav-cta-link">Contact</a></li>
   </ul>
 </nav>
@@ -422,9 +585,9 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
       <a href="#offres" class="btn-g">Voir les tarifs</a>
     </div>
     <div class="hero-stats">
-      <div><div class="hs-num">1</div><div class="hs-label">modèle 3D</div></div>
-      <div><div class="hs-num">∞</div><div class="hs-label">visuels et usages</div></div>
-      <div><div class="hs-num">48h</div><div class="hs-label">de livraison</div></div>
+      <div><div class="cn-val" data-target="1" data-suffix="">0</div><div class="hs-label">modèle 3D</div></div>
+      <div><div class="hs-num" style="opacity:0;animation:none" id="infinityStat">∞</div><div class="hs-label">visuels et usages</div></div>
+      <div><div class="cn-val" data-target="48" data-suffix="h">0</div><div class="hs-label">de livraison</div></div>
     </div>
   </div>
   <div class="hero-right">
@@ -519,11 +682,15 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 
       <div class="color-swatches" id="swatches">
         <div class="color-swatch active" data-r="1" data-g="1" data-b="1" data-name="Blanc" onclick="applyZoneColor(this)" style="background:#FFFFFF;border:1px solid rgba(255,255,255,.2)"></div>
-        <div class="color-swatch" data-r="0.1" data-g="0.1" data-b="0.08" data-name="Noir" onclick="applyZoneColor(this)" style="background:#1A1A14"></div>
+        <div class="color-swatch" data-r="0.1" data-g="0.1" data-b="0.08" data-name="Noir encre" onclick="applyZoneColor(this)" style="background:#1A1A14"></div>
         <div class="color-swatch" data-r="0.12" data-g="0.18" data-b="0.32" data-name="Bleu marine" onclick="applyZoneColor(this)" style="background:#1F2E52"></div>
         <div class="color-swatch" data-r="0.54" data-g="0.15" data-b="0.21" data-name="Rouge grenat" onclick="applyZoneColor(this)" style="background:#8B2635"></div>
         <div class="color-swatch" data-r="0.11" data-g="0.3" data-b="0.24" data-name="Vert émeraude" onclick="applyZoneColor(this)" style="background:#1B4D3E"></div>
         <div class="color-swatch" data-r="0.72" data-g="0.59" data-b="0.42" data-name="Or sable" onclick="applyZoneColor(this)" style="background:#B8976A"></div>
+        <div class="color-swatch" data-r="0.42" data-g="0.23" data-b="0.36" data-name="Prune" onclick="applyZoneColor(this)" style="background:#6B3A5D"></div>
+        <div class="color-swatch" data-r="0.83" data-g="0.65" data-b="0.46" data-name="Camel" onclick="applyZoneColor(this)" style="background:#D4A574"></div>
+        <div class="color-swatch" data-r="0.75" data-g="0.75" data-b="0.78" data-name="Argent" onclick="applyZoneColor(this)" style="background:#C0C0C7"></div>
+        <div class="color-swatch" data-r="0.85" data-g="0.75" data-b="0.2" data-name="Or doré" onclick="applyZoneColor(this)" style="background:#D9C033"></div>
         <label class="color-swatch color-picker-swatch" title="Choisir une couleur">
           <input type="color" id="colorPicker" value="#8B2635" onchange="applyPickerColor(this.value)" oninput="applyPickerColor(this.value)">
         </label>
@@ -613,26 +780,68 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   </div>
 </div>
 
-<!-- ② AVANT / APRÈS (DARK) -->
+<!-- ② LE PROBLÈME (DARK) -->
 <section class="sec sec--dark">
-  <div class="s-tag rv">Le problème</div>
-  <h2 class="rv">Votre collection est prête.<br><em>Pas vos visuels.</em></h2>
-  <p class="rv" style="color:rgba(250,248,243,.4);font-size:.9rem;margin-top:.6rem;max-width:500px;line-height:1.8">Et si un seul modèle 3D remplaçait tous vos shootings ?</p>
-  <div class="vs-grid rv">
-    <div>
-      <div class="vs-col-title" style="color:rgba(250,248,243,.4)"><div class="vs-dot vs-dot--red"></div>Shooting traditionnel</div>
-      <div class="vs-item vs-item--old">Votre styliste a fini. Votre photographe est bookée dans 3 semaines.</div>
-      <div class="vs-item vs-item--old">5 000 à 15 000 MAD par shooting — pour des photos que vous ne réutiliserez jamais.</div>
-      <div class="vs-item vs-item--old">Nouvelle couleur ? Nouveau shooting.</div>
-      <div class="vs-item vs-item--old">Vos concurrents en ligne publient plus vite que vous.</div>
+  <div class="problem-intro rv">
+    <div class="s-tag">Le problème</div>
+    <h2>Votre collection est prête.<br><em>Pas vos visuels.</em></h2>
+    <p>Et si un seul modèle 3D remplaçait tous vos shootings ?</p>
+  </div>
+
+  <div class="compare-cards">
+
+    <div class="cmp-card cmp-old cmp-new rv">
+      <div class="cmp-top">
+        <div class="cmp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="cmp-metric">3 sem.</div>
+        <div class="cmp-label">Délai shooting</div>
+        <p class="cmp-text">Photographe, studio, mannequin. Disponibilité dans 3 semaines minimum.</p>
+      </div>
+      <div class="cmp-divider"></div>
+      <div class="cmp-bottom">
+        <div class="cmp-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="cmp-metric">48h</div>
+        <div class="cmp-label">Avec LAZXR</div>
+        <p class="cmp-text">Modélisation 3D + visuels livrés. Pas de studio, pas d'attente.</p>
+      </div>
     </div>
-    <div>
-      <div class="vs-col-title" style="color:var(--gold)"><div class="vs-dot vs-dot--gold"></div>Avec LAZXR</div>
-      <div class="vs-item vs-item--new">Chaque pièce devient un modèle 3D — un actif permanent, propriété de votre marque.</div>
-      <div class="vs-item vs-item--new">400 MAD la pièce. Le modèle est à vous. Les visuels se multiplient sans surcoût.</div>
-      <div class="vs-item vs-item--new">Nouvelle couleur, nouveau fond, nouveau format ? Même modèle, zéro surcoût.</div>
-      <div class="vs-item vs-item--new">Demain : essayage virtuel, catalogue AR, showroom en ligne. Même modèle.</div>
+
+    <div class="cmp-card cmp-old cmp-new rv">
+      <div class="cmp-top">
+        <div class="cmp-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="cmp-metric">15 000 dh</div>
+        <div class="cmp-label">Coût shooting</div>
+        <p class="cmp-text">5 000 à 15 000 MAD par shooting. Des photos que vous ne réutiliserez jamais.</p>
+      </div>
+      <div class="cmp-divider"></div>
+      <div class="cmp-bottom">
+        <div class="cmp-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+        <div class="cmp-metric">400 dh</div>
+        <div class="cmp-label">Par pièce avec LAZXR</div>
+        <p class="cmp-text">Un modèle 3D permanent. Visuels illimités sans surcoût.</p>
+      </div>
     </div>
+
+    <div class="cmp-card cmp-old cmp-new rv">
+      <div class="cmp-top">
+        <div class="cmp-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <div class="cmp-metric">1 usage</div>
+        <div class="cmp-label">Photos classiques</div>
+        <p class="cmp-text">Nouvelle couleur ? Nouveau format ? Nouveau shooting. Chaque fois.</p>
+      </div>
+      <div class="cmp-divider"></div>
+      <div class="cmp-bottom">
+        <div class="cmp-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="cmp-metric">&#8734; usages</div>
+        <div class="cmp-label">Même modèle 3D</div>
+        <p class="cmp-text">E-commerce, social, AR, essayage virtuel. Un modèle, tout est possible.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="compare-bottom rv">
+    <p>Le modèle 3D est un actif permanent. Plus vous l'utilisez, plus le coût par visuel diminue.</p>
   </div>
 </section>
 
@@ -642,34 +851,48 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 <section class="sec sec--cream" id="methode">
   <div class="s-tag rv">Comment ça marche</div>
   <h2 class="rv">De votre pièce à son <em>jumeau 3D.</em> En 4 jours.</h2>
-  <div class="steps-grid rv">
-    <div class="step-card">
-      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="step-num">Étape I</div>
-      <h4>Brief</h4>
-      <p>Envoyez-nous votre pièce et dites-nous ce dont vous avez besoin.</p>
-      <span class="step-tag">Jour 1</span>
+
+  <div class="timeline" id="timeline">
+    <div class="timeline-fill" id="timelineFill"></div>
+
+    <div class="tl-step">
+      <div class="tl-dot">1</div>
+      <div class="tl-body">
+        <div class="tl-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Envoyez votre pièce</h4>
+        <p>Vêtement, patron ou photo. On discute de vos besoins en 24h.</p>
+        <span class="tl-tag"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2"/></svg> Jour 1</span>
+      </div>
     </div>
-    <div class="step-card">
-      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="step-num">Étape II</div>
-      <h4>Modélisation</h4>
-      <p>On crée le modèle 3D : coupes, volumes, textures, tombé du tissu. Fidèle au réel.</p>
-      <span class="step-tag">24–48h</span>
+
+    <div class="tl-step">
+      <div class="tl-dot">2</div>
+      <div class="tl-body">
+        <div class="tl-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Modélisation 3D</h4>
+        <p>Coupes, volumes, textures, tombé du tissu. Fidèle au réel, matériau par matériau.</p>
+        <span class="tl-tag"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2"/></svg> 24 – 48h</span>
+      </div>
     </div>
-    <div class="step-card">
-      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="step-num">Étape III</div>
-      <h4>Création</h4>
-      <p>Visuels e-commerce, mises en scène, formats social. Tout depuis le modèle 3D.</p>
-      <span class="step-tag">+24h</span>
+
+    <div class="tl-step">
+      <div class="tl-dot">3</div>
+      <div class="tl-body">
+        <div class="tl-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Génération des visuels</h4>
+        <p>E-commerce, réseaux sociaux, lookbook. Un modèle, des déclinaisons infinies.</p>
+        <span class="tl-tag"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2"/></svg> +24h</span>
+      </div>
     </div>
-    <div class="step-card">
-      <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="22.08" x2="12" y2="12" stroke-linecap="round"/></svg></div>
-      <div class="step-num">Étape IV</div>
-      <h4>Livraison</h4>
-      <p>Visuels HD + fichier 3D (GLB/USDZ). Le modèle vous appartient — réutilisez-le sans limite.</p>
-      <span class="step-tag">Prêt à publier</span>
+
+    <div class="tl-step">
+      <div class="tl-dot">4</div>
+      <div class="tl-body">
+        <div class="tl-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke-linecap="round" stroke-linejoin="round"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="22.08" x2="12" y2="12" stroke-linecap="round"/></svg></div>
+        <h4>Livraison & propriété</h4>
+        <p>Visuels HD + fichier 3D. Le modèle vous appartient — réutilisez-le sans limite.</p>
+        <span class="tl-tag"><svg viewBox="0 0 16 16"><path d="M13 5l-6 6-3-3"/></svg> Prêt à publier</span>
+      </div>
     </div>
   </div>
 </section>
@@ -703,31 +926,184 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   </div>
 </section>
 
-<!-- ⑤ CAS CLIENT (DARK) -->
-<section class="sec sec--dark" id="preuve">
-  <div class="s-tag rv">Proof of concept</div>
-  <h2 class="rv">Lazna a lancé sans photographe.<br><em>40% du stock vendu en 1 mois.</em></h2>
-  <div class="case-numbers rv">
-    <div class="cn"><div class="cn-val">40%</div><div class="cn-label">du stock vendu en 1 mois</div></div>
-    <div class="cn"><div class="cn-val">0</div><div class="cn-label">MAD de budget shooting</div></div>
-    <div class="cn"><div class="cn-val">100%</div><div class="cn-label">contenu 3D accepté par les clients</div></div>
+<!-- ⑥ PLATFORM PREVIEW (DARK) -->
+<section class="platform-sec" id="platform">
+  <div class="platform-header rv">
+    <div class="platform-badge"><span class="platform-badge-dot"></span> Coming 2026</div>
+    <h2>Aujourd'hui, un service.<br><em>Demain, votre plateforme.</em></h2>
+    <p>Ce que vous voyez ici est le premier chapitre. LAZXR construit l'infrastructure digitale complète pour la mode marocaine — de la création à la vente.</p>
   </div>
-  <div class="case-body rv">
-    <div>
-      <div class="case-chip">Cas client · Foulards femme premium · Casablanca</div>
-      <h3>Chaque pièce modélisée en 3D. Chaque visuel généré depuis le modèle. Zéro shooting.</h3>
+
+  <div class="platform-pipeline rv">
+    <div class="pp-step rv">
+      <div class="pp-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <span class="pp-label">Patron</span>
     </div>
-    <div>
-      <p>Lazna a lancé sa boutique en ligne avec l'intégralité de son contenu visuel créé par LAZXR — sans studio, sans mannequin, sans photographe. Les clients n'ont vu aucune différence. Ils ont simplement acheté.</p>
-      <div class="case-quote">"Un contenu visuel professionnel livré en quelques jours, pour une fraction du coût d'un shooting classique."</div>
-      <a href="https://lazna-casablanca.com" target="_blank" class="case-link">Visiter lazna-casablanca.com →</a>
+    <div class="pp-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="pp-step rv">
+      <div class="pp-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/></svg></div>
+      <span class="pp-label">Modèle 3D</span>
+    </div>
+    <div class="pp-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="pp-step rv">
+      <div class="pp-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+      <span class="pp-label">Visuels AI</span>
+    </div>
+    <div class="pp-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    <div class="pp-step rv">
+      <div class="pp-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <span class="pp-label">AR / 3D Viewer</span>
+    </div>
+  </div>
+
+  <div class="platform-mockup rv" id="platformMockup">
+    <div class="pm-topbar">
+      <div class="pm-dots"><div class="pm-dot"></div><div class="pm-dot"></div><div class="pm-dot"></div></div>
+      <div class="pm-title">LAZXR Platform — Dashboard</div>
+    </div>
+    <div class="pm-body">
+      <div class="pm-sidebar">
+        <div class="pm-nav-item active">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          Bibliothèque 3D
+        </div>
+        <div class="pm-nav-item">
+          <svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2 12 3.46 8 2 3.62 3.46A2 2 0 002 5.41v13.18a2 2 0 001.62 1.95L8 22l4-1.46L16 22l4.38-1.46A2 2 0 0022 18.59V5.41a2 2 0 00-1.62-1.95z"/></svg>
+          Tissus & Textures
+        </div>
+        <div class="pm-nav-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Agents AI
+        </div>
+        <div class="pm-nav-item">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          Visuels Marketing
+        </div>
+        <div class="pm-nav-item">
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          AR & Essayage
+        </div>
+        <div class="pm-nav-item">
+          <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+          Analytics
+        </div>
+      </div>
+      <div class="pm-main">
+        <div class="pm-toprow">
+          <input type="text" class="pm-search" placeholder="Rechercher un modele..." disabled>
+          <span class="pm-count">247 modeles</span>
+        </div>
+        <div class="pm-library">
+          <div class="pm-item">
+            <div class="pm-item-thumb" style="background:linear-gradient(135deg,rgba(184,151,106,.06),rgba(184,151,106,.02))">
+              <model-viewer src="DG100218.glb" auto-rotate camera-orbit="25deg 75deg 2.5m" interaction-prompt="none" style="width:100%;height:100%;--poster-color:transparent" exposure="1.2"></model-viewer>
+              <div class="pm-item-badge">GLB</div>
+            </div>
+            <div class="pm-item-info">
+              <div class="pm-item-name">Polo Classic</div>
+              <div class="pm-item-meta">39 materiaux · Pique coton</div>
+            </div>
+          </div>
+          <div class="pm-item">
+            <div class="pm-item-thumb" style="background:linear-gradient(135deg,rgba(139,38,53,.06),rgba(139,38,53,.02))">
+              <model-viewer src="Hoodie_Thin.glb" auto-rotate camera-orbit="30deg 78deg 2.5m" interaction-prompt="none" style="width:100%;height:100%;--poster-color:transparent" exposure="1.2"></model-viewer>
+              <div class="pm-item-badge">GLB</div>
+            </div>
+            <div class="pm-item-info">
+              <div class="pm-item-name">Hoodie Oversize</div>
+              <div class="pm-item-meta">1 materiau · Jersey lourd</div>
+            </div>
+          </div>
+          <div class="pm-item">
+            <div class="pm-item-thumb" style="background:linear-gradient(135deg,rgba(31,46,82,.06),rgba(31,46,82,.02))">
+              <div class="pm-item-bg" style="background:radial-gradient(circle at 50% 60%,#1F2E52,transparent 70%)"></div>
+              <svg viewBox="0 0 50 65" fill="none" stroke="#B8976A" stroke-width=".8"><path d="M13 15h24v42H13z"/><path d="M13 15c0-5 5-10 12-10s12 5 12 10"/><path d="M13 15l-5 3v12l5-1M37 15l5 3v12l-5-1"/><path d="M19 15v5M31 15v5"/></svg>
+              <div class="pm-item-badge">USDZ</div>
+            </div>
+            <div class="pm-item-info">
+              <div class="pm-item-name">Caftan Satin</div>
+              <div class="pm-item-meta">12 materiaux · Satin duchesse</div>
+            </div>
+          </div>
+          <div class="pm-item">
+            <div class="pm-item-thumb" style="background:linear-gradient(135deg,rgba(184,151,106,.06),rgba(184,151,106,.02))">
+              <div class="pm-item-bg" style="background:radial-gradient(circle at 50% 50%,var(--gold),transparent 70%)"></div>
+              <svg viewBox="0 0 50 65" fill="none" stroke="var(--gold)" stroke-width=".8"><ellipse cx="25" cy="12" rx="14" ry="6"/><path d="M11 12v38c0 4 6 8 14 8s14-4 14-8V12"/><path d="M15 35c3 2 7 3 10 3s7-1 10-3" stroke-dasharray="2 2"/></svg>
+              <div class="pm-item-badge">GLB</div>
+            </div>
+            <div class="pm-item-info">
+              <div class="pm-item-name">Djellaba Homme</div>
+              <div class="pm-item-meta">8 materiaux · Lin naturel</div>
+            </div>
+          </div>
+          <div class="pm-item">
+            <div class="pm-item-thumb" style="background:linear-gradient(135deg,rgba(107,58,93,.06),rgba(107,58,93,.02))">
+              <div class="pm-item-bg" style="background:radial-gradient(circle at 50% 60%,#6B3A5D,transparent 70%)"></div>
+              <svg viewBox="0 0 50 65" fill="none" stroke="#C0C0C7" stroke-width=".8"><path d="M15 8h20v50H15z"/><path d="M15 8l-3 5v42l3 3M35 8l3 5v42l-3 3"/><path d="M15 20h20" stroke-dasharray="1.5 1.5"/><path d="M18 8c0-3 3-5 7-5s7 2 7 5"/></svg>
+              <div class="pm-item-badge">GLB</div>
+            </div>
+            <div class="pm-item-info">
+              <div class="pm-item-name">Robe Soiree</div>
+              <div class="pm-item-meta">15 materiaux · Mousseline</div>
+            </div>
+          </div>
+          <div class="pm-item">
+            <div class="pm-item-thumb" style="background:linear-gradient(135deg,rgba(212,165,116,.06),rgba(212,165,116,.02))">
+              <div class="pm-item-bg" style="background:radial-gradient(circle at 50% 50%,#D4A574,transparent 70%)"></div>
+              <svg viewBox="0 0 50 65" fill="none" stroke="#D4B896" stroke-width=".8"><path d="M10 20Q25 5 40 20"/><path d="M10 20L15 55H35L40 20"/><path d="M20 30l5 6 5-6" stroke-dasharray="2 1.5"/></svg>
+              <div class="pm-item-badge">GLB</div>
+            </div>
+            <div class="pm-item-info">
+              <div class="pm-item-name">Foulard Lazna</div>
+              <div class="pm-item-meta">3 materiaux · Soie melee</div>
+            </div>
+          </div>
+          <div class="pm-item">
+            <div class="pm-item-thumb" style="background:linear-gradient(135deg,rgba(27,77,62,.06),rgba(27,77,62,.02))">
+              <div class="pm-item-bg" style="background:radial-gradient(circle at 50% 60%,#1B4D3E,transparent 70%)"></div>
+              <svg viewBox="0 0 50 65" fill="none" stroke="#B8976A" stroke-width=".8"><path d="M14 12h22v44H14z"/><path d="M14 12c0-4 5-8 11-8s11 4 11 8"/><path d="M14 28h22"/><rect x="20" y="32" width="10" height="12" rx="1" stroke-width=".5"/></svg>
+              <div class="pm-item-badge">USDZ</div>
+            </div>
+            <div class="pm-item-info">
+              <div class="pm-item-name">Blazer Femme</div>
+              <div class="pm-item-meta">22 materiaux · Crepe stretch</div>
+            </div>
+          </div>
+          <div class="pm-item">
+            <div class="pm-item-thumb" style="background:linear-gradient(135deg,rgba(217,192,51,.06),rgba(217,192,51,.02))">
+              <div class="pm-item-bg" style="background:radial-gradient(circle at 50% 50%,#D9C033,transparent 70%)"></div>
+              <svg viewBox="0 0 50 65" fill="none" stroke="var(--gold)" stroke-width=".8"><path d="M16 10h18v20H16z"/><path d="M12 30h26v25H12z"/><path d="M16 10c0-3 4-6 9-6s9 3 9 6"/><path d="M16 30l-4 0M34 30l4 0"/></svg>
+              <div class="pm-item-badge">GLB</div>
+            </div>
+            <div class="pm-item-info">
+              <div class="pm-item-name">Crop Top</div>
+              <div class="pm-item-meta">5 materiaux · Coton bio</div>
+            </div>
+          </div>
+        </div>
+        <div class="pm-statusbar">
+          <span class="pm-stat"><strong>247</strong> modeles</span>
+          <span class="pm-stat"><strong>89</strong> tissus</span>
+          <span class="pm-stat"><strong>1,420</strong> visuels generes</span>
+          <span class="pm-stat"><strong>12 min</strong> par visuel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-cta rv">
+    <h3>Soyez parmi les premières marques à y accéder.</h3>
+    <p>La plateforme LAZXR est en construction. Rejoignez la liste d'attente pour un accès prioritaire.</p>
+    <div class="platform-notify">
+      <input type="email" placeholder="votre@email.com" id="platformEmail">
+      <button onclick="document.getElementById('platformEmail').value='';this.textContent='Inscrit ✓';this.style.background='var(--ink)';this.style.color='var(--gold)';this.style.border='1px solid var(--gold)'">M'inscrire</button>
     </div>
   </div>
 </section>
 
 <div class="gold-line"></div>
 
-<!-- ⑥ CONTACT (CREAM) -->
+<!-- ⑦ CONTACT (CREAM) -->
 <section class="sec sec--cream" id="contact">
   <div class="s-tag rv">Contact</div>
   <h2 class="rv">Voyez ce que la 3D peut faire<br><em>pour votre marque.</em></h2>
@@ -739,7 +1115,7 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
         <div class="c-pill"><div class="c-pill-text"><strong>Localisation</strong>Casablanca, Maroc — projets nationwide</div></div>
         <div class="c-pill"><div class="c-pill-text"><strong>Délai</strong>Réponse sous 24h, livraison en 48h</div></div>
         <div class="c-pill"><div class="c-pill-text"><strong>Téléphone</strong><a href="tel:+212646634420">+212 6 46 63 44 20</a></div></div>
-        <div class="c-pill"><div class="c-pill-text"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#caa9a5a4beaba9be8aa6abb0b2b8e4a9a5a7"><span class="__cf_email__" data-cfemail="7d1e1213091c1e093d111c07050f531e1210">[email&#160;protected]</span></a></div></div>
+        <div class="c-pill"><div class="c-pill-text"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#bfdcd0d1cbdedccbffd3dec5c7cd91dcd0d2"><span class="__cf_email__" data-cfemail="fa9995948e9b998eba969b808288d4999597">[email&#160;protected]</span></a></div></div>
       </div>
     </div>
     <form class="c-form" onsubmit="handleSubmit(event)">
@@ -761,7 +1137,7 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 <footer>
   <div><div class="f-logo"><img src="lazxr-logo-white.png" alt="LAZXR" class="footer-logo"></div><div class="f-desc">Modélisation 3D pour la mode marocaine.<br>Un modèle, des possibilités infinies.</div></div>
   <div class="f-col"><h5>Tarifs</h5><a href="#offres">LAZXR Start</a><a href="#offres">LAZXR Collection</a><a href="#offres">LAZXR Studio</a><a href="#offres">Programme Atelier</a></div>
-  <div class="f-col"><h5>Contact</h5><a href="#contact">Modéliser ma pièce</a><a href="/cdn-cgi/l/email-protection#2a4945445e4b495e6a464b50525804494547"><span class="__cf_email__" data-cfemail="0f6c60617b6e6c7b4f636e75777d216c6062">[email&#160;protected]</span></a><a href="tel:+212646634420">+212 6 46 63 44 20</a><a href="https://www.linkedin.com/company/lazxr/" target="_blank" rel="noopener">LinkedIn →</a></div>
+  <div class="f-col"><h5>Contact</h5><a href="#contact">Modéliser ma pièce</a><a href="/cdn-cgi/l/email-protection#b2d1dddcc6d3d1c6f2ded3c8cac09cd1dddf"><span class="__cf_email__" data-cfemail="d7b4b8b9a3b6b4a397bbb6adafa5f9b4b8ba">[email&#160;protected]</span></a><a href="tel:+212646634420">+212 6 46 63 44 20</a><a href="https://www.linkedin.com/company/lazxr/" target="_blank" rel="noopener">LinkedIn →</a></div>
 </footer>
 <div class="f-bottom"><p>© 2026 LAZXR · Casablanca, Maroc</p><p>Conçu pour les marques mode marocaines.</p></div>
 
@@ -944,19 +1320,15 @@ function applyZoneColor(el) {
   });
 }
 
-// Color picker (full spectrum)
 function applyPickerColor(hex) {
   const r = parseInt(hex.substring(1,3), 16) / 255;
   const g = parseInt(hex.substring(3,5), 16) / 255;
   const b = parseInt(hex.substring(5,7), 16) / 255;
-
   document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
   document.querySelector('.color-picker-swatch').classList.add('active');
   document.getElementById('currentColor').textContent = hex.toUpperCase();
-
   const model = mvEl ? mvEl.model : null;
   if (!model || !model.materials) return;
-
   const prod = products[activeProduct];
   const indices = prod.zones[activeZone] ? prod.zones[activeZone].materials : [];
   indices.forEach(i => {
@@ -1050,4 +1422,131 @@ function handleLogoUpload(event) {
   if (!file || !overlay) return;
   const reader = new FileReader();
   reader.onload = function(e) {
-    overlay.
+    overlay.textContent = '';
+    overlay.innerHTML = '<img src="' + e.target.result + '" style="max-width:80px;max-height:60px;object-fit:contain;filter:drop-shadow(0 1px 3px rgba(0,0,0,.2))">';
+    overlay.className = 'text-overlay visible pos-' + currentTextPos;
+    document.getElementById('persoText').value = '';
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── Scroll-triggered Timeline ──
+const tlSteps = document.querySelectorAll('.tl-step');
+const tlFill = document.getElementById('timelineFill');
+const tlContainer = document.getElementById('timeline');
+
+const tlObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.3, rootMargin: '0px 0px -50px 0px' });
+tlSteps.forEach(s => tlObs.observe(s));
+
+// Timeline fill on scroll
+window.addEventListener('scroll', () => {
+  if (!tlContainer) return;
+  const rect = tlContainer.getBoundingClientRect();
+  const h = tlContainer.offsetHeight;
+  const scrolled = Math.max(0, -rect.top + window.innerHeight * 0.5);
+  const pct = Math.min(100, (scrolled / h) * 100);
+  if (tlFill) tlFill.style.height = pct + '%';
+}, { passive: true });
+
+// ── Animated Counters ──
+const counters = document.querySelectorAll('.cn-val');
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.counted) {
+      e.target.dataset.counted = 'true';
+      animateCounter(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObs.observe(c));
+
+function animateCounter(el) {
+  const target = el.dataset.target ? parseInt(el.dataset.target) : parseInt(el.textContent);
+  const suffix = el.dataset.suffix || el.textContent.replace(/\d+/, '');
+  if (isNaN(target)) return;
+  const duration = 1500;
+  const start = performance.now();
+  function tick(now) {
+    const elapsed = now - start;
+    const pct = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - pct, 3);
+    el.textContent = Math.round(target * eased) + suffix;
+    if (pct < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+// Infinity symbol pulse animation
+const infStat = document.getElementById('infinityStat');
+if (infStat) {
+  const infObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !infStat.dataset.animated) {
+        infStat.dataset.animated = '1';
+        infStat.style.opacity = '0';
+        infStat.style.transform = 'scale(0.3) rotate(-180deg)';
+        infStat.style.transition = 'all 1s cubic-bezier(.22,1,.36,1)';
+        infStat.style.animation = 'none';
+        setTimeout(() => {
+          infStat.style.opacity = '1';
+          infStat.style.transform = 'scale(1) rotate(0deg)';
+        }, 100);
+      }
+    });
+  }, { threshold: 0.5 });
+  infObs.observe(infStat);
+}
+
+// ── Pricing Card Tilt Effect ──
+document.querySelectorAll('.o-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+    card.style.boxShadow = `${-x * 15}px ${15 + y * 10}px 40px rgba(184,151,106,.12)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.boxShadow = '';
+  });
+});
+
+// ── Platform Mockup Scroll Reveal ──
+const mockup = document.getElementById('platformMockup');
+if (mockup) {
+  const mockObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) mockup.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  mockObs.observe(mockup);
+}
+
+// Pipeline steps sequential reveal
+const ppSteps = document.querySelectorAll('.pp-step');
+const ppObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = Array.from(ppSteps).indexOf(e.target);
+      setTimeout(() => e.target.classList.add('visible'), idx * 200);
+    }
+  });
+}, { threshold: 0.3 });
+ppSteps.forEach(s => ppObs.observe(s));
+
+// Comparison cards reveal
+const cmpCards = document.querySelectorAll('.cmp-card');
+const cmpObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.2 });
+cmpCards.forEach(c => cmpObs.observe(c));
+</script>
+</body>
+</html>
