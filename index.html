@@ -44,6 +44,10 @@ body{background:var(--cream);color:var(--text);font-family:var(--sans);font-weig
 .nav-cta-link{background:var(--gold)!important;color:var(--ink)!important;padding:.45rem 1.4rem;font-weight:500;letter-spacing:.1em;border-radius:0}
 .nav-cta-link::after{display:none!important}
 .nav-cta-link:hover{opacity:.88!important}
+.lang-toggle{background:transparent;border:1px solid rgba(184,151,106,.25);color:rgba(250,248,243,.5);font-family:var(--sans);font-size:.6rem;letter-spacing:.15em;font-weight:500;padding:.3rem .6rem;cursor:pointer;transition:all .3s;text-transform:uppercase}
+.lang-toggle:hover{border-color:var(--gold);color:var(--gold)}
+.nav--scrolled .lang-toggle{color:var(--muted);border-color:var(--border)}
+.nav--scrolled .lang-toggle:hover{color:var(--gold);border-color:var(--gold)}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .nav-hamburger{display:none;background:none;border:none;cursor:pointer;width:28px;height:20px;position:relative;z-index:700}
 .nav-hamburger span{display:block;width:100%;height:1.5px;background:#fff;position:absolute;left:0;transition:all .3s}
@@ -62,9 +66,9 @@ body{background:var(--cream);color:var(--text);font-family:var(--sans);font-weig
 .hero-left{position:relative;z-index:2}
 .hero-tag{display:inline-flex;align-items:center;gap:.7rem;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;opacity:0;animation:fadeUp .8s .2s forwards}
 .hero-tag::before{content:'';width:24px;height:1px;background:var(--gold)}
-h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.8rem,5vw,5.2rem);line-height:1.02;color:var(--cream);opacity:0;animation:fadeUp .8s .35s forwards}
-h1 em{font-style:italic;color:var(--gold);font-weight:400}
-.hero-sub{font-size:.95rem;color:rgba(250,248,243,.5);max-width:440px;margin-top:1.6rem;line-height:1.85;opacity:0;animation:fadeUp .8s .5s forwards}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(3rem,5.5vw,5.8rem);line-height:.98;color:var(--cream);letter-spacing:-.02em;opacity:0;animation:fadeUp .8s .35s forwards}
+h1 em{font-style:italic;color:var(--gold);font-weight:400;letter-spacing:.01em}
+.hero-sub{font-size:1rem;color:rgba(250,248,243,.45);max-width:460px;margin-top:2rem;line-height:1.9;letter-spacing:.01em;opacity:0;animation:fadeUp .8s .5s forwards}
 .hero-sub strong{color:rgba(250,248,243,.8);font-weight:400}
 .hero-actions{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .65s forwards}
 .btn-p{background:var(--gold);color:var(--ink);padding:.85rem 2.2rem;text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem}
@@ -185,7 +189,7 @@ h1 em{font-style:italic;color:var(--gold);font-weight:400}
 .platform-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(184,151,106,.08);border:1px solid rgba(184,151,106,.2);padding:.4rem 1.2rem;border-radius:100px;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
 .platform-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulseDot 2s infinite}
 @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-.platform-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,3rem);color:var(--cream);font-weight:400;line-height:1.15;margin-bottom:1.2rem}
+.platform-header h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.4rem);color:var(--cream);font-weight:600;line-height:1.1;margin-bottom:1.2rem}
 .platform-header h2 em{color:var(--gold);font-style:italic}
 .platform-header p{color:rgba(250,248,243,.4);font-size:.9rem;max-width:560px;margin:0 auto;line-height:1.8}
 
@@ -250,13 +254,13 @@ h1 em{font-style:italic;color:var(--gold);font-weight:400}
 .platform-notify button:hover{background:var(--gold2)}
 
 /* ── SECTIONS ── */
-.sec{padding:6rem 5vw}
+.sec{padding:8rem 5vw}
 .sec--dark{background:var(--ink);color:var(--cream)}
 .sec--cream{background:var(--cream)}
 .sec--cream2{background:var(--cream2)}
-.s-tag{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.s-tag{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem;font-weight:500}
 .s-tag::before{content:'';width:20px;height:1px;background:var(--gold)}
-h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,3.2vw,3rem);line-height:1.12;letter-spacing:-.01em}
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,3.5vw,3.4rem);line-height:1.1;letter-spacing:-.015em}
 h2 em{font-style:italic;color:var(--gold)}
 .sec--dark h2{color:var(--cream)}
 .sec--cream h2,.sec--cream2 h2{color:var(--ink)}
@@ -517,7 +521,7 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   h2{font-size:28px}
   .cf-submit{width:100%;text-align:center;justify-content:center}
   .cf-row{grid-template-columns:1fr}
-  .sec{padding:3.5rem 20px}
+  .sec{padding:5rem 20px}
   .case-numbers{grid-template-columns:1fr}
   .cn{border-right:none;border-bottom:1px solid rgba(184,151,106,.15)}
   .cn:last-child{border-bottom:none}
@@ -568,26 +572,28 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
   <div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#methode" class="nav-link">Méthode</a></li>
-    <li><a href="#offres" class="nav-link">Accès</a></li>
-    <li><a href="#contact" class="nav-link nav-cta-link">Contact</a></li>
+    <li><a href="#methode" class="nav-link" data-fr="Méthode" data-en="Method">Méthode</a></li>
+    <li><a href="#offres" class="nav-link" data-fr="Accès" data-en="Access">Accès</a></li>
+    <li><a href="#platform" class="nav-link" data-fr="Plateforme" data-en="Platform">Plateforme</a></li>
+    <li><a href="#contact" class="nav-link nav-cta-link" data-fr="Contact" data-en="Contact">Contact</a></li>
+    <li><button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button></li>
   </ul>
 </nav>
 
 <!-- ① HERO (DARK) -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">Modélisation 3D · Mode & Textile · Maroc</div>
-    <h1>Libérez votre collection<br><em>du monde</em><br>physique.</h1>
-    <p class="hero-sub">Créez vos <strong>jumeaux numériques 3D</strong> haute fidélité. Un seul asset pour vos shootings, votre e-commerce immersif et le futur de la vente en ligne. Zéro shooting, infini de contenus.</p>
+    <div class="hero-tag" data-fr="Modélisation 3D · Mode &amp; Textile · Maroc" data-en="3D Modeling · Fashion &amp; Textile · Morocco">Modélisation 3D · Mode &amp; Textile · Maroc</div>
+    <h1 data-fr="Libérez votre collection<br><em>du monde</em><br>physique." data-en="Unleash your collection<br><em>from the</em><br>physical world.">Libérez votre collection<br><em>du monde</em><br>physique.</h1>
+    <p class="hero-sub" data-fr="Créez vos <strong>jumeaux numériques 3D</strong> haute fidélité. Un seul asset pour vos shootings, votre e-commerce immersif et le futur de la vente en ligne. Zéro shooting, infini de contenus." data-en="Create your high-fidelity <strong>3D digital twins</strong>. A single asset for your photoshoots, immersive e-commerce, and the future of online retail. Zero photoshoots, infinite content.">Créez vos <strong>jumeaux numériques 3D</strong> haute fidélité. Un seul asset pour vos shootings, votre e-commerce immersif et le futur de la vente en ligne. Zéro shooting, infini de contenus.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-p">Digitalisez ma collection →</a>
-      <a href="#offres" class="btn-g">Voir l'investissement</a>
+      <a href="#contact" class="btn-p" data-fr="Digitalisez ma collection →" data-en="Digitize my collection →">Digitalisez ma collection →</a>
+      <a href="#offres" class="btn-g" data-fr="Voir l'investissement" data-en="See investment plans">Voir l'investissement</a>
     </div>
     <div class="hero-stats">
-      <div><div class="cn-val" data-target="1" data-suffix="">0</div><div class="hs-label">asset digital permanent</div></div>
-      <div><div class="hs-num" style="opacity:0;animation:none" id="infinityStat">∞</div><div class="hs-label">déclinaisons de contenus</div></div>
-      <div><div class="cn-val" data-target="48" data-suffix="h">0</div><div class="hs-label">time-to-market</div></div>
+      <div><div class="cn-val" data-target="1" data-suffix="">0</div><div class="hs-label" data-fr="asset digital permanent" data-en="permanent digital asset">asset digital permanent</div></div>
+      <div><div class="hs-num" style="opacity:0;animation:none" id="infinityStat">∞</div><div class="hs-label" data-fr="déclinaisons de contenus" data-en="content variations">déclinaisons de contenus</div></div>
+      <div><div class="cn-val" data-target="48" data-suffix="h">0</div><div class="hs-label" data-fr="time-to-market" data-en="time-to-market">time-to-market</div></div>
     </div>
   </div>
   <div class="hero-right">
@@ -653,11 +659,11 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 
       </model-viewer>
       <div class="text-overlay" id="textOverlay"></div>
-      <div class="model-hint">Tournez · Zoomez · Explorez chaque détail</div>
+      <div class="model-hint" data-fr="Tournez · Zoomez · Explorez chaque détail" data-en="Rotate · Zoom · Explore every detail">Tournez · Zoomez · Explorez chaque détail</div>
     </div>
 
     <div class="color-panel">
-      <div class="color-panel-title">Expérience d'essayage du futur <span>+40% conversion · -60% retours</span></div>
+      <div class="color-panel-title" data-fr="Expérience d'essayage du futur <span>+40% conversion · -60% retours</span>" data-en="The future of try-on experience <span>+40% conversion · -60% returns</span>">Expérience d'essayage du futur <span>+40% conversion · -60% retours</span></div>
 
       <div class="scene-bar">
         <button class="scene-btn active" onclick="setScene('natural', this)">
@@ -785,9 +791,9 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 <!-- ② LE PROBLÈME (DARK) -->
 <section class="sec sec--dark">
   <div class="problem-intro rv">
-    <div class="s-tag">Le problème</div>
-    <h2>Ne laissez plus vos stocks dormir<br><em>en attendant un photographe.</em></h2>
-    <p>Divisez vos délais de mise sur le marché par 10. Vos visuels sont prêts avant même que le premier vêtement ne sorte de l'atelier.</p>
+    <div class="s-tag" data-fr="Le problème" data-en="The Problem">Le problème</div>
+    <h2 data-fr="Ne laissez plus vos stocks dormir<br><em>en attendant un photographe.</em>" data-en="Stop letting your inventory sleep<br><em>waiting for a photographer.</em>">Ne laissez plus vos stocks dormir<br><em>en attendant un photographe.</em></h2>
+    <p data-fr="Divisez vos délais de mise sur le marché par 10. Vos visuels sont prêts avant même que le premier vêtement ne sorte de l'atelier." data-en="Cut your time-to-market by 10x. Your visuals are ready before the first garment leaves the workshop.">Divisez vos délais de mise sur le marché par 10. Vos visuels sont prêts avant même que le premier vêtement ne sorte de l'atelier.</p>
   </div>
 
   <div class="compare-cards">
@@ -851,8 +857,8 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 
 <!-- ③ COMMENT ÇA MARCHE (CREAM) -->
 <section class="sec sec--cream" id="methode">
-  <div class="s-tag rv">Comment ça marche</div>
-  <h2 class="rv">De votre pièce à son <em>jumeau 3D.</em> En 4 jours.</h2>
+  <div class="s-tag rv" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</div>
+  <h2 class="rv" data-fr="De votre pièce à son <em>jumeau 3D.</em> En 4 jours." data-en="From your garment to its <em>3D twin.</em> In 4 days.">De votre pièce à son <em>jumeau 3D.</em> En 4 jours.</h2>
 
   <div class="timeline" id="timeline">
     <div class="timeline-fill" id="timelineFill"></div>
@@ -901,8 +907,8 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 
 <!-- ④ TARIFS (CREAM2) -->
 <section class="sec sec--cream2" id="offres">
-  <div class="s-tag rv">Investissement</div>
-  <h2 class="rv">Choisissez votre <em>point d'entrée.</em></h2>
+  <div class="s-tag rv" data-fr="Investissement" data-en="Investment">Investissement</div>
+  <h2 class="rv" data-fr="Choisissez votre <em>point d'entrée.</em>" data-en="Choose your <em>entry point.</em>">Choisissez votre <em>point d'entrée.</em></h2>
   <p class="rv" style="color:var(--muted);font-size:.88rem;margin-top:.6rem;max-width:520px;line-height:1.8">Chaque offre inclut le modèle 3D — un actif permanent, propriété de votre marque. Plus vous l'utilisez, plus le retour sur investissement augmente.</p>
   <div class="offers-grid rv">
     <div class="o-card">
@@ -932,8 +938,8 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 <section class="platform-sec" id="platform">
   <div class="platform-header rv">
     <div class="platform-badge"><span class="platform-badge-dot"></span> Coming 2026</div>
-    <h2>Bienvenue dans l'ère de<br><em>l'E-commerce Spatial.</em></h2>
-    <p>LAZXR n'est pas qu'un studio. C'est votre futur dashboard de gestion d'actifs 3D. Du patronnage à l'essayage en réalité augmentée, nous construisons le système d'exploitation de la mode marocaine.</p>
+    <h2 data-fr="Bienvenue dans l'ère de<br><em>l'E-commerce Spatial.</em>" data-en="Welcome to the era of<br><em>Spatial E-commerce.</em>">Bienvenue dans l'ère de<br><em>l'E-commerce Spatial.</em></h2>
+    <p data-fr="LAZXR n'est pas qu'un studio. C'est votre futur dashboard de gestion d'actifs 3D. Du patronnage à l'essayage en réalité augmentée, nous construisons le système d'exploitation de la mode marocaine." data-en="LAZXR isn't just a studio. It's your future 3D asset management dashboard. From pattern-making to AR try-on, we're building the operating system for Moroccan fashion.">LAZXR n'est pas qu'un studio. C'est votre futur dashboard de gestion d'actifs 3D. Du patronnage à l'essayage en réalité augmentée, nous construisons le système d'exploitation de la mode marocaine.</p>
   </div>
 
   <div class="platform-pipeline rv">
@@ -1094,7 +1100,8 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   </div>
 
   <div class="platform-cta rv">
-    <h3>Soyez parmi les premières marques à y accéder.</h3>
+    <h3 data-fr="Soyez parmi les premières marques à y accéder." data-en="Be among the first brands to get access.">Soyez parmi les premières marques à y accéder.</h3>
+    <p data-fr="La plateforme LAZXR est en construction. Rejoignez la liste d'attente pour un accès prioritaire." data-en="The LAZXR platform is under construction. Join the waitlist for priority access.">La plateforme LAZXR est en construction. Rejoignez la liste d'attente pour un accès prioritaire.</p>
     <p>La plateforme LAZXR est en construction. Rejoignez la liste d'attente pour un accès prioritaire.</p>
     <div class="platform-notify">
       <input type="email" placeholder="votre@email.com" id="platformEmail">
@@ -1107,8 +1114,8 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 
 <!-- ⑦ CONTACT (CREAM) -->
 <section class="sec sec--cream" id="contact">
-  <div class="s-tag rv">Contact</div>
-  <h2 class="rv">Prêt à digitaliser<br><em>votre collection ?</em></h2>
+  <div class="s-tag rv" data-fr="Contact" data-en="Get in touch">Contact</div>
+  <h2 class="rv" data-fr="Prêt à digitaliser<br><em>votre collection ?</em>" data-en="Ready to digitize<br><em>your collection?</em>">Prêt à digitaliser<br><em>votre collection ?</em></h2>
   <div class="contact-layout rv">
     <div class="c-info">
       <h3>Envoyez-nous une pièce. On la modélise, on génère 3 visuels, et vous décidez.</h3>
@@ -1130,7 +1137,7 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
         <select class="cf-s"><option value="">Choisir une offre</option><option>LAZXR Start — 400 MAD / pièce</option><option>LAZXR Collection — 3 500 MAD</option><option>LAZXR Studio — 4 500 MAD / mois</option><option>Programme Atelier — partenariat</option><option>Projet sur mesure</option></select>
       </div>
       <div class="cf-g"><label class="cf-l">Décrivez votre projet</label><textarea class="cf-t" placeholder="Quelles pièces souhaitez-vous modéliser ? Combien ? Pour quel usage ?"></textarea></div>
-      <button type="submit" class="cf-submit">Digitaliser ma collection →</button>
+      <button type="submit" class="cf-submit" data-fr="Digitaliser ma collection →" data-en="Digitize my collection →">Digitaliser ma collection →</button>
     </form>
   </div>
 </section>
@@ -1517,6 +1524,17 @@ document.querySelectorAll('.o-card').forEach(card => {
     card.style.boxShadow = '';
   });
 });
+
+// ── FR/EN Language Toggle ──
+let currentLang = 'fr';
+function toggleLang() {
+  currentLang = currentLang === 'fr' ? 'en' : 'fr';
+  const btn = document.querySelector('.lang-toggle');
+  btn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+  document.querySelectorAll('[data-fr][data-en]').forEach(el => {
+    el.innerHTML = el.dataset[currentLang];
+  });
+}
 
 // ── Platform Mockup Scroll Reveal ──
 const mockup = document.getElementById('platformMockup');
