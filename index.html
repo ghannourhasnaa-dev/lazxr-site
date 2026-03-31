@@ -297,42 +297,39 @@ h2 em{font-style:italic;color:var(--gold)}
 .sec--dark h2{color:#FFFFFF}
 .sec--cream h2,.sec--cream2 h2{color:#FFFFFF}
 
-/* ── THE NEW SUPPLY CHAIN ── */
-.sc-sec{background:radial-gradient(ellipse 60% 50% at 60% 45%,#1A1A1A,#0A0A0A);padding:8rem 5vw;position:relative;overflow:hidden}
+/* ── BENTO GRID — INDUSTRIAL PERFORMANCE ── */
+.sc-sec{background:radial-gradient(ellipse 60% 50% at 50% 40%,#1A1A1A,#0A0A0A);padding:8rem 5vw;position:relative;overflow:hidden}
 .sc-sec::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,151,106,.15),transparent)}
-.sc-header{text-align:center;max-width:650px;margin:0 auto 5rem}
-.sc-header h2{color:#FFFFFF;font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.1;letter-spacing:-.04em}
+.sc-header{text-align:center;max-width:700px;margin:0 auto 4.5rem}
+.sc-header h2{color:#FFFFFF;font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;line-height:1.08;letter-spacing:-.04em}
 .sc-header h2 em{color:var(--gold);font-style:italic;font-weight:400}
 .sc-header p{color:rgba(250,248,243,.4);font-size:.85rem;margin-top:1rem;line-height:1.8}
 
-.sc-flow{display:grid;grid-template-columns:1fr auto 1fr;gap:3rem;align-items:start;max-width:1000px;margin:0 auto}
-.sc-col-title{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;font-weight:500;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:1px solid rgba(255,255,255,.06)}
-.sc-old .sc-col-title{color:#555}
-.sc-new .sc-col-title{color:var(--gold)}
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1100px;margin:0 auto}
+.bento-card{background:rgba(13,13,13,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(184,151,106,.4);border-radius:16px;padding:2.2rem 2rem;position:relative;overflow:hidden;transition:all .5s cubic-bezier(.25,.8,.25,1)}
+.bento-card:hover{border-color:rgba(255,255,255,.6);box-shadow:0 0 40px rgba(184,151,106,.12),0 0 80px rgba(184,151,106,.06)}
+.bento-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .5s}
+.bento-card:hover::before{opacity:1}
+.bento-wide{grid-column:span 2}
 
-.sc-step{display:flex;align-items:center;gap:1rem;padding:.85rem 1.2rem;margin-bottom:.6rem;border:1px solid rgba(255,255,255,.04);background:rgba(255,255,255,.015);transition:all .4s;position:relative}
-.sc-old .sc-step{opacity:.5}
-.sc-old .sc-step::after{content:'';position:absolute;left:1.2rem;right:1.2rem;top:50%;height:1.5px;background:rgba(255,255,255,.15)}
-.sc-step-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sc-old .sc-step-icon{background:rgba(255,255,255,.03);border:1px solid rgba(68,68,68,.5)}
-.sc-old .sc-step-icon svg{width:16px;height:16px;stroke:#444;fill:none;stroke-width:1.5}
-.sc-new .sc-step{border-color:rgba(184,151,106,.15);background:rgba(184,151,106,.04);box-shadow:0 4px 30px rgba(184,151,106,.06)}
-.sc-new .sc-step:hover{border-color:rgba(184,151,106,.3);background:rgba(184,151,106,.08);transform:translateX(4px);box-shadow:0 8px 40px rgba(184,151,106,.12)}
-.sc-new .sc-step-icon{background:rgba(184,151,106,.12);border:1px solid rgba(184,151,106,.3)}
-.sc-new .sc-step-icon svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.5}
-.sc-step-text{font-size:.78rem;color:#999;letter-spacing:.02em}
-.sc-old .sc-step-text{text-decoration:line-through;color:#444}
-.sc-new .sc-step-text{color:#FFF;text-decoration:none;font-weight:400}
+.bc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;background:rgba(184,151,106,.08);border:1px solid rgba(184,151,106,.2)}
+.bc-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5}
 
-.sc-arrow-col{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:3rem;position:relative}
-.sc-arrow-col::before{content:'';position:absolute;top:2rem;bottom:2rem;width:1px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);opacity:.4}
-.sc-arrow-col svg{width:40px;height:40px;stroke:var(--gold);fill:none;stroke-width:1;opacity:.5;position:relative;z-index:1}
-.sc-arrow-label{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.5rem;writing-mode:vertical-rl;text-orientation:mixed;opacity:.5;position:relative;z-index:1}
+.bc-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:#FFFFFF;line-height:1.2;margin-bottom:.3rem;letter-spacing:-.02em}
+.bc-pivot{font-family:var(--sans);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+.bc-pivot .bc-arrow{color:rgba(184,151,106,.5)}
 
-.sc-kpi{text-align:center;margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(184,151,106,.08)}
-.sc-kpi-number{font-family:var(--serif);font-size:clamp(3rem,6vw,5rem);font-weight:600;color:var(--gold);line-height:1;letter-spacing:-.02em}
-.sc-kpi-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,248,243,.35);margin-top:.5rem}
-.sc-kpi-sub{font-size:.8rem;color:rgba(250,248,243,.25);margin-top:1rem;max-width:450px;margin-left:auto;margin-right:auto;line-height:1.7}
+.bc-legacy{margin-bottom:1rem}
+.bc-legacy-label{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:#4A4A4A;margin-bottom:.4rem;font-weight:500}
+.bc-legacy-text{font-size:.78rem;color:#4A4A4A;line-height:1.6}
+
+.bc-lazxr{margin-bottom:1.2rem}
+.bc-lazxr-label{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:500}
+.bc-lazxr-text{font-size:.82rem;color:#FFFFFF;line-height:1.65;font-weight:300}
+
+.bc-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .8rem;background:rgba(184,151,106,.08);border:1px solid rgba(184,151,106,.15);border-radius:8px}
+.bc-badge-val{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--gold)}
+.bc-badge-label{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,248,243,.35)}
 
 /* ── 4 STEPS ── */
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
@@ -511,7 +508,7 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   .text-overlay.pos-sleeve{font-size:.7rem}
 
   /* Other sections mobile */
-  .sc-flow,.kv-grid,.case-body,.contact-layout{grid-template-columns:1fr}
+  .bento,.kv-grid,.case-body,.contact-layout{grid-template-columns:1fr}
   .timeline{padding-left:2.5rem}
   .timeline::before,.timeline-fill{left:16px}
   .tl-step,.tl-step:nth-child(even){padding-left:3rem;padding-right:0;flex-direction:row;text-align:left;margin-left:0;width:auto;transform:translateY(30px)}
@@ -543,10 +540,8 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   .bv-sec{padding:5rem 5vw}
   .bv-grid{grid-template-columns:1fr}
   .bv-subtitle{margin-bottom:2.5rem}
-  .sc-flow{grid-template-columns:1fr;gap:2rem}
-  .sc-arrow-col{flex-direction:row;writing-mode:horizontal-tb;padding-top:0}
-  .sc-arrow-col svg{transform:rotate(90deg)}
-  .sc-arrow-label{writing-mode:horizontal-tb}
+  .bento{grid-template-columns:1fr}
+  .bento-wide{grid-column:span 1}
   .sc-sec{padding:5rem 5vw}
 }
 @media(max-width:480px){
@@ -821,69 +816,137 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   </div>
 </div>
 
-<!-- ② THE NEW SUPPLY CHAIN -->
+<!-- ② INDUSTRIAL PERFORMANCE GRID -->
 <section class="sc-sec">
   <div class="sc-header rv">
-    <div class="s-tag" data-fr="La nouvelle supply chain" data-en="The New Supply Chain">La nouvelle supply chain</div>
-    <h2 data-fr="Votre pipeline actuel vous coute<br><em>70% de trop.</em>" data-en="Your current pipeline costs you<br><em>70% too much.</em>">Votre pipeline actuel vous coute<br><em>70% de trop.</em></h2>
-    <p data-fr="5 etapes physiques couteuses. LAZXR les remplace par un flux numerique direct." data-en="5 costly physical steps. LAZXR replaces them with a direct digital pipeline.">5 etapes physiques couteuses. LAZXR les remplace par un flux numerique direct.</p>
+    <div class="s-tag" data-fr="Performance industrielle" data-en="Industrial Performance">Performance industrielle</div>
+    <h2 data-fr="L'infrastructure qui transforme<br><em>votre chaine de valeur.</em>" data-en="The infrastructure that transforms<br><em>your value chain.</em>">L'infrastructure qui transforme<br><em>votre chaine de valeur.</em></h2>
+    <p data-fr="5 leviers strategiques. De la sous-traitance passive a l'avantage competitif numerique." data-en="5 strategic levers. From passive subcontracting to digital competitive advantage.">5 leviers strategiques. De la sous-traitance passive a l'avantage competitif numerique.</p>
   </div>
 
-  <div class="sc-flow rv">
+  <div class="bento rv">
 
-    <div class="sc-old">
-      <div class="sc-col-title" data-fr="Ancien pipeline" data-en="Old Pipeline">Ancien pipeline</div>
-
-      <div class="sc-step">
-        <div class="sc-step-icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4M4 7l8 4M4 7v10l8 4m0-10v10"/></svg></div>
-        <span class="sc-step-text" data-fr="Sampling physique" data-en="Physical Sampling">Sampling physique</span>
+    <!-- Card 1: Strategic Pivot -->
+    <div class="bento-card">
+      <div class="bc-icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
       </div>
-      <div class="sc-step">
-        <div class="sc-step-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <span class="sc-step-text" data-fr="Logistique & transport" data-en="Logistics & shipping">Logistique & transport</span>
+      <div class="bc-title" data-fr="Pivot strategique" data-en="Strategic Pivot">Pivot strategique</div>
+      <div class="bc-pivot">
+        <span data-fr="Sous-traitant" data-en="Sub-contractor">Sous-traitant</span>
+        <span class="bc-arrow">&#8594;</span>
+        <span data-fr="Co-createur" data-en="Co-creator">Co-createur</span>
       </div>
-      <div class="sc-step">
-        <div class="sc-step-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-        <span class="sc-step-text" data-fr="Studio photo" data-en="Photo studio">Studio photo</span>
+      <div class="bc-legacy">
+        <div class="bc-legacy-label">Legacy</div>
+        <div class="bc-legacy-text" data-fr="Attente passive des ordres (CMT). Dependance totale au donneur d'ordre." data-en="Passive order-taking (CMT). Total dependency on the brand.">Attente passive des ordres (CMT). Dependance totale au donneur d'ordre.</div>
       </div>
-      <div class="sc-step">
-        <div class="sc-step-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <span class="sc-step-text" data-fr="Mannequins & stylisme" data-en="Models & styling">Mannequins & stylisme</span>
+      <div class="bc-lazxr">
+        <div class="bc-lazxr-label">LAZXR</div>
+        <div class="bc-lazxr-text" data-fr="Vendez du Design-as-a-Service. Catalogue 3D interactif avant production." data-en="Sell Design-as-a-Service. Interactive 3D catalog before production.">Vendez du Design-as-a-Service. Catalogue 3D interactif avant production.</div>
       </div>
-      <div class="sc-step">
-        <div class="sc-step-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-        <span class="sc-step-text" data-fr="Retouche manuelle" data-en="Manual retouching">Retouche manuelle</span>
+      <div class="bc-badge">
+        <span class="bc-badge-val">DaaS</span>
+        <span class="bc-badge-label" data-fr="Nouveau modele" data-en="New model">Nouveau modele</span>
       </div>
     </div>
 
-    <div class="sc-arrow-col">
-      <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-      <span class="sc-arrow-label">LAZXR</span>
+    <!-- Card 2: Time Velocity -->
+    <div class="bento-card">
+      <div class="bc-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="bc-title" data-fr="Velocite temporelle" data-en="Time Velocity">Velocite temporelle</div>
+      <div class="bc-pivot">
+        <span>15 jours</span>
+        <span class="bc-arrow">&#8594;</span>
+        <span>Minutes</span>
+      </div>
+      <div class="bc-legacy">
+        <div class="bc-legacy-label">Legacy</div>
+        <div class="bc-legacy-text" data-fr="Echantillonnage physique & DHL. 15-20 jours de delai incompressible." data-en="Physical sampling & DHL. 15-20 days of irreducible delay.">Echantillonnage physique & DHL. 15-20 jours de delai incompressible.</div>
+      </div>
+      <div class="bc-lazxr">
+        <div class="bc-lazxr-label">LAZXR</div>
+        <div class="bc-lazxr-text" data-fr="Validation numerique certifiee instantanee. Zero delai logistique." data-en="Instant certified digital validation. Zero logistics delay.">Validation numerique certifiee instantanee. Zero delai logistique.</div>
+      </div>
+      <div class="bc-badge">
+        <span class="bc-badge-val">+300%</span>
+        <span class="bc-badge-label">Velocity</span>
+      </div>
     </div>
 
-    <div class="sc-new">
-      <div class="sc-col-title" data-fr="Pipeline LAZXR" data-en="LAZXR Pipeline">Pipeline LAZXR</div>
-
-      <div class="sc-step">
-        <div class="sc-step-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <span class="sc-step-text" data-fr="Design & patron" data-en="Design & pattern">Design & patron</span>
+    <!-- Card 3: ESG Compliance -->
+    <div class="bento-card">
+      <div class="bc-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12l2 2 4-4"/></svg>
       </div>
-      <div class="sc-step">
-        <div class="sc-step-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-        <span class="sc-step-text" data-fr="Plateforme LAZXR" data-en="LAZXR Platform">Plateforme LAZXR</span>
+      <div class="bc-title" data-fr="Conformite ESG" data-en="ESG Compliance">Conformite ESG</div>
+      <div class="bc-pivot">
+        <span data-fr="Gaspillage" data-en="Waste">Gaspillage</span>
+        <span class="bc-arrow">&#8594;</span>
+        <span>Zero-Waste</span>
       </div>
-      <div class="sc-step">
-        <div class="sc-step-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <span class="sc-step-text" data-fr="Ventes multi-canal" data-en="Multi-channel sales">Ventes multi-canal</span>
+      <div class="bc-legacy">
+        <div class="bc-legacy-label">Legacy</div>
+        <div class="bc-legacy-text" data-fr="Gaspillage de matiere pour prototypes jetables. Haute empreinte carbone." data-en="Material waste for disposable prototypes. High carbon footprint.">Gaspillage de matiere pour prototypes jetables. Haute empreinte carbone.</div>
+      </div>
+      <div class="bc-lazxr">
+        <div class="bc-lazxr-label">LAZXR</div>
+        <div class="bc-lazxr-text" data-fr="Pret pour le Passeport Numerique europeen. -90% de dechets physiques." data-en="Ready for the European Digital Passport. -90% physical waste.">Pret pour le Passeport Numerique europeen. -90% de dechets physiques.</div>
+      </div>
+      <div class="bc-badge">
+        <span class="bc-badge-val">-90%</span>
+        <span class="bc-badge-label">Waste</span>
       </div>
     </div>
 
-  </div>
+    <!-- Card 4: Export Democracy -->
+    <div class="bento-card">
+      <div class="bc-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+      </div>
+      <div class="bc-title" data-fr="Democratisation export" data-en="Export Democracy">Democratisation export</div>
+      <div class="bc-pivot">
+        <span data-fr="Barriere" data-en="Barrier">Barriere</span>
+        <span class="bc-arrow">&#8594;</span>
+        <span>Global Standards</span>
+      </div>
+      <div class="bc-legacy">
+        <div class="bc-legacy-label">Legacy</div>
+        <div class="bc-legacy-text" data-fr="Couts prohibitifs (Studios, Mannequins). Barriere a l'export pour les marques emergentes." data-en="Prohibitive costs (Studios, Models). Export barrier for emerging brands.">Couts prohibitifs (Studios, Mannequins). Barriere a l'export pour les marques emergentes.</div>
+      </div>
+      <div class="bc-lazxr">
+        <div class="bc-lazxr-label">LAZXR</div>
+        <div class="bc-lazxr-text" data-fr="Visuels standard international accessibles via SaaS. Rayonnez mondialement." data-en="International-standard visuals accessible via SaaS. Shine globally.">Visuels standard international accessibles via SaaS. Rayonnez mondialement.</div>
+      </div>
+      <div class="bc-badge">
+        <span class="bc-badge-val">&#127760;</span>
+        <span class="bc-badge-label" data-fr="Export mondial" data-en="Worldwide">Export mondial</span>
+      </div>
+    </div>
 
-  <div class="sc-kpi rv">
-    <div class="sc-kpi-number">-70%</div>
-    <div class="sc-kpi-label" data-fr="Friction operationnelle" data-en="Operational Friction">Friction operationnelle</div>
-    <p class="sc-kpi-sub" data-fr="Un modele 3D permanent. Plus vous l'utilisez, plus le cout par visuel diminue." data-en="One permanent 3D model. The more you use it, the lower the cost per visual.">Un modele 3D permanent. Plus vous l'utilisez, plus le cout par visuel diminue.</p>
+    <!-- Card 5: Cultural Intelligence (WIDE) -->
+    <div class="bento-card bento-wide">
+      <div class="bc-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <div class="bc-title" data-fr="Intelligence culturelle" data-en="Cultural Intelligence">Intelligence culturelle</div>
+      <div class="bc-pivot">
+        <span data-fr="Campagne rigide" data-en="Rigid campaign">Campagne rigide</span>
+        <span class="bc-arrow">&#8594;</span>
+        <span>Hyper-Local Marketing</span>
+      </div>
+      <div class="bc-lazxr">
+        <div class="bc-lazxr-label">LAZXR</div>
+        <div class="bc-lazxr-text" data-fr="Adaptez instantanement vos mannequins, decors et ambiances aux codes culturels de chaque marche — Afrique, GCC, Europe. Un seul actif 3D, des campagnes infinies." data-en="Instantly adapt your models, settings and moods to the cultural codes of each market — Africa, GCC, Europe. One 3D asset, infinite campaigns.">Adaptez instantanement vos mannequins, decors et ambiances aux codes culturels de chaque marche — Afrique, GCC, Europe. Un seul actif 3D, des campagnes infinies.</div>
+      </div>
+      <div class="bc-badge">
+        <span class="bc-badge-val" data-fr="Local. Global." data-en="Local. Global.">Local. Global.</span>
+        <span class="bc-badge-label" data-fr="Resonance culturelle" data-en="Cultural resonance">Resonance culturelle</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
