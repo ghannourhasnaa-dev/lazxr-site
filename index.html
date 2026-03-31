@@ -266,47 +266,34 @@ h2 em{font-style:italic;color:var(--gold)}
 .sec--cream h2,.sec--cream2 h2{color:var(--ink)}
 
 /* ── PROBLEM / COMPARISON ── */
+.problem-sec{background:#FDFDFD;padding:8rem 5vw}
 .problem-intro{text-align:center;max-width:600px;margin:0 auto 4rem}
-.problem-intro p{color:rgba(250,248,243,.4);font-size:.9rem;margin-top:.8rem;line-height:1.8}
+.problem-intro h2{color:var(--ink)}
+.problem-intro p{color:var(--muted);font-size:.92rem;margin-top:1rem;line-height:1.85}
 
-.compare-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:0}
-.cmp-card{background:rgba(250,248,243,.03);border:1px solid rgba(184,151,106,.12);border-radius:4px;overflow:hidden;opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.22,1,.36,1)}
+.compare-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+.cmp-card{border-radius:6px;overflow:hidden;border:1px solid #EEE;opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.22,1,.36,1)}
 .cmp-card.visible{opacity:1;transform:translateY(0)}
 .cmp-card:nth-child(2){transition-delay:.15s}
 .cmp-card:nth-child(3){transition-delay:.3s}
 
-.cmp-top{padding:2rem 1.5rem;text-align:center;position:relative}
-.cmp-icon{width:56px;height:56px;border-radius:50%;margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center}
-.cmp-icon svg{width:26px;height:26px;fill:none;stroke-width:1.5}
-.cmp-metric{font-family:var(--serif);font-size:2.4rem;font-weight:400;line-height:1;margin-bottom:.4rem}
-.cmp-label{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase}
+.cmp-top{padding:2rem 1.6rem;text-align:center;background:#F6F6F4;border-bottom:1px solid #EEE}
+.cmp-top .cmp-icon{width:48px;height:48px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:#ECECEA;border:1px solid #DDD}
+.cmp-top .cmp-icon svg{width:22px;height:22px;fill:none;stroke:#999;stroke-width:1.5}
+.cmp-top .cmp-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#999;margin-bottom:.6rem;font-weight:500}
+.cmp-top .cmp-metric{font-family:var(--sans);font-size:2rem;font-weight:600;color:#444;line-height:1;margin-bottom:.5rem}
+.cmp-top .cmp-text{font-size:.78rem;line-height:1.7;color:#888;max-width:240px;margin:0 auto}
 
-.cmp-divider{height:1px;background:rgba(184,151,106,.12);margin:0 1.5rem;position:relative;overflow:visible}
-.cmp-divider::after{content:'vs';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--ink2);padding:0 .6rem;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(184,151,106,.4)}
-
-.cmp-bottom{padding:2rem 1.5rem;text-align:center;position:relative}
-
-.cmp-old .cmp-top{background:rgba(160,70,60,.04)}
-.cmp-old .cmp-icon{border:1.5px solid rgba(196,100,90,.5);background:rgba(196,100,90,.1)}
-.cmp-old .cmp-icon svg{stroke:rgba(196,100,90,.8)}
-.cmp-old .cmp-metric{color:rgba(196,100,90,.85)}
-.cmp-old .cmp-label{color:rgba(196,100,90,.7)}
-
-.cmp-new .cmp-bottom{background:rgba(184,151,106,.04)}
-.cmp-new .cmp-icon{border:1.5px solid var(--gold);background:rgba(184,151,106,.08)}
-.cmp-new .cmp-icon svg{stroke:var(--gold)}
-.cmp-new .cmp-metric{color:var(--gold)}
-.cmp-new .cmp-label{color:var(--gold)}
-
-.cmp-text{font-size:.78rem;line-height:1.7;max-width:240px;margin:0 auto}
-.cmp-old .cmp-text{color:rgba(250,248,243,.5)}
-.cmp-new .cmp-text{color:rgba(250,248,243,.65)}
-
-.cmp-arrow{display:flex;justify-content:center;margin:.8rem 0;opacity:.3}
-.cmp-arrow svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.cmp-bottom{padding:2rem 1.6rem;text-align:center;background:#FFF;transition:all .4s}
+.cmp-card:hover .cmp-bottom{transform:scale(1.03);box-shadow:0 8px 30px rgba(184,151,106,.1)}
+.cmp-bottom .cmp-icon{width:48px;height:48px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:rgba(184,151,106,.08);border:1.5px solid var(--gold)}
+.cmp-bottom .cmp-icon svg{width:22px;height:22px;fill:none;stroke:var(--gold);stroke-width:1.5}
+.cmp-bottom .cmp-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;font-weight:500}
+.cmp-bottom .cmp-metric{font-family:var(--sans);font-size:2rem;font-weight:700;color:var(--ink);line-height:1;margin-bottom:.5rem}
+.cmp-bottom .cmp-text{font-size:.78rem;line-height:1.7;color:var(--muted);max-width:240px;margin:0 auto}
 
 .compare-bottom{text-align:center;margin-top:3rem}
-.compare-bottom p{color:rgba(250,248,243,.45);font-size:.78rem;font-style:italic;max-width:480px;margin:0 auto;line-height:1.7}
+.compare-bottom p{color:var(--muted);font-size:.82rem;font-style:italic;max-width:500px;margin:0 auto;line-height:1.7}
 
 /* ── 4 STEPS ── */
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
@@ -775,8 +762,8 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   </div>
 </div>
 
-<!-- ② LE PROBLÈME (DARK) -->
-<section class="sec sec--dark">
+<!-- ② LE PROBLÈME (LIGHT) -->
+<section class="problem-sec">
   <div class="problem-intro rv">
     <div class="s-tag" data-fr="Le problème" data-en="The Problem">Le problème</div>
     <h2 data-fr="Ne laissez plus vos stocks dormir<br><em>en attendant un photographe.</em>" data-en="Stop letting your inventory sleep<br><em>waiting for a photographer.</em>">Ne laissez plus vos stocks dormir<br><em>en attendant un photographe.</em></h2>
@@ -785,58 +772,55 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 
   <div class="compare-cards">
 
-    <div class="cmp-card cmp-old cmp-new rv">
+    <div class="cmp-card rv">
       <div class="cmp-top">
         <div class="cmp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="cmp-label" data-fr="Méthode traditionnelle" data-en="Traditional Way">Méthode traditionnelle</div>
         <div class="cmp-metric">3 sem.</div>
-        <div class="cmp-label">Délai shooting</div>
-        <p class="cmp-text">Photographe, studio, mannequin. Disponibilité dans 3 semaines minimum.</p>
+        <p class="cmp-text" data-fr="Photographe, studio, mannequin. Disponibilité dans 3 semaines minimum." data-en="Photographer, studio, model. 3 weeks minimum availability.">Photographe, studio, mannequin. Disponibilité dans 3 semaines minimum.</p>
       </div>
-      <div class="cmp-divider"></div>
       <div class="cmp-bottom">
         <div class="cmp-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="cmp-label" data-fr="La méthode LAZXR" data-en="The LAZXR Method">La méthode LAZXR</div>
         <div class="cmp-metric">48h</div>
-        <div class="cmp-label">Avec LAZXR</div>
-        <p class="cmp-text">Modélisation 3D + visuels livrés. Pas de studio, pas d'attente.</p>
+        <p class="cmp-text" data-fr="Modélisation 3D + visuels livrés. Pas de studio, pas d'attente." data-en="3D modeling + visuals delivered. No studio, no waiting.">Modélisation 3D + visuels livrés. Pas de studio, pas d'attente.</p>
       </div>
     </div>
 
-    <div class="cmp-card cmp-old cmp-new rv">
+    <div class="cmp-card rv">
       <div class="cmp-top">
         <div class="cmp-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="cmp-label" data-fr="Méthode traditionnelle" data-en="Traditional Way">Méthode traditionnelle</div>
         <div class="cmp-metric">15 000 dh</div>
-        <div class="cmp-label">Coût shooting</div>
-        <p class="cmp-text">5 000 à 15 000 MAD par shooting. Des photos que vous ne réutiliserez jamais.</p>
+        <p class="cmp-text" data-fr="5 000 à 15 000 MAD par shooting. Des photos à usage unique." data-en="5,000 to 15,000 MAD per shoot. Single-use photos.">5 000 à 15 000 MAD par shooting. Des photos à usage unique.</p>
       </div>
-      <div class="cmp-divider"></div>
       <div class="cmp-bottom">
         <div class="cmp-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+        <div class="cmp-label" data-fr="La méthode LAZXR" data-en="The LAZXR Method">La méthode LAZXR</div>
         <div class="cmp-metric">1 asset</div>
-        <div class="cmp-label" data-fr="Avec LAZXR" data-en="With LAZXR">Avec LAZXR</div>
-        <p class="cmp-text" data-fr="Un modèle 3D permanent. Visuels illimités, exports multi-canal, sans surcoût." data-en="One permanent 3D model. Unlimited visuals, multi-channel exports, no extra cost.">Un modèle 3D permanent. Visuels illimités, exports multi-canal, sans surcoût.</p>
+        <p class="cmp-text" data-fr="Un modèle 3D permanent. Visuels illimités, exports multi-canal." data-en="One permanent 3D model. Unlimited visuals, multi-channel exports.">Un modèle 3D permanent. Visuels illimités, exports multi-canal.</p>
       </div>
     </div>
 
-    <div class="cmp-card cmp-old cmp-new rv">
+    <div class="cmp-card rv">
       <div class="cmp-top">
         <div class="cmp-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <div class="cmp-label" data-fr="Méthode traditionnelle" data-en="Traditional Way">Méthode traditionnelle</div>
         <div class="cmp-metric">1 usage</div>
-        <div class="cmp-label">Photos classiques</div>
-        <p class="cmp-text">Nouvelle couleur ? Nouveau format ? Nouveau shooting. Chaque fois.</p>
+        <p class="cmp-text" data-fr="Nouvelle couleur ? Nouveau format ? Nouveau shooting. Chaque fois." data-en="New color? New format? New photoshoot. Every time.">Nouvelle couleur ? Nouveau format ? Nouveau shooting. Chaque fois.</p>
       </div>
-      <div class="cmp-divider"></div>
       <div class="cmp-bottom">
         <div class="cmp-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <div class="cmp-metric">&#8734; usages</div>
-        <div class="cmp-label">Même modèle 3D</div>
-        <p class="cmp-text">E-commerce, social, AR, essayage virtuel. Un modèle, tout est possible.</p>
+        <div class="cmp-label" data-fr="La méthode LAZXR" data-en="The LAZXR Method">La méthode LAZXR</div>
+        <div class="cmp-metric">&#8734;</div>
+        <p class="cmp-text" data-fr="E-commerce, social, AR, essayage virtuel. Un modèle, tout est possible." data-en="E-commerce, social, AR, virtual try-on. One model, everything is possible.">E-commerce, social, AR, essayage virtuel. Un modèle, tout est possible.</p>
       </div>
     </div>
 
   </div>
 
   <div class="compare-bottom rv">
-    <p>Le modèle 3D est un actif permanent. Plus vous l'utilisez, plus le coût par visuel diminue.</p>
+    <p data-fr="Le modèle 3D est un actif permanent. Plus vous l'utilisez, plus le coût par visuel diminue." data-en="The 3D model is a permanent asset. The more you use it, the lower the cost per visual.">Le modèle 3D est un actif permanent. Plus vous l'utilisez, plus le coût par visuel diminue.</p>
   </div>
 </section>
 
