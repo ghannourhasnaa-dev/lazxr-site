@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LAZXR — Modélisation 3D pour la mode marocaine</title>
 <link rel="canonical" href="https://lazxr.com/">
-<meta name="description" content="LAZXR modélise vos pièces en 3D. Un seul modèle génère vos visuels e-commerce, réseaux sociaux, essayages virtuels — sans shooting. Livraison en 48h à Casablanca.">
+<meta name="description" content="LAZXR — The Operating System for Digital Fashion. Infrastructure for Immersive Commerce and 3D Asset Management. Sell first, produce later.">
 <meta property="og:image" content="https://lazxr.com/LAZXR-Logo.png">
-<meta property="og:title" content="LAZXR — Libérez votre collection du monde physique.">
-<meta property="og:description" content="Modélisation 3D pour la mode marocaine. Visuels e-commerce en 48h, sans shooting. À partir de 400 MAD/pièce.">
+<meta property="og:title" content="LAZXR — The Operating System for Digital Fashion.">
+<meta property="og:description" content="Infrastructure for Immersive Commerce and 3D Asset Management. Sell first, produce later.">
 <meta property="og:url" content="https://lazxr.com/">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="LAZXR-Logo.png">
@@ -183,7 +183,7 @@ h1 em{font-style:italic;color:var(--gold);font-weight:400;letter-spacing:.01em}
 .gold-line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.3}
 
 /* ── PLATFORM PREVIEW ── */
-.platform-sec{padding:7rem 5vw;background:var(--ink);position:relative;overflow:hidden}
+.platform-sec{padding:9rem 5vw;background:var(--ink);position:relative;overflow:hidden}
 .platform-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 60%,rgba(184,151,106,.06),transparent 70%);pointer-events:none}
 .platform-header{text-align:center;margin-bottom:4rem;position:relative;z-index:2}
 .platform-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(184,151,106,.08);border:1px solid rgba(184,151,106,.2);padding:.4rem 1.2rem;border-radius:100px;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
@@ -357,38 +357,21 @@ h2 em{font-style:italic;color:var(--gold)}
 .rv-right.in{opacity:1;transform:translateX(0)}
 
 /* ── TARIFS ── */
-.offers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;border:1px solid var(--border);overflow:hidden}
-.o-card{display:flex;flex-direction:column;border-right:1px solid var(--border);transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s,background .3s;will-change:transform}
-.o-card:last-child{border-right:none}
-.o-card:hover{background:var(--cream2)}
-.o-card.ft{background:var(--ink);box-shadow:0 0 0 1px var(--gold-dim),0 8px 30px rgba(184,151,106,.08);position:relative}
-.o-card.ft::after{content:'';position:absolute;inset:-1px;border:1px solid var(--gold);opacity:.15;pointer-events:none;transition:opacity .4s}
-.o-card.ft:hover::after{opacity:.4}
-.o-card.ft:hover{background:var(--ink2)}
-.o-head{padding:2rem 1.6rem 1.4rem;position:relative}
-.o-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;padding:.2rem .9rem;font-weight:500}
-.o-moment{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
-.o-card.ft .o-moment{color:var(--gold2)}
-.o-name{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:.3rem}
-.o-card.ft .o-name{color:var(--cream)}
-.o-price{font-family:var(--serif);font-size:2.2rem;font-weight:400;line-height:1}
-.o-card.ft .o-price{color:var(--gold2)}
-.o-price sub{font-size:.8rem;font-family:var(--sans);font-weight:300;color:var(--muted)}
-.o-card.ft .o-price sub{color:rgba(250,248,243,.4)}
-.o-desc{font-size:.78rem;color:var(--muted);margin-top:.5rem;line-height:1.55}
-.o-card.ft .o-desc{color:rgba(250,248,243,.5)}
-.o-body{padding:1.4rem 1.6rem;flex:1;border-top:1px solid var(--border)}
-.o-card.ft .o-body{border-top-color:rgba(255,255,255,.06)}
-.o-body li{list-style:none;font-size:.8rem;padding:.45rem 0;border-bottom:1px solid rgba(184,151,106,.08);display:flex;gap:.6rem;align-items:flex-start;line-height:1.5}
-.o-card.ft .o-body li{color:rgba(250,248,243,.7);border-bottom-color:rgba(255,255,255,.05)}
-.o-body li:last-child{border-bottom:none}
-.o-body li::before{content:'\2014';color:var(--gold);font-size:.6rem;flex-shrink:0;margin-top:.35rem}
-.o-foot{padding:.8rem 1.6rem 1.8rem}
-.o-cta{display:block;text-align:center;padding:.75rem;border:1px solid var(--border);color:var(--text);text-decoration:none;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;transition:all .3s}
-.o-card.ft .o-cta{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:500}
-.o-cta:hover{border-color:var(--gold);color:var(--gold)}
-.o-card.ft .o-cta:hover{opacity:.85}
-.o-note{margin-top:1.5rem;font-size:.78rem;color:rgba(250,248,243,.4);line-height:1.7;text-align:center}
+/* ── KEY VALUE METRICS ── */
+.kv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:4rem}
+.kv-card{text-align:center;padding:3rem 2rem;border:1px solid var(--border);border-radius:2px;transition:all .5s;position:relative;overflow:hidden}
+.kv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .5s;transform-origin:left}
+.kv-card:hover::before{transform:scaleX(1)}
+.kv-card:hover{transform:translateY(-6px);box-shadow:0 16px 50px rgba(184,151,106,.1)}
+.kv-number{font-family:var(--serif);font-size:clamp(3rem,5vw,4.5rem);font-weight:400;color:var(--gold);line-height:1;margin-bottom:.8rem;letter-spacing:-.02em}
+.kv-title{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-bottom:1rem;font-weight:500}
+.kv-desc{font-size:.82rem;color:var(--muted);line-height:1.75;max-width:280px;margin:0 auto}
+
+/* ── EXPORT TARGETS ── */
+.export-row{display:flex;align-items:center;justify-content:center;gap:2rem;margin-top:2rem;padding:1rem 0;border-top:1px solid rgba(184,151,106,.06)}
+.export-tag{display:flex;align-items:center;gap:.4rem;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,248,243,.3);transition:color .3s}
+.export-tag:hover{color:var(--gold)}
+.export-tag svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5}
 
 /* ── CAS CLIENT (DARK) ── */
 .case-numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3rem;border:1px solid rgba(184,151,106,.15);overflow:hidden}
@@ -503,7 +486,7 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   .text-overlay.pos-sleeve{font-size:.7rem}
 
   /* Other sections mobile */
-  .compare-cards,.case-body,.contact-layout{grid-template-columns:1fr}
+  .compare-cards,.kv-grid,.case-body,.contact-layout{grid-template-columns:1fr}
   .timeline{padding-left:2.5rem}
   .timeline::before,.timeline-fill{left:16px}
   .tl-step,.tl-step:nth-child(even){padding-left:3rem;padding-right:0;flex-direction:row;text-align:left;margin-left:0;width:auto;transform:translateY(30px)}
@@ -512,8 +495,9 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   .tl-step:nth-child(even) .tl-body{align-items:flex-start}
   .tl-icon{width:52px;height:52px}
   .tl-icon svg{width:22px;height:22px}
-  .offers-grid{grid-template-columns:1fr}
-  .o-card{border-right:none;border-bottom:1px solid var(--border)}
+  .kv-grid{grid-template-columns:1fr}
+  .kv-number{font-size:3rem}
+  .export-row{flex-wrap:wrap;gap:.8rem}
   footer{grid-template-columns:1fr}
   h2{font-size:28px}
   .cf-submit{width:100%;text-align:center;justify-content:center}
@@ -570,9 +554,9 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   <div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#methode" class="nav-link" data-fr="Méthode" data-en="Method">Méthode</a></li>
-    <li><a href="#offres" class="nav-link" data-fr="Accès" data-en="Access">Accès</a></li>
+    <li><a href="#offres" class="nav-link" data-fr="Impact" data-en="Impact">Impact</a></li>
     <li><a href="#platform" class="nav-link" data-fr="Plateforme" data-en="Platform">Plateforme</a></li>
-    <li><a href="#contact" class="nav-link nav-cta-link" data-fr="Contact" data-en="Contact">Contact</a></li>
+    <li><a href="#contact" class="nav-link nav-cta-link" data-fr="Accès anticipé" data-en="Early Access">Accès anticipé</a></li>
     <li><button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">EN</button></li>
   </ul>
 </nav>
@@ -580,17 +564,17 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 <!-- ① HERO (DARK) -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag" data-fr="Modélisation 3D · Mode &amp; Textile · Maroc" data-en="3D Modeling · Fashion &amp; Textile · Morocco">Modélisation 3D · Mode &amp; Textile · Maroc</div>
-    <h1 data-fr="Libérez votre collection<br><em>du monde</em><br>physique." data-en="Unleash your collection<br><em>from the</em><br>physical world.">Libérez votre collection<br><em>du monde</em><br>physique.</h1>
-    <p class="hero-sub" data-fr="Créez vos <strong>jumeaux numériques 3D</strong> haute fidélité. Un seul asset pour vos shootings, votre e-commerce immersif et le futur de la vente en ligne. Zéro shooting, infini de contenus." data-en="Create your high-fidelity <strong>3D digital twins</strong>. A single asset for your photoshoots, immersive e-commerce, and the future of online retail. Zero photoshoots, infinite content.">Créez vos <strong>jumeaux numériques 3D</strong> haute fidélité. Un seul asset pour vos shootings, votre e-commerce immersif et le futur de la vente en ligne. Zéro shooting, infini de contenus.</p>
+    <div class="hero-tag" data-fr="Infrastructure 3D · Fashion Tech · Maroc" data-en="3D Infrastructure · Fashion Tech · Morocco">Infrastructure 3D · Fashion Tech · Maroc</div>
+    <h1 data-fr="Le système d'exploitation<br><em>de la mode</em><br>numérique." data-en="The Operating System<br><em>for Digital</em><br>Fashion.">Le système d'exploitation<br><em>de la mode</em><br>numérique.</h1>
+    <p class="hero-sub" data-fr="L'infrastructure du commerce immersif et de la gestion d'actifs 3D. <strong>Vendez d'abord, produisez après.</strong>" data-en="Infrastructure for Immersive Commerce and 3D Asset Management. <strong>Sell first, produce later.</strong>">L'infrastructure du commerce immersif et de la gestion d'actifs 3D. <strong>Vendez d'abord, produisez après.</strong></p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-p" data-fr="Digitalisez ma collection →" data-en="Digitize my collection →">Digitalisez ma collection →</a>
-      <a href="#offres" class="btn-g" data-fr="Voir l'investissement" data-en="See investment plans">Voir l'investissement</a>
+      <a href="#contact" class="btn-p" data-fr="Demander un accès anticipé →" data-en="Request Early Access →">Demander un accès anticipé →</a>
+      <a href="#platform" class="btn-g" data-fr="Découvrir la plateforme" data-en="Explore the platform">Découvrir la plateforme</a>
     </div>
     <div class="hero-stats">
-      <div><div class="cn-val" data-target="1" data-suffix="">0</div><div class="hs-label" data-fr="asset digital permanent" data-en="permanent digital asset">asset digital permanent</div></div>
-      <div><div class="hs-num" style="opacity:0;animation:none" id="infinityStat">∞</div><div class="hs-label" data-fr="déclinaisons de contenus" data-en="content variations">déclinaisons de contenus</div></div>
-      <div><div class="cn-val" data-target="48" data-suffix="h">0</div><div class="hs-label" data-fr="time-to-market" data-en="time-to-market">time-to-market</div></div>
+      <div><div class="cn-val" data-target="1" data-suffix="">0</div><div class="hs-label" data-fr="infrastructure digitale" data-en="digital infrastructure">infrastructure digitale</div></div>
+      <div><div class="hs-num" style="opacity:0;animation:none" id="infinityStat">∞</div><div class="hs-label" data-fr="exports multi-canal" data-en="multi-channel exports">exports multi-canal</div></div>
+      <div><div class="cn-val" data-target="0" data-suffix="">0</div><div class="hs-label" data-fr="échantillons physiques" data-en="physical samples">échantillons physiques</div></div>
     </div>
   </div>
   <div class="hero-right">
@@ -609,8 +593,10 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
         src="./DG100218.glb"
         camera-controls
         auto-rotate
+        interaction-prompt="auto"
         rotation-per-second="14deg"
-        shadow-intensity="0.6"
+        shadow-intensity="1"
+        shadow-softness="0.8"
         exposure="1.2"
         camera-orbit="30deg 75deg 2.5m"
         min-camera-orbit="auto auto 1.5m"
@@ -779,9 +765,9 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
     <div class="cs-dot"></div>
     <div class="cs-item">couleurs illimitées</div>
     <div class="cs-dot"></div>
-    <div class="cs-item">0 shooting</div>
+    <div class="cs-item">0 échantillon</div>
     <div class="cs-dot"></div>
-    <div class="cs-item">+40% conversion</div>
+    <div class="cs-item">multi-channel export</div>
   </div>
 </div>
 
@@ -821,9 +807,9 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
       <div class="cmp-divider"></div>
       <div class="cmp-bottom">
         <div class="cmp-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
-        <div class="cmp-metric">400 dh</div>
-        <div class="cmp-label">Par pièce avec LAZXR</div>
-        <p class="cmp-text">Un modèle 3D permanent. Visuels illimités sans surcoût.</p>
+        <div class="cmp-metric">1 asset</div>
+        <div class="cmp-label" data-fr="Avec LAZXR" data-en="With LAZXR">Avec LAZXR</div>
+        <p class="cmp-text" data-fr="Un modèle 3D permanent. Visuels illimités, exports multi-canal, sans surcoût." data-en="One permanent 3D model. Unlimited visuals, multi-channel exports, no extra cost.">Un modèle 3D permanent. Visuels illimités, exports multi-canal, sans surcoût.</p>
       </div>
     </div>
 
@@ -902,31 +888,26 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   </div>
 </section>
 
-<!-- ④ TARIFS (CREAM2) -->
+<!-- ④ KEY VALUE (CREAM2) -->
 <section class="sec sec--cream2" id="offres">
-  <div class="s-tag rv" data-fr="Investissement" data-en="Investment">Investissement</div>
-  <h2 class="rv" data-fr="Choisissez votre <em>point d'entrée.</em>" data-en="Choose your <em>entry point.</em>">Choisissez votre <em>point d'entrée.</em></h2>
-  <p class="rv" style="color:var(--muted);font-size:.88rem;margin-top:.6rem;max-width:520px;line-height:1.8">Chaque offre inclut le modèle 3D — un actif permanent, propriété de votre marque. Plus vous l'utilisez, plus le retour sur investissement augmente.</p>
-  <div class="offers-grid rv">
-    <div class="o-card">
-      <div class="o-head"><div class="o-moment">Découverte</div><div class="o-name">LAZXR Start</div><div class="o-price">400<sub> MAD / pièce</sub></div><div class="o-desc">Testez la 3D sur 1 à 3 pièces.</div></div>
-      <ul class="o-body"><li>1 modèle 3D par pièce</li><li>3 visuels e-commerce</li><li>Fichier 3D livré — il est à vous</li><li>Livraison en 48h</li></ul>
-      <div class="o-foot"><a href="#contact" class="o-cta">Tester sur 1 pièce →</a></div>
+  <div class="s-tag rv" data-fr="Impact mesurable" data-en="Measurable Impact">Impact mesurable</div>
+  <h2 class="rv" data-fr="Les chiffres qui changent<br><em>les décisions.</em>" data-en="The numbers that change<br><em>decisions.</em>">Les chiffres qui changent<br><em>les décisions.</em></h2>
+
+  <div class="kv-grid rv">
+    <div class="kv-card">
+      <div class="kv-number">+40%</div>
+      <div class="kv-title" data-fr="Taux de conversion" data-en="Conversion Rate">Taux de conversion</div>
+      <p class="kv-desc" data-fr="Les visuels 3D interactifs augmentent l'engagement et les ventes en ligne par rapport aux photos classiques." data-en="Interactive 3D visuals increase engagement and online sales compared to traditional photography.">Les visuels 3D interactifs augmentent l'engagement et les ventes en ligne par rapport aux photos classiques.</p>
     </div>
-    <div class="o-card ft">
-      <div class="o-head"><div class="o-badge">Marques</div><div class="o-moment">Lancement collection</div><div class="o-name">LAZXR Collection</div><div class="o-price">3 500<sub> MAD</sub></div><div class="o-desc">Lancez votre collection complète.</div></div>
-      <ul class="o-body"><li>5 modèles 3D</li><li>20 visuels produits</li><li>Mises en scène lifestyle</li><li>Déclinaisons couleurs + social</li></ul>
-      <div class="o-foot"><a href="#contact" class="o-cta">Lancer ma collection →</a></div>
+    <div class="kv-card">
+      <div class="kv-number">-55%</div>
+      <div class="kv-title" data-fr="Taux de retour" data-en="Return Rate">Taux de retour</div>
+      <p class="kv-desc" data-fr="La visualisation 3D et l'essayage virtuel réduisent drastiquement les retours produits." data-en="3D visualization and virtual try-on drastically reduce product returns.">La visualisation 3D et l'essayage virtuel réduisent drastiquement les retours produits.</p>
     </div>
-    <div class="o-card">
-      <div class="o-head"><div class="o-moment">Production continue</div><div class="o-name">LAZXR Studio</div><div class="o-price">4 500<sub> MAD / mois</sub></div><div class="o-desc">Du contenu chaque mois.</div></div>
-      <ul class="o-body"><li>2 modèles 3D / mois</li><li>20 visuels marketing</li><li>Priorité production</li><li>Support créatif continu</li></ul>
-      <div class="o-foot"><a href="#contact" class="o-cta">Démarrer le studio →</a></div>
-    </div>
-    <div class="o-card">
-      <div class="o-head"><div class="o-moment">Partenariat</div><div class="o-name">Programme Atelier</div><div class="o-price">Sur<sub> demande</sub></div><div class="o-desc">3D intégrée à votre R&D.</div></div>
-      <ul class="o-body"><li>Prototypage virtuel</li><li>Simulation textile</li><li>Pipeline 3D sur mesure</li><li>Partenariat long terme</li></ul>
-      <div class="o-foot"><a href="#contact" class="o-cta">Discutons-en →</a></div>
+    <div class="kv-card">
+      <div class="kv-number">0</div>
+      <div class="kv-title" data-fr="Échantillons physiques" data-en="Physical Samples">Échantillons physiques</div>
+      <p class="kv-desc" data-fr="Prototypez, testez et vendez virtuellement avant de produire le moindre vêtement." data-en="Prototype, test, and sell virtually before producing a single garment.">Prototypez, testez et vendez virtuellement avant de produire le moindre vêtement.</p>
     </div>
   </div>
 </section>
@@ -935,8 +916,8 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 <section class="platform-sec" id="platform">
   <div class="platform-header rv">
     <div class="platform-badge"><span class="platform-badge-dot"></span> Coming 2026</div>
-    <h2 data-fr="Bienvenue dans l'ère de<br><em>l'E-commerce Spatial.</em>" data-en="Welcome to the era of<br><em>Spatial E-commerce.</em>">Bienvenue dans l'ère de<br><em>l'E-commerce Spatial.</em></h2>
-    <p data-fr="LAZXR n'est pas qu'un studio. C'est votre futur dashboard de gestion d'actifs 3D. Du patronnage à l'essayage en réalité augmentée, nous construisons le système d'exploitation de la mode marocaine." data-en="LAZXR isn't just a studio. It's your future 3D asset management dashboard. From pattern-making to AR try-on, we're building the operating system for Moroccan fashion.">LAZXR n'est pas qu'un studio. C'est votre futur dashboard de gestion d'actifs 3D. Du patronnage à l'essayage en réalité augmentée, nous construisons le système d'exploitation de la mode marocaine.</p>
+    <h2 data-fr="Votre dashboard<br><em>d'actifs 3D.</em>" data-en="Your 3D Asset<br><em>Management Dashboard.</em>">Votre dashboard<br><em>d'actifs 3D.</em></h2>
+    <p data-fr="LAZXR n'est pas un studio. C'est une infrastructure. Gérez vos collections 3D et exportez vers Shopify, Instagram AR, Roblox ou Unreal Engine — depuis un seul dashboard." data-en="LAZXR isn't a studio. It's infrastructure. Manage your 3D collections and export to Shopify, Instagram AR, Roblox, or Unreal Engine — from a single dashboard.">LAZXR n'est pas un studio. C'est une infrastructure. Gérez vos collections 3D et exportez vers Shopify, Instagram AR, Roblox ou Unreal Engine — depuis un seul dashboard.</p>
   </div>
 
   <div class="platform-pipeline rv">
@@ -1092,6 +1073,12 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
           <span class="pm-stat"><strong>1,420</strong> visuels generes</span>
           <span class="pm-stat"><strong>12 min</strong> par visuel</span>
         </div>
+        <div class="export-row">
+          <div class="export-tag"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg> Shopify</div>
+          <div class="export-tag"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg> Instagram AR</div>
+          <div class="export-tag"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg> Roblox</div>
+          <div class="export-tag"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg> Unreal Engine</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1111,17 +1098,16 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
 
 <!-- ⑦ CONTACT (CREAM) -->
 <section class="sec sec--cream" id="contact">
-  <div class="s-tag rv" data-fr="Contact" data-en="Get in touch">Contact</div>
-  <h2 class="rv" data-fr="Prêt à digitaliser<br><em>votre collection ?</em>" data-en="Ready to digitize<br><em>your collection?</em>">Prêt à digitaliser<br><em>votre collection ?</em></h2>
+  <div class="s-tag rv" data-fr="Accès anticipé" data-en="Early Access">Accès anticipé</div>
+  <h2 class="rv" data-fr="Rejoignez les marques qui<br><em>construisent demain.</em>" data-en="Join the brands<br><em>building tomorrow.</em>">Rejoignez les marques qui<br><em>construisent demain.</em></h2>
   <div class="contact-layout rv">
     <div class="c-info">
-      <h3>Envoyez-nous une pièce. On la modélise, on génère 3 visuels, et vous décidez.</h3>
-      <p>48h, zéro engagement. Vous gardez les visuels et le modèle 3D quoi qu'il arrive.</p>
+      <h3 data-fr="Accédez en avant-première à la plateforme LAZXR. Places limitées." data-en="Get early access to the LAZXR platform. Limited spots.">Accédez en avant-première à la plateforme LAZXR. Places limitées.</h3>
+      <p data-fr="Nous sélectionnons nos premiers partenaires. Si vous êtes une marque marocaine prête à digitaliser sa collection, parlons-en." data-en="We're selecting our first partners. If you're a brand ready to digitize your collection, let's talk.">Nous sélectionnons nos premiers partenaires. Si vous êtes une marque marocaine prête à digitaliser sa collection, parlons-en.</p>
       <div class="c-pills">
-        <div class="c-pill"><div class="c-pill-text"><strong>Localisation</strong>Casablanca, Maroc — projets nationwide</div></div>
-        <div class="c-pill"><div class="c-pill-text"><strong>Délai</strong>Réponse sous 24h, livraison en 48h</div></div>
-        <div class="c-pill"><div class="c-pill-text"><strong>Téléphone</strong><a href="tel:+212646634420">+212 6 46 63 44 20</a></div></div>
-        <div class="c-pill"><div class="c-pill-text"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#bfdcd0d1cbdedccbffd3dec5c7cd91dcd0d2"><span class="__cf_email__" data-cfemail="fa9995948e9b998eba969b808288d4999597">[email&#160;protected]</span></a></div></div>
+        <div class="c-pill"><div class="c-pill-text"><strong>Localisation</strong>Casablanca, Maroc</div></div>
+        <div class="c-pill"><div class="c-pill-text"><strong>GITEX Africa</strong>Marrakech, 7-9 Avril 2026</div></div>
+        <div class="c-pill"><div class="c-pill-text"><strong>Email</strong><a href="mailto:hasnaa@lazxr.com">hasnaa@lazxr.com</a></div></div>
       </div>
     </div>
     <form class="c-form" onsubmit="handleSubmit(event)">
@@ -1129,21 +1115,21 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
         <div class="cf-g"><label class="cf-l">Nom</label><input type="text" class="cf-i" placeholder="Votre nom" required></div>
         <div class="cf-g"><label class="cf-l">Email</label><input type="email" class="cf-i" placeholder="email@marque.ma" required></div>
       </div>
-      <div class="cf-g"><label class="cf-l">Nom de votre marque</label><input type="text" class="cf-i" placeholder="Ex : Maison Dar, Studio Kaftan..."></div>
-      <div class="cf-g"><label class="cf-l">Offre souhaitée</label>
-        <select class="cf-s"><option value="">Choisir une offre</option><option>LAZXR Start — 400 MAD / pièce</option><option>LAZXR Collection — 3 500 MAD</option><option>LAZXR Studio — 4 500 MAD / mois</option><option>Programme Atelier — partenariat</option><option>Projet sur mesure</option></select>
+      <div class="cf-g"><label class="cf-l">Marque / Entreprise</label><input type="text" class="cf-i" placeholder="Nom de votre marque"></div>
+      <div class="cf-g"><label class="cf-l">Votre besoin</label>
+        <select class="cf-s"><option value="">Sélectionner</option><option>Accès anticipé à la plateforme</option><option>Partenariat technologique</option><option>Investissement</option><option>Autre</option></select>
       </div>
-      <div class="cf-g"><label class="cf-l">Décrivez votre projet</label><textarea class="cf-t" placeholder="Quelles pièces souhaitez-vous modéliser ? Combien ? Pour quel usage ?"></textarea></div>
-      <button type="submit" class="cf-submit" data-fr="Digitaliser ma collection →" data-en="Digitize my collection →">Digitaliser ma collection →</button>
+      <div class="cf-g"><label class="cf-l">Message</label><textarea class="cf-t" placeholder="Décrivez votre projet ou votre intérêt pour LAZXR"></textarea></div>
+      <button type="submit" class="cf-submit" data-fr="Demander un accès →" data-en="Request access →">Demander un accès →</button>
     </form>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div><div class="f-logo"><img src="lazxr-logo-white.png" alt="LAZXR" class="footer-logo"></div><div class="f-desc">Infrastructure digitale pour la mode marocaine.<br>Libérez votre collection du monde physique.</div></div>
-  <div class="f-col"><h5>Accès</h5><a href="#offres">LAZXR Start</a><a href="#offres">LAZXR Collection</a><a href="#offres">LAZXR Studio</a><a href="#offres">Programme Atelier</a></div>
-  <div class="f-col"><h5>Contact</h5><a href="#contact">Digitaliser ma collection</a><a href="/cdn-cgi/l/email-protection#b2d1dddcc6d3d1c6f2ded3c8cac09cd1dddf"><span class="__cf_email__" data-cfemail="d7b4b8b9a3b6b4a397bbb6adafa5f9b4b8ba">[email&#160;protected]</span></a><a href="tel:+212646634420">+212 6 46 63 44 20</a><a href="https://www.linkedin.com/company/lazxr/" target="_blank" rel="noopener">LinkedIn →</a></div>
+  <div><div class="f-logo"><img src="lazxr-logo-white.png" alt="LAZXR" class="footer-logo"></div><div class="f-desc">The Operating System for Digital Fashion.<br>Infrastructure for Immersive Commerce.</div></div>
+  <div class="f-col"><h5>Platform</h5><a href="#methode">How it works</a><a href="#offres">Impact</a><a href="#platform">Dashboard</a></div>
+  <div class="f-col"><h5>Contact</h5><a href="#contact">Request Early Access</a><a href="mailto:hasnaa@lazxr.com">hasnaa@lazxr.com</a><a href="tel:+212646634420">+212 6 46 63 44 20</a><a href="https://www.linkedin.com/company/lazxr/" target="_blank" rel="noopener">LinkedIn</a></div>
 </footer>
 <div class="f-bottom"><p>© 2026 LAZXR · Casablanca, Maroc</p><p>Conçu pour les marques mode marocaines.</p></div>
 
@@ -1507,20 +1493,21 @@ if (infStat) {
   infObs.observe(infStat);
 }
 
-// ── Pricing Card Tilt Effect ──
-document.querySelectorAll('.o-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
-    card.style.boxShadow = `${-x * 15}px ${15 + y * 10}px 40px rgba(184,151,106,.12)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.boxShadow = '';
-  });
-});
+// ── Scroll-triggered 3D Model Rotation ──
+const mvScroll = document.getElementById('mv');
+if (mvScroll) {
+  let lastScroll = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const delta = window.scrollY - lastScroll;
+    lastScroll = window.scrollY;
+    const rect = mvScroll.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const orbit = mvScroll.getCameraOrbit();
+      orbit.theta += delta * 0.15;
+      mvScroll.cameraOrbit = `${orbit.theta}deg ${orbit.phi}deg ${orbit.radius}m`;
+    }
+  }, { passive: true });
+}
 
 // ── FR/EN Language Toggle ──
 let currentLang = 'fr';
