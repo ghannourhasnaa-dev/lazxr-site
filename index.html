@@ -82,7 +82,7 @@ h1 em{font-style:italic;color:var(--gold);font-weight:400;letter-spacing:.01em}
 /* 3D Configurator */
 .hero-right{position:relative;z-index:2;opacity:0;animation:fadeUp 1s .5s forwards;display:flex;flex-direction:column;gap:0}
 .product-bar{display:flex;gap:.5rem;margin-bottom:0}
-.product-btn{flex:1;display:flex;align-items:center;gap:.5rem;padding:.6rem .8rem;background:rgba(255,255,255,.03);border:1px solid rgba(184,151,106,.12);border-bottom:none;cursor:pointer;transition:all .3s}
+.product-btn{flex:0 1 auto;display:flex;align-items:center;gap:.5rem;padding:.6rem .8rem;background:rgba(255,255,255,.03);border:1px solid rgba(184,151,106,.12);border-bottom:none;cursor:pointer;transition:all .3s}
 .product-btn:hover{border-color:rgba(184,151,106,.3);background:rgba(184,151,106,.05)}
 .product-btn.active{border-color:var(--gold);background:rgba(184,151,106,.08)}
 .product-btn-icon{width:28px;height:28px;border-radius:50%;background:rgba(184,151,106,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -597,11 +597,11 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
     <div class="product-bar">
       <button class="product-btn active" onclick="switchProduct('polo', this)">
         <div class="product-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16"/><path d="M12 3v6"/><path d="M8 3l4 3 4-3"/></svg></div>
-        <div class="product-btn-text"><span class="product-btn-name">Polo</span><span class="product-btn-type">Piqué coton · 39 matériaux</span></div>
+        <div class="product-btn-text"><span class="product-btn-name">Polo</span></div>
       </button>
       <button class="product-btn" onclick="switchProduct('hoodie', this)">
         <div class="product-btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 4 5 4 9v12h16V9c0-4-4-7-8-7z"/><path d="M8 22v-5a4 4 0 018 0v5"/><circle cx="12" cy="10" r="2"/></svg></div>
-        <div class="product-btn-text"><span class="product-btn-name">Sweat</span><span class="product-btn-type">Hoodie fin · 1 matériau</span></div>
+        <div class="product-btn-text"><span class="product-btn-name">Sweat</span></div>
       </button>
     </div>
     <div class="model-container">
