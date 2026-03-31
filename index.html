@@ -1499,17 +1499,19 @@ if (infStat) {
 
 // ── Scroll-triggered 3D Model Rotation ──
 (function() {
-  const mv = document.getElementById('mv');
+  var mv = document.getElementById('mv');
   if (!mv) return;
-  let angle = 0;
-  let lastY = window.scrollY;
+  var baseAngle = 0;
+  var lastScrollY = window.scrollY;
+  var scrolling = false;
   window.addEventListener('scroll', function() {
-    var delta = window.scrollY - lastY;
-    lastY = window.scrollY;
+    var delta = window.scrollY - lastScrollY;
+    lastScrollY = window.scrollY;
     var rect = mv.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
-      angle += delta * 0.12;
-      mv.cameraOrbit = angle + 'deg 85deg 2.5m';
+      if (!scrolling) { mv.removeAttribute('auto-rotate'); scrolling = true; }
+      baseAngle += delta * 0.15;
+      mv.setAttribute('camera-orbit', baseAngle + 'deg 85deg auto');
     }
   }, { passive: true });
 })();
