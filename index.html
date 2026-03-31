@@ -297,7 +297,7 @@ h2 em{font-style:italic;color:var(--gold)}
 .sec--dark h2{color:#FFFFFF}
 .sec--cream h2,.sec--cream2 h2{color:#FFFFFF}
 
-/* ── BENTO GRID — INDUSTRIAL PERFORMANCE ── */
+/* ── IMPACT CARDS ── */
 .sc-sec{background:radial-gradient(ellipse 60% 50% at 50% 40%,#1A1A1A,#0A0A0A);padding:8rem 5vw;position:relative;overflow:hidden}
 .sc-sec::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,151,106,.15),transparent)}
 .sc-header{text-align:center;max-width:700px;margin:0 auto 4.5rem}
@@ -305,31 +305,41 @@ h2 em{font-style:italic;color:var(--gold)}
 .sc-header h2 em{color:var(--gold);font-style:italic;font-weight:400}
 .sc-header p{color:rgba(250,248,243,.4);font-size:.85rem;margin-top:1rem;line-height:1.8}
 
-.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1100px;margin:0 auto}
-.bento-card{background:rgba(13,13,13,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(184,151,106,.4);border-radius:16px;padding:2.2rem 2rem;position:relative;overflow:hidden;transition:all .5s cubic-bezier(.25,.8,.25,1)}
-.bento-card:hover{border-color:rgba(255,255,255,.6);box-shadow:0 0 40px rgba(184,151,106,.12),0 0 80px rgba(184,151,106,.06)}
-.bento-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .5s}
-.bento-card:hover::before{opacity:1}
-.bento-wide{grid-column:span 2}
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1100px;margin:0 auto}
+.impact-wide{grid-column:span 2}
 
-.bc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;background:rgba(184,151,106,.08);border:1px solid rgba(184,151,106,.2)}
-.bc-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5}
+/* ── Card Shell ── */
+.ic{background:rgba(13,13,13,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(184,151,106,.15);border-radius:16px;position:relative;overflow:hidden;transition:all .5s cubic-bezier(.25,.8,.25,1);cursor:default}
+.ic:hover{border-color:rgba(255,255,255,.5);box-shadow:0 0 50px rgba(184,151,106,.1),0 0 100px rgba(184,151,106,.04)}
 
-.bc-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:#FFFFFF;line-height:1.2;margin-bottom:.3rem;letter-spacing:-.02em}
-.bc-pivot{font-family:var(--sans);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
-.bc-pivot .bc-arrow{color:rgba(184,151,106,.5)}
+/* ── Card Title ── */
+.ic-head{padding:1.6rem 2rem .8rem;display:flex;align-items:center;gap:.8rem}
+.ic-head-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(184,151,106,.08);border:1px solid rgba(184,151,106,.2);flex-shrink:0}
+.ic-head-icon svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.ic-head-title{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#FFFFFF;letter-spacing:-.02em;line-height:1.2}
 
-.bc-legacy{margin-bottom:1rem}
-.bc-legacy-label{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:#4A4A4A;margin-bottom:.4rem;font-weight:500}
-.bc-legacy-text{font-size:.78rem;color:#4A4A4A;line-height:1.6}
+/* ── The Friction (top zone) ── */
+.ic-friction{padding:.6rem 2rem 1rem;display:flex;align-items:center;gap:.8rem;opacity:1;transition:opacity .4s,transform .4s}
+.ic:hover .ic-friction{opacity:.3;transform:translateY(-4px)}
+.ic-friction-icon{width:24px;height:24px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.ic-friction-icon svg{width:14px;height:14px;stroke:#4A4A4A;fill:none;stroke-width:1.5}
+.ic-friction-text{font-size:.72rem;color:#4A4A4A;letter-spacing:.04em}
 
-.bc-lazxr{margin-bottom:1.2rem}
-.bc-lazxr-label{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:500}
-.bc-lazxr-text{font-size:.82rem;color:#FFFFFF;line-height:1.65;font-weight:300}
+/* ── Gold divider ── */
+.ic-divider{height:1px;margin:0 2rem;background:linear-gradient(90deg,transparent,rgba(184,151,106,.35),transparent)}
 
-.bc-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .8rem;background:rgba(184,151,106,.08);border:1px solid rgba(184,151,106,.15);border-radius:8px}
-.bc-badge-val{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--gold)}
-.bc-badge-label{font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,248,243,.35)}
+/* ── The Impact (bottom zone) ── */
+.ic-impact{padding:1rem 2rem .5rem;opacity:.85;transition:opacity .4s,transform .4s}
+.ic:hover .ic-impact{opacity:1;transform:translateY(-2px)}
+.ic-impact-text{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:#FFFFFF;line-height:1.35;letter-spacing:-.01em}
+.ic-impact-sub{font-size:.75rem;color:rgba(250,248,243,.45);margin-top:.3rem;line-height:1.6}
+
+/* ── Progress Bar ── */
+.ic-bar-area{padding:.6rem 2rem 1.6rem;display:flex;align-items:center;gap:.8rem}
+.ic-bar{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden;position:relative}
+.ic-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,rgba(184,151,106,.4),var(--gold));transition:width 1.2s cubic-bezier(.22,1,.36,1);width:0}
+.ic.visible .ic-bar-fill{width:var(--bar)}
+.ic-bar-val{font-family:var(--serif);font-size:.85rem;font-weight:600;color:var(--gold);min-width:48px;text-align:right;letter-spacing:-.01em}
 
 /* ── 4 STEPS ── */
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
@@ -508,7 +518,7 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   .text-overlay.pos-sleeve{font-size:.7rem}
 
   /* Other sections mobile */
-  .bento,.kv-grid,.case-body,.contact-layout{grid-template-columns:1fr}
+  .impact-grid,.kv-grid,.case-body,.contact-layout{grid-template-columns:1fr}
   .timeline{padding-left:2.5rem}
   .timeline::before,.timeline-fill{left:16px}
   .tl-step,.tl-step:nth-child(even){padding-left:3rem;padding-right:0;flex-direction:row;text-align:left;margin-left:0;width:auto;transform:translateY(30px)}
@@ -540,8 +550,8 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   .bv-sec{padding:5rem 5vw}
   .bv-grid{grid-template-columns:1fr}
   .bv-subtitle{margin-bottom:2.5rem}
-  .bento{grid-template-columns:1fr}
-  .bento-wide{grid-column:span 1}
+  .impact-grid{grid-template-columns:1fr}
+  .impact-wide{grid-column:span 1}
   .sc-sec{padding:5rem 5vw}
 }
 @media(max-width:480px){
@@ -816,134 +826,118 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   </div>
 </div>
 
-<!-- ② INDUSTRIAL PERFORMANCE GRID -->
+<!-- ② IMPACT CARDS -->
 <section class="sc-sec">
   <div class="sc-header rv">
     <div class="s-tag" data-fr="Performance industrielle" data-en="Industrial Performance">Performance industrielle</div>
     <h2 data-fr="L'infrastructure qui transforme<br><em>votre chaine de valeur.</em>" data-en="The infrastructure that transforms<br><em>your value chain.</em>">L'infrastructure qui transforme<br><em>votre chaine de valeur.</em></h2>
-    <p data-fr="5 leviers strategiques. De la sous-traitance passive a l'avantage competitif numerique." data-en="5 strategic levers. From passive subcontracting to digital competitive advantage.">5 leviers strategiques. De la sous-traitance passive a l'avantage competitif numerique.</p>
+    <p data-fr="5 leviers de performance. Du gris au dore, le contraste parle de lui-meme." data-en="5 performance levers. From grey to gold, the contrast speaks for itself.">5 leviers de performance. Du gris au dore, le contraste parle de lui-meme.</p>
   </div>
 
-  <div class="bento rv">
+  <div class="impact-grid rv">
 
-    <!-- Card 1: Strategic Pivot -->
-    <div class="bento-card">
-      <div class="bc-icon">
-        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+    <!-- Card 1: Own the Design -->
+    <div class="ic">
+      <div class="ic-head">
+        <div class="ic-head-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <div class="ic-head-title" data-fr="Own the Design" data-en="Own the Design">Own the Design</div>
       </div>
-      <div class="bc-title" data-fr="Pivot strategique" data-en="Strategic Pivot">Pivot strategique</div>
-      <div class="bc-pivot">
-        <span data-fr="Sous-traitant" data-en="Sub-contractor">Sous-traitant</span>
-        <span class="bc-arrow">&#8594;</span>
-        <span data-fr="Co-createur" data-en="Co-creator">Co-createur</span>
+      <div class="ic-friction">
+        <div class="ic-friction-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <span class="ic-friction-text" data-fr="Sous-traitant passif. Attente des ordres CMT." data-en="Passive subcontractor. Waiting for CMT orders.">Sous-traitant passif. Attente des ordres CMT.</span>
       </div>
-      <div class="bc-legacy">
-        <div class="bc-legacy-label">Legacy</div>
-        <div class="bc-legacy-text" data-fr="Attente passive des ordres (CMT). Dependance totale au donneur d'ordre." data-en="Passive order-taking (CMT). Total dependency on the brand.">Attente passive des ordres (CMT). Dependance totale au donneur d'ordre.</div>
+      <div class="ic-divider"></div>
+      <div class="ic-impact">
+        <div class="ic-impact-text" data-fr="Design-as-a-Service" data-en="Design-as-a-Service">Design-as-a-Service</div>
+        <div class="ic-impact-sub" data-fr="Catalogue 3D interactif avant production. Devenez co-createur." data-en="Interactive 3D catalog before production. Become a co-creator.">Catalogue 3D interactif avant production. Devenez co-createur.</div>
       </div>
-      <div class="bc-lazxr">
-        <div class="bc-lazxr-label">LAZXR</div>
-        <div class="bc-lazxr-text" data-fr="Vendez du Design-as-a-Service. Catalogue 3D interactif avant production." data-en="Sell Design-as-a-Service. Interactive 3D catalog before production.">Vendez du Design-as-a-Service. Catalogue 3D interactif avant production.</div>
-      </div>
-      <div class="bc-badge">
-        <span class="bc-badge-val">DaaS</span>
-        <span class="bc-badge-label" data-fr="Nouveau modele" data-en="New model">Nouveau modele</span>
+      <div class="ic-bar-area">
+        <div class="ic-bar"><div class="ic-bar-fill" style="--bar:95%"></div></div>
+        <span class="ic-bar-val">DaaS</span>
       </div>
     </div>
 
-    <!-- Card 2: Time Velocity -->
-    <div class="bento-card">
-      <div class="bc-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <!-- Card 2: Real-Time Speed -->
+    <div class="ic">
+      <div class="ic-head">
+        <div class="ic-head-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="ic-head-title" data-fr="Real-Time Speed" data-en="Real-Time Speed">Real-Time Speed</div>
       </div>
-      <div class="bc-title" data-fr="Velocite temporelle" data-en="Time Velocity">Velocite temporelle</div>
-      <div class="bc-pivot">
-        <span>15 jours</span>
-        <span class="bc-arrow">&#8594;</span>
-        <span>Minutes</span>
+      <div class="ic-friction">
+        <div class="ic-friction-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <span class="ic-friction-text" data-fr="15 jours d'echantillonnage. DHL. Delais incompressibles." data-en="15 days sampling. DHL. Irreducible delays.">15 jours d'echantillonnage. DHL. Delais incompressibles.</span>
       </div>
-      <div class="bc-legacy">
-        <div class="bc-legacy-label">Legacy</div>
-        <div class="bc-legacy-text" data-fr="Echantillonnage physique & DHL. 15-20 jours de delai incompressible." data-en="Physical sampling & DHL. 15-20 days of irreducible delay.">Echantillonnage physique & DHL. 15-20 jours de delai incompressible.</div>
+      <div class="ic-divider"></div>
+      <div class="ic-impact">
+        <div class="ic-impact-text" data-fr="Validation instantanee" data-en="Instant Validation">Validation instantanee</div>
+        <div class="ic-impact-sub" data-fr="Approbation numerique certifiee. Zero logistique." data-en="Certified digital approval. Zero logistics.">Approbation numerique certifiee. Zero logistique.</div>
       </div>
-      <div class="bc-lazxr">
-        <div class="bc-lazxr-label">LAZXR</div>
-        <div class="bc-lazxr-text" data-fr="Validation numerique certifiee instantanee. Zero delai logistique." data-en="Instant certified digital validation. Zero logistics delay.">Validation numerique certifiee instantanee. Zero delai logistique.</div>
-      </div>
-      <div class="bc-badge">
-        <span class="bc-badge-val">+300%</span>
-        <span class="bc-badge-label">Velocity</span>
+      <div class="ic-bar-area">
+        <div class="ic-bar"><div class="ic-bar-fill" style="--bar:100%"></div></div>
+        <span class="ic-bar-val">+300%</span>
       </div>
     </div>
 
-    <!-- Card 3: ESG Compliance -->
-    <div class="bento-card">
-      <div class="bc-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12l2 2 4-4"/></svg>
+    <!-- Card 3: Eco-Logic -->
+    <div class="ic">
+      <div class="ic-head">
+        <div class="ic-head-icon"><svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12l2 2 4-4"/></svg></div>
+        <div class="ic-head-title">Eco-Logic</div>
       </div>
-      <div class="bc-title" data-fr="Conformite ESG" data-en="ESG Compliance">Conformite ESG</div>
-      <div class="bc-pivot">
-        <span data-fr="Gaspillage" data-en="Waste">Gaspillage</span>
-        <span class="bc-arrow">&#8594;</span>
-        <span>Zero-Waste</span>
+      <div class="ic-friction">
+        <div class="ic-friction-icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4M4 7l8 4M4 7v10l8 4m0-10v10"/></svg></div>
+        <span class="ic-friction-text" data-fr="Prototypes jetables. Gaspillage matiere. Haute empreinte carbone." data-en="Disposable prototypes. Material waste. High carbon footprint.">Prototypes jetables. Gaspillage matiere. Haute empreinte carbone.</span>
       </div>
-      <div class="bc-legacy">
-        <div class="bc-legacy-label">Legacy</div>
-        <div class="bc-legacy-text" data-fr="Gaspillage de matiere pour prototypes jetables. Haute empreinte carbone." data-en="Material waste for disposable prototypes. High carbon footprint.">Gaspillage de matiere pour prototypes jetables. Haute empreinte carbone.</div>
+      <div class="ic-divider"></div>
+      <div class="ic-impact">
+        <div class="ic-impact-text" data-fr="-90% dechets physiques" data-en="-90% physical waste">-90% dechets physiques</div>
+        <div class="ic-impact-sub" data-fr="Jumeaux numeriques haute-fidelite. Pret pour le Passeport Numerique EU." data-en="High-fidelity digital twins. Ready for the EU Digital Passport.">Jumeaux numeriques haute-fidelite. Pret pour le Passeport Numerique EU.</div>
       </div>
-      <div class="bc-lazxr">
-        <div class="bc-lazxr-label">LAZXR</div>
-        <div class="bc-lazxr-text" data-fr="Pret pour le Passeport Numerique europeen. -90% de dechets physiques." data-en="Ready for the European Digital Passport. -90% physical waste.">Pret pour le Passeport Numerique europeen. -90% de dechets physiques.</div>
-      </div>
-      <div class="bc-badge">
-        <span class="bc-badge-val">-90%</span>
-        <span class="bc-badge-label">Waste</span>
+      <div class="ic-bar-area">
+        <div class="ic-bar"><div class="ic-bar-fill" style="--bar:90%"></div></div>
+        <span class="ic-bar-val">-90%</span>
       </div>
     </div>
 
-    <!-- Card 4: Export Democracy -->
-    <div class="bento-card">
-      <div class="bc-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+    <!-- Card 4: Luxury Access -->
+    <div class="ic">
+      <div class="ic-head">
+        <div class="ic-head-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <div class="ic-head-title" data-fr="Luxury Access" data-en="Luxury Access">Luxury Access</div>
       </div>
-      <div class="bc-title" data-fr="Democratisation export" data-en="Export Democracy">Democratisation export</div>
-      <div class="bc-pivot">
-        <span data-fr="Barriere" data-en="Barrier">Barriere</span>
-        <span class="bc-arrow">&#8594;</span>
-        <span>Global Standards</span>
+      <div class="ic-friction">
+        <div class="ic-friction-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <span class="ic-friction-text" data-fr="Studios + mannequins = couts prohibitifs. Barriere a l'export." data-en="Studios + models = prohibitive costs. Export barrier.">Studios + mannequins = couts prohibitifs. Barriere a l'export.</span>
       </div>
-      <div class="bc-legacy">
-        <div class="bc-legacy-label">Legacy</div>
-        <div class="bc-legacy-text" data-fr="Couts prohibitifs (Studios, Mannequins). Barriere a l'export pour les marques emergentes." data-en="Prohibitive costs (Studios, Models). Export barrier for emerging brands.">Couts prohibitifs (Studios, Mannequins). Barriere a l'export pour les marques emergentes.</div>
+      <div class="ic-divider"></div>
+      <div class="ic-impact">
+        <div class="ic-impact-text" data-fr="Standards visuels internationaux" data-en="Global visual standards">Standards visuels internationaux</div>
+        <div class="ic-impact-sub" data-fr="Qualite internationale accessible via SaaS. Rayonnez mondialement." data-en="International quality accessible via SaaS. Shine globally.">Qualite internationale accessible via SaaS. Rayonnez mondialement.</div>
       </div>
-      <div class="bc-lazxr">
-        <div class="bc-lazxr-label">LAZXR</div>
-        <div class="bc-lazxr-text" data-fr="Visuels standard international accessibles via SaaS. Rayonnez mondialement." data-en="International-standard visuals accessible via SaaS. Shine globally.">Visuels standard international accessibles via SaaS. Rayonnez mondialement.</div>
-      </div>
-      <div class="bc-badge">
-        <span class="bc-badge-val">&#127760;</span>
-        <span class="bc-badge-label" data-fr="Export mondial" data-en="Worldwide">Export mondial</span>
+      <div class="ic-bar-area">
+        <div class="ic-bar"><div class="ic-bar-fill" style="--bar:85%"></div></div>
+        <span class="ic-bar-val">&#127760;</span>
       </div>
     </div>
 
-    <!-- Card 5: Cultural Intelligence (WIDE) -->
-    <div class="bento-card bento-wide">
-      <div class="bc-icon">
-        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <!-- Card 5: Cultural Fluidity (WIDE) -->
+    <div class="ic impact-wide">
+      <div class="ic-head">
+        <div class="ic-head-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <div class="ic-head-title" data-fr="Cultural Fluidity" data-en="Cultural Fluidity">Cultural Fluidity</div>
       </div>
-      <div class="bc-title" data-fr="Intelligence culturelle" data-en="Cultural Intelligence">Intelligence culturelle</div>
-      <div class="bc-pivot">
-        <span data-fr="Campagne rigide" data-en="Rigid campaign">Campagne rigide</span>
-        <span class="bc-arrow">&#8594;</span>
-        <span>Hyper-Local Marketing</span>
+      <div class="ic-friction">
+        <div class="ic-friction-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <span class="ic-friction-text" data-fr="Une campagne marketing rigide. Un seul marche. Recommencer a chaque fois." data-en="One rigid marketing campaign. One market. Start over every time.">Une campagne marketing rigide. Un seul marche. Recommencer a chaque fois.</span>
       </div>
-      <div class="bc-lazxr">
-        <div class="bc-lazxr-label">LAZXR</div>
-        <div class="bc-lazxr-text" data-fr="Adaptez instantanement vos mannequins, decors et ambiances aux codes culturels de chaque marche — Afrique, GCC, Europe. Un seul actif 3D, des campagnes infinies." data-en="Instantly adapt your models, settings and moods to the cultural codes of each market — Africa, GCC, Europe. One 3D asset, infinite campaigns.">Adaptez instantanement vos mannequins, decors et ambiances aux codes culturels de chaque marche — Afrique, GCC, Europe. Un seul actif 3D, des campagnes infinies.</div>
+      <div class="ic-divider"></div>
+      <div class="ic-impact">
+        <div class="ic-impact-text" data-fr="Adaptez mannequins, decors et ambiances a chaque marche" data-en="Adapt models, settings and moods to every market">Adaptez mannequins, decors et ambiances a chaque marche</div>
+        <div class="ic-impact-sub" data-fr="Afrique, GCC, Europe. Un actif 3D, des campagnes infinies. Resonate locally. Scale globally." data-en="Africa, GCC, Europe. One 3D asset, infinite campaigns. Resonate locally. Scale globally.">Afrique, GCC, Europe. Un actif 3D, des campagnes infinies. Resonate locally. Scale globally.</div>
       </div>
-      <div class="bc-badge">
-        <span class="bc-badge-val" data-fr="Local. Global." data-en="Local. Global.">Local. Global.</span>
-        <span class="bc-badge-label" data-fr="Resonance culturelle" data-en="Cultural resonance">Resonance culturelle</span>
+      <div class="ic-bar-area">
+        <div class="ic-bar"><div class="ic-bar-fill" style="--bar:100%"></div></div>
+        <span class="ic-bar-val" style="min-width:auto;font-size:.7rem;letter-spacing:.05em">Local. Global.</span>
       </div>
     </div>
 
@@ -1781,6 +1775,15 @@ const ppObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 ppSteps.forEach(s => ppObs.observe(s));
+
+// Impact Cards progress bar animation
+const icCards = document.querySelectorAll('.ic');
+const icObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.2 });
+icCards.forEach(c => icObs.observe(c));
 
 </script>
 </body>
