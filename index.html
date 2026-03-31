@@ -686,11 +686,11 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
 
       <div class="finish-bar">
         <span class="finish-label">Finition</span>
-        <button class="finish-btn" onclick="setFinish('mat', this)" title="Coton, lin, jersey">
+        <button class="finish-btn active" onclick="setFinish('mat', this)" title="Coton, lin, jersey">
           <svg viewBox="0 0 16 16" width="12" height="12"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           Mat
         </button>
-        <button class="finish-btn active" onclick="setFinish('satine', this)" title="Soie, satin, polyester">
+        <button class="finish-btn" onclick="setFinish('satine', this)" title="Soie, satin, polyester">
           <svg viewBox="0 0 16 16" width="12" height="12"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="6" r="2" fill="currentColor" opacity=".4"/></svg>
           Satine
         </button>
@@ -1342,7 +1342,7 @@ function applyPickerColor(hex) {
 }
 
 // Material Intelligence: adjust roughness & metallic based on finish selection
-let activeFinish = 'satine'; // default: satine premium
+let activeFinish = 'mat'; // default: mat coton
 
 const finishPresets = {
   mat:    { roughness: 0.85, metallic: 0.05 },  // Coton, lin, jersey
