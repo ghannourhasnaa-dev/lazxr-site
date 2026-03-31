@@ -297,49 +297,53 @@ h2 em{font-style:italic;color:var(--gold)}
 .sec--dark h2{color:#FFFFFF}
 .sec--cream h2,.sec--cream2 h2{color:#FFFFFF}
 
-/* ── IMPACT CARDS ── */
-.sc-sec{background:radial-gradient(ellipse 60% 50% at 50% 40%,#1A1A1A,#0A0A0A);padding:8rem 5vw;position:relative;overflow:hidden}
-.sc-sec::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,151,106,.15),transparent)}
-.sc-header{text-align:center;max-width:700px;margin:0 auto 4.5rem}
-.sc-header h2{color:#FFFFFF;font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;line-height:1.08;letter-spacing:-.04em}
-.sc-header h2 em{color:var(--gold);font-style:italic;font-weight:400}
-.sc-header p{color:rgba(250,248,243,.4);font-size:.85rem;margin-top:1rem;line-height:1.8}
+/* ── LIGHT SECTIONS ── */
+.sec--light{background:#FAF8F3;color:#1A1A14;padding:7rem 5vw}
+.sec--light .s-tag{color:var(--gold)}
+.sec--light h2{color:#1A1A14}
+.sec--light h2 em{color:#8A7550}
+.sec--light p,.sec--light .tl-body p,.sec--light .kv-desc{color:#5A5A4E}
+.sec--light .tl-body h4{color:#1A1A14}
+.sec--light .step-card,.sec--light .kv-card{background:#FFFFFF;border-color:rgba(184,151,106,.15);box-shadow:0 4px 24px rgba(0,0,0,.04)}
+.sec--light .step-card:hover,.sec--light .kv-card:hover{box-shadow:0 12px 40px rgba(184,151,106,.12);border-color:rgba(184,151,106,.3)}
+.sec--light .kv-number{color:var(--gold)}
+.sec--light .kv-title{color:#1A1A14}
+.sec--light .tl-dot{background:#FAF8F3;border-color:rgba(184,151,106,.3)}
+.sec--light .tl-step.visible .tl-dot{background:var(--gold);border-color:var(--gold);color:#FFF}
+.sec--light .timeline::before{background:rgba(184,151,106,.15)}
+.sec--light .timeline-fill{background:var(--gold)}
+.sec--light .step-tag{border-color:rgba(184,151,106,.25);color:#8A7550}
+.sec--light .step-icon{border-color:rgba(184,151,106,.3)}
+.sec--light .step-icon svg{stroke:#8A7550}
+.sec--light .step-num{color:#8A7550}
+.sec--light .step-card h4{color:#1A1A14}
+.sec--light .step-card p{color:#5A5A4E}
 
-.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1100px;margin:0 auto}
-.impact-wide{grid-column:span 2}
+/* ── LIGHT BV SECTION ── */
+.bv-sec--light{padding:7rem 5vw;background:#FAF8F3;position:relative;overflow:hidden}
+.bv-sec--light .bv-tag{color:var(--gold)}
+.bv-sec--light .bv-title{color:#1A1A14}
+.bv-sec--light .bv-title em{color:#8A7550}
+.bv-sec--light .bv-subtitle{color:#5A5A4E}
+.bv-sec--light .bv-card{background:#FFFFFF;border-color:rgba(184,151,106,.15);box-shadow:0 4px 24px rgba(0,0,0,.04);backdrop-filter:none}
+.bv-sec--light .bv-card:hover{border-color:rgba(184,151,106,.3);box-shadow:0 12px 40px rgba(184,151,106,.12);transform:translateY(-4px)}
+.bv-sec--light .bv-card::before{background:var(--gold)}
+.bv-sec--light .bv-icon{background:rgba(184,151,106,.08);border-color:rgba(184,151,106,.2)}
+.bv-sec--light .bv-card-title{color:#8A7550}
+.bv-sec--light .bv-card-headline{color:#1A1A14}
+.bv-sec--light .bv-bullets li{color:#5A5A4E}
+.bv-sec--light .bv-bullets li::before{background:#8A7550}
+.bv-sec--light .bv-kpi{background:rgba(184,151,106,.06);border-color:rgba(184,151,106,.15)}
+.bv-sec--light .bv-kpi-val{color:var(--gold)}
+.bv-sec--light .bv-kpi-label{color:#8A7550}
 
-/* ── Card Shell ── */
-.ic{background:rgba(13,13,13,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(184,151,106,.15);border-radius:16px;position:relative;overflow:hidden;transition:all .5s cubic-bezier(.25,.8,.25,1);cursor:default}
-.ic:hover{border-color:rgba(255,255,255,.5);box-shadow:0 0 50px rgba(184,151,106,.1),0 0 100px rgba(184,151,106,.04)}
-
-/* ── Card Title ── */
-.ic-head{padding:1.6rem 2rem .8rem;display:flex;align-items:center;gap:.8rem}
-.ic-head-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(184,151,106,.08);border:1px solid rgba(184,151,106,.2);flex-shrink:0}
-.ic-head-icon svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.5}
-.ic-head-title{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#FFFFFF;letter-spacing:-.02em;line-height:1.2}
-
-/* ── The Friction (top zone) ── */
-.ic-friction{padding:.6rem 2rem 1rem;display:flex;align-items:center;gap:.8rem;opacity:1;transition:opacity .4s,transform .4s}
-.ic:hover .ic-friction{opacity:.3;transform:translateY(-4px)}
-.ic-friction-icon{width:24px;height:24px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.ic-friction-icon svg{width:14px;height:14px;stroke:#4A4A4A;fill:none;stroke-width:1.5}
-.ic-friction-text{font-size:.72rem;color:#4A4A4A;letter-spacing:.04em}
-
-/* ── Gold divider ── */
-.ic-divider{height:1px;margin:0 2rem;background:linear-gradient(90deg,transparent,rgba(184,151,106,.35),transparent)}
-
-/* ── The Impact (bottom zone) ── */
-.ic-impact{padding:1rem 2rem .5rem;opacity:.85;transition:opacity .4s,transform .4s}
-.ic:hover .ic-impact{opacity:1;transform:translateY(-2px)}
-.ic-impact-text{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:#FFFFFF;line-height:1.35;letter-spacing:-.01em}
-.ic-impact-sub{font-size:.75rem;color:rgba(250,248,243,.45);margin-top:.3rem;line-height:1.6}
-
-/* ── Progress Bar ── */
-.ic-bar-area{padding:.6rem 2rem 1.6rem;display:flex;align-items:center;gap:.8rem}
-.ic-bar{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden;position:relative}
-.ic-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,rgba(184,151,106,.4),var(--gold));transition:width 1.2s cubic-bezier(.22,1,.36,1);width:0}
-.ic.visible .ic-bar-fill{width:var(--bar)}
-.ic-bar-val{font-family:var(--serif);font-size:.85rem;font-weight:600;color:var(--gold);min-width:48px;text-align:right;letter-spacing:-.01em}
+/* ── LIGHT CONTACT SECTION ── */
+.sec--light .cf-i,.sec--light .cf-s,.sec--light .cf-t{background:#FFFFFF;border-color:rgba(184,151,106,.2);color:#1A1A14;backdrop-filter:none}
+.sec--light .cf-i:focus,.sec--light .cf-s:focus,.sec--light .cf-t:focus{border-color:var(--gold)}
+.sec--light .cf-l{color:#5A5A4E}
+.sec--light .contact-info{color:#5A5A4E}
+.sec--light .contact-info a{color:#1A1A14}
+.sec--light .contact-info strong{color:#1A1A14}
 
 /* ── 4 STEPS ── */
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem}
@@ -518,7 +522,7 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   .text-overlay.pos-sleeve{font-size:.7rem}
 
   /* Other sections mobile */
-  .impact-grid,.kv-grid,.case-body,.contact-layout{grid-template-columns:1fr}
+  .kv-grid,.case-body,.contact-layout{grid-template-columns:1fr}
   .timeline{padding-left:2.5rem}
   .timeline::before,.timeline-fill{left:16px}
   .tl-step,.tl-step:nth-child(even){padding-left:3rem;padding-right:0;flex-direction:row;text-align:left;margin-left:0;width:auto;transform:translateY(30px)}
@@ -548,11 +552,9 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   .platform-pipeline{gap:0}
   .pp-step{padding:.8rem 1rem}
   .bv-sec{padding:5rem 5vw}
+  .bv-sec--light{padding:5rem 5vw}
   .bv-grid{grid-template-columns:1fr}
   .bv-subtitle{margin-bottom:2.5rem}
-  .impact-grid{grid-template-columns:1fr}
-  .impact-wide{grid-column:span 1}
-  .sc-sec{padding:5rem 5vw}
 }
 @media(max-width:480px){
   .nav{padding:.8rem 14px}
@@ -826,128 +828,8 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   </div>
 </div>
 
-<!-- ② IMPACT CARDS -->
-<section class="sc-sec">
-  <div class="sc-header rv">
-    <div class="s-tag" data-fr="Performance industrielle" data-en="Industrial Performance">Performance industrielle</div>
-    <h2 data-fr="L'infrastructure qui transforme<br><em>votre chaine de valeur.</em>" data-en="The infrastructure that transforms<br><em>your value chain.</em>">L'infrastructure qui transforme<br><em>votre chaine de valeur.</em></h2>
-    <p data-fr="5 leviers de performance. Du gris au dore, le contraste parle de lui-meme." data-en="5 performance levers. From grey to gold, the contrast speaks for itself.">5 leviers de performance. Du gris au dore, le contraste parle de lui-meme.</p>
-  </div>
-
-  <div class="impact-grid rv">
-
-    <!-- Card 1: Own the Design -->
-    <div class="ic">
-      <div class="ic-head">
-        <div class="ic-head-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
-        <div class="ic-head-title" data-fr="Own the Design" data-en="Own the Design">Own the Design</div>
-      </div>
-      <div class="ic-friction">
-        <div class="ic-friction-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-        <span class="ic-friction-text" data-fr="Sous-traitant passif. Attente des ordres CMT." data-en="Passive subcontractor. Waiting for CMT orders.">Sous-traitant passif. Attente des ordres CMT.</span>
-      </div>
-      <div class="ic-divider"></div>
-      <div class="ic-impact">
-        <div class="ic-impact-text" data-fr="Design-as-a-Service" data-en="Design-as-a-Service">Design-as-a-Service</div>
-        <div class="ic-impact-sub" data-fr="Catalogue 3D interactif avant production. Devenez co-createur." data-en="Interactive 3D catalog before production. Become a co-creator.">Catalogue 3D interactif avant production. Devenez co-createur.</div>
-      </div>
-      <div class="ic-bar-area">
-        <div class="ic-bar"><div class="ic-bar-fill" style="--bar:95%"></div></div>
-        <span class="ic-bar-val">DaaS</span>
-      </div>
-    </div>
-
-    <!-- Card 2: Real-Time Speed -->
-    <div class="ic">
-      <div class="ic-head">
-        <div class="ic-head-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <div class="ic-head-title" data-fr="Real-Time Speed" data-en="Real-Time Speed">Real-Time Speed</div>
-      </div>
-      <div class="ic-friction">
-        <div class="ic-friction-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-        <span class="ic-friction-text" data-fr="15 jours d'echantillonnage. DHL. Delais incompressibles." data-en="15 days sampling. DHL. Irreducible delays.">15 jours d'echantillonnage. DHL. Delais incompressibles.</span>
-      </div>
-      <div class="ic-divider"></div>
-      <div class="ic-impact">
-        <div class="ic-impact-text" data-fr="Validation instantanee" data-en="Instant Validation">Validation instantanee</div>
-        <div class="ic-impact-sub" data-fr="Approbation numerique certifiee. Zero logistique." data-en="Certified digital approval. Zero logistics.">Approbation numerique certifiee. Zero logistique.</div>
-      </div>
-      <div class="ic-bar-area">
-        <div class="ic-bar"><div class="ic-bar-fill" style="--bar:100%"></div></div>
-        <span class="ic-bar-val">+300%</span>
-      </div>
-    </div>
-
-    <!-- Card 3: Eco-Logic -->
-    <div class="ic">
-      <div class="ic-head">
-        <div class="ic-head-icon"><svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 12l2 2 4-4"/></svg></div>
-        <div class="ic-head-title">Eco-Logic</div>
-      </div>
-      <div class="ic-friction">
-        <div class="ic-friction-icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4M4 7l8 4M4 7v10l8 4m0-10v10"/></svg></div>
-        <span class="ic-friction-text" data-fr="Prototypes jetables. Gaspillage matiere. Haute empreinte carbone." data-en="Disposable prototypes. Material waste. High carbon footprint.">Prototypes jetables. Gaspillage matiere. Haute empreinte carbone.</span>
-      </div>
-      <div class="ic-divider"></div>
-      <div class="ic-impact">
-        <div class="ic-impact-text" data-fr="-90% dechets physiques" data-en="-90% physical waste">-90% dechets physiques</div>
-        <div class="ic-impact-sub" data-fr="Jumeaux numeriques haute-fidelite. Pret pour le Passeport Numerique EU." data-en="High-fidelity digital twins. Ready for the EU Digital Passport.">Jumeaux numeriques haute-fidelite. Pret pour le Passeport Numerique EU.</div>
-      </div>
-      <div class="ic-bar-area">
-        <div class="ic-bar"><div class="ic-bar-fill" style="--bar:90%"></div></div>
-        <span class="ic-bar-val">-90%</span>
-      </div>
-    </div>
-
-    <!-- Card 4: Luxury Access -->
-    <div class="ic">
-      <div class="ic-head">
-        <div class="ic-head-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-        <div class="ic-head-title" data-fr="Luxury Access" data-en="Luxury Access">Luxury Access</div>
-      </div>
-      <div class="ic-friction">
-        <div class="ic-friction-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <span class="ic-friction-text" data-fr="Studios + mannequins = couts prohibitifs. Barriere a l'export." data-en="Studios + models = prohibitive costs. Export barrier.">Studios + mannequins = couts prohibitifs. Barriere a l'export.</span>
-      </div>
-      <div class="ic-divider"></div>
-      <div class="ic-impact">
-        <div class="ic-impact-text" data-fr="Standards visuels internationaux" data-en="Global visual standards">Standards visuels internationaux</div>
-        <div class="ic-impact-sub" data-fr="Qualite internationale accessible via SaaS. Rayonnez mondialement." data-en="International quality accessible via SaaS. Shine globally.">Qualite internationale accessible via SaaS. Rayonnez mondialement.</div>
-      </div>
-      <div class="ic-bar-area">
-        <div class="ic-bar"><div class="ic-bar-fill" style="--bar:85%"></div></div>
-        <span class="ic-bar-val">&#127760;</span>
-      </div>
-    </div>
-
-    <!-- Card 5: Cultural Fluidity (WIDE) -->
-    <div class="ic impact-wide">
-      <div class="ic-head">
-        <div class="ic-head-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-        <div class="ic-head-title" data-fr="Cultural Fluidity" data-en="Cultural Fluidity">Cultural Fluidity</div>
-      </div>
-      <div class="ic-friction">
-        <div class="ic-friction-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-        <span class="ic-friction-text" data-fr="Une campagne marketing rigide. Un seul marche. Recommencer a chaque fois." data-en="One rigid marketing campaign. One market. Start over every time.">Une campagne marketing rigide. Un seul marche. Recommencer a chaque fois.</span>
-      </div>
-      <div class="ic-divider"></div>
-      <div class="ic-impact">
-        <div class="ic-impact-text" data-fr="Adaptez mannequins, decors et ambiances a chaque marche" data-en="Adapt models, settings and moods to every market">Adaptez mannequins, decors et ambiances a chaque marche</div>
-        <div class="ic-impact-sub" data-fr="Afrique, GCC, Europe. Un actif 3D, des campagnes infinies. Resonate locally. Scale globally." data-en="Africa, GCC, Europe. One 3D asset, infinite campaigns. Resonate locally. Scale globally.">Afrique, GCC, Europe. Un actif 3D, des campagnes infinies. Resonate locally. Scale globally.</div>
-      </div>
-      <div class="ic-bar-area">
-        <div class="ic-bar"><div class="ic-bar-fill" style="--bar:100%"></div></div>
-        <span class="ic-bar-val" style="min-width:auto;font-size:.7rem;letter-spacing:.05em">Local. Global.</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="gold-line"></div>
-
-<!-- ③ COMMENT ÇA MARCHE (CREAM) -->
-<section class="sec sec--cream" id="methode">
+<!-- ② COMMENT ÇA MARCHE (LIGHT) -->
+<section class="sec sec--light" id="methode">
   <div class="s-tag rv" data-fr="Comment ça marche" data-en="How it works">Comment ça marche</div>
   <h2 class="rv" data-fr="De votre pièce à son <em>jumeau 3D.</em> En 4 jours." data-en="From your garment to its <em>3D twin.</em> In 4 days.">De votre pièce à son <em>jumeau 3D.</em> En 4 jours.</h2>
 
@@ -1020,8 +902,8 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   </div>
 </section>
 
-<!-- ⑤ BUSINESS VALUE (DARK) -->
-<section class="bv-sec">
+<!-- ④ BUSINESS VALUE (LIGHT) -->
+<section class="bv-sec--light">
   <div class="bv-tag rv" data-fr="Pour les decideurs" data-en="For Decision-Makers">Pour les decideurs</div>
   <h2 class="bv-title rv" data-fr="L'infrastructure pour les marques<br><em>en hypercroissance.</em>" data-en="The Infrastructure for<br><em>High-Growth Fashion.</em>">L'infrastructure pour les marques<br><em>en hypercroissance.</em></h2>
   <p class="bv-subtitle rv" data-fr="Ce n'est pas un outil creatif. C'est un levier operationnel." data-en="This is not a creative tool. It's an operational lever.">Ce n'est pas un outil creatif. C'est un levier operationnel.</p>
@@ -1268,10 +1150,9 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   </div>
 </section>
 
-<div class="gold-line"></div>
 
-<!-- ⑦ CONTACT (CREAM) -->
-<section class="sec sec--cream" id="contact">
+<!-- ⑥ CONTACT (LIGHT) -->
+<section class="sec sec--light" id="contact">
   <div class="s-tag rv" data-fr="Accès anticipé" data-en="Early Access">Accès anticipé</div>
   <h2 class="rv" data-fr="Rejoignez les marques qui<br><em>construisent demain.</em>" data-en="Join the brands<br><em>building tomorrow.</em>">Rejoignez les marques qui<br><em>construisent demain.</em></h2>
   <div class="contact-layout rv">
@@ -1775,15 +1656,6 @@ const ppObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 ppSteps.forEach(s => ppObs.observe(s));
-
-// Impact Cards progress bar animation
-const icCards = document.querySelectorAll('.ic');
-const icObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  });
-}, { threshold: 0.2 });
-icCards.forEach(c => icObs.observe(c));
 
 </script>
 </body>
