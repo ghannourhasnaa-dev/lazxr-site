@@ -540,6 +540,10 @@ footer{padding:3rem 5vw 2rem;background:var(--ink);display:grid;grid-template-co
   .pp-arrow{transform:rotate(90deg)}
   .platform-notify{flex-direction:column}
   .platform-sec{padding:4rem 16px}
+  .kv-grid{gap:1.5rem}
+  .kv-card{padding:2rem 1.5rem}
+  .kv-number{font-size:2.8rem}
+  .export-row{flex-wrap:wrap;gap:.6rem;justify-content:center}
 }
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -1494,20 +1498,21 @@ if (infStat) {
 }
 
 // ── Scroll-triggered 3D Model Rotation ──
-const mvScroll = document.getElementById('mv');
-if (mvScroll) {
-  let lastScroll = window.scrollY;
-  window.addEventListener('scroll', () => {
-    const delta = window.scrollY - lastScroll;
-    lastScroll = window.scrollY;
-    const rect = mvScroll.getBoundingClientRect();
+(function() {
+  const mv = document.getElementById('mv');
+  if (!mv) return;
+  let angle = 0;
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', function() {
+    var delta = window.scrollY - lastY;
+    lastY = window.scrollY;
+    var rect = mv.getBoundingClientRect();
     if (rect.top < window.innerHeight && rect.bottom > 0) {
-      const orbit = mvScroll.getCameraOrbit();
-      orbit.theta += delta * 0.15;
-      mvScroll.cameraOrbit = `${orbit.theta}deg ${orbit.phi}deg ${orbit.radius}m`;
+      angle += delta * 0.12;
+      mv.cameraOrbit = angle + 'deg 85deg 2.5m';
     }
   }, { passive: true });
-}
+})();
 
 // ── FR/EN Language Toggle ──
 let currentLang = 'fr';
