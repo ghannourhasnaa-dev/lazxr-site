@@ -109,11 +109,11 @@ h1 em{font-style:italic;color:var(--gold);font-weight:400;letter-spacing:.01em}
 .zone-tab{background:rgba(255,255,255,.04);border:1px solid rgba(184,151,106,.12);color:rgba(250,248,243,.4);padding:.35rem .6rem;font-family:var(--sans);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .3s;flex:1;text-align:center}
 .zone-tab:hover{border-color:rgba(184,151,106,.25);color:rgba(250,248,243,.6)}
 .zone-tab.active{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:500}
-.color-swatches{display:flex;gap:.5rem;flex-wrap:wrap}
-.color-swatch{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .25s;position:relative;flex-shrink:0}
-.color-swatch:hover{transform:scale(1.12);box-shadow:0 0 12px rgba(184,151,106,.25)}
-.color-swatch.active{border-color:var(--gold);box-shadow:0 0 0 2px rgba(184,151,106,.2)}
-.color-swatch::after{content:'';position:absolute;inset:3px;border-radius:50%;border:1px solid rgba(255,255,255,.12)}
+.color-swatches{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.color-swatch{width:32px;height:32px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .4s cubic-bezier(.25,.8,.25,1);position:relative;flex-shrink:0}
+.color-swatch:hover{transform:scale(1.18);box-shadow:0 0 16px rgba(184,151,106,.35)}
+.color-swatch.active{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,151,106,.25),0 0 20px rgba(184,151,106,.15)}
+.color-swatch::after{content:'';position:absolute;inset:3px;border-radius:50%;border:1px solid rgba(255,255,255,.12);transition:border-color .4s}
 .color-picker-swatch{background:conic-gradient(red,yellow,lime,aqua,blue,magenta,red)!important;cursor:pointer;overflow:hidden;position:relative}
 .color-picker-swatch::after{content:'+';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5);border:none;border-radius:50%}
 .color-picker-swatch input[type="color"]{position:absolute;width:100%;height:100%;opacity:0;cursor:pointer;border:none;padding:0}
@@ -122,6 +122,13 @@ h1 em{font-style:italic;color:var(--gold);font-weight:400;letter-spacing:.01em}
 .zone-label{letter-spacing:.05em}
 .zone-value{color:var(--gold2);font-weight:400}
 .zone-sep{opacity:.25;margin:0 .15rem}
+.finish-bar{display:flex;align-items:center;gap:.4rem;margin-top:.6rem;padding-top:.6rem;border-top:1px solid rgba(184,151,106,.08)}
+.finish-label{font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,248,243,.3);margin-right:.2rem}
+.finish-btn{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .7rem;background:rgba(255,255,255,.03);border:1px solid rgba(184,151,106,.12);color:rgba(250,248,243,.4);font-family:var(--sans);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .4s cubic-bezier(.25,.8,.25,1)}
+.finish-btn:hover{border-color:rgba(184,151,106,.3);color:rgba(250,248,243,.7);background:rgba(184,151,106,.05)}
+.finish-btn.active{background:rgba(184,151,106,.12);border-color:var(--gold);color:var(--gold);font-weight:500}
+.finish-btn svg{opacity:.5;transition:opacity .3s}
+.finish-btn.active svg{opacity:1}
 .color-demo-tag{display:none}
 
 /* Personalisation panel */
@@ -589,6 +596,7 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
         shadow-intensity="1"
         shadow-softness="0.8"
         exposure="1.2"
+        environment-image="neutral"
         camera-orbit="0deg 85deg 2.5m"
         min-camera-orbit="auto auto 1.5m"
         max-camera-orbit="auto auto 5m"
@@ -661,19 +669,31 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
       </div>
 
       <div class="color-swatches" id="swatches">
-        <div class="color-swatch active" data-r="1" data-g="1" data-b="1" data-name="Blanc" onclick="applyZoneColor(this)" style="background:#FFFFFF;border:1px solid rgba(255,255,255,.2)"></div>
+        <div class="color-swatch" data-r="1" data-g="1" data-b="1" data-name="Blanc" onclick="applyZoneColor(this)" style="background:#FFFFFF;border:1px solid rgba(255,255,255,.2)"></div>
         <div class="color-swatch" data-r="0.1" data-g="0.1" data-b="0.08" data-name="Noir encre" onclick="applyZoneColor(this)" style="background:#1A1A14"></div>
         <div class="color-swatch" data-r="0.12" data-g="0.18" data-b="0.32" data-name="Bleu marine" onclick="applyZoneColor(this)" style="background:#1F2E52"></div>
         <div class="color-swatch" data-r="0.54" data-g="0.15" data-b="0.21" data-name="Rouge grenat" onclick="applyZoneColor(this)" style="background:#8B2635"></div>
         <div class="color-swatch" data-r="0.11" data-g="0.3" data-b="0.24" data-name="Vert émeraude" onclick="applyZoneColor(this)" style="background:#1B4D3E"></div>
-        <div class="color-swatch" data-r="0.72" data-g="0.59" data-b="0.42" data-name="Or sable" onclick="applyZoneColor(this)" style="background:#B8976A"></div>
+        <div class="color-swatch active" data-r="0.72" data-g="0.59" data-b="0.42" data-name="Or sable" onclick="applyZoneColor(this)" style="background:#B8976A"></div>
         <div class="color-swatch" data-r="0.42" data-g="0.23" data-b="0.36" data-name="Prune" onclick="applyZoneColor(this)" style="background:#6B3A5D"></div>
         <div class="color-swatch" data-r="0.83" data-g="0.65" data-b="0.46" data-name="Camel" onclick="applyZoneColor(this)" style="background:#D4A574"></div>
         <div class="color-swatch" data-r="0.75" data-g="0.75" data-b="0.78" data-name="Argent" onclick="applyZoneColor(this)" style="background:#C0C0C7"></div>
-        <div class="color-swatch" data-r="0.85" data-g="0.75" data-b="0.2" data-name="Or doré" onclick="applyZoneColor(this)" style="background:#D9C033"></div>
+        <div class="color-swatch" data-r="0.85" data-g="0.75" data-b="0.2" data-name="Or dore" onclick="applyZoneColor(this)" style="background:#D9C033"></div>
         <label class="color-swatch color-picker-swatch" title="Choisir une couleur">
           <input type="color" id="colorPicker" value="#8B2635" onchange="applyPickerColor(this.value)" oninput="applyPickerColor(this.value)">
         </label>
+      </div>
+
+      <div class="finish-bar">
+        <span class="finish-label">Finition</span>
+        <button class="finish-btn active" onclick="setFinish('mat', this)" title="Coton, lin, jersey">
+          <svg viewBox="0 0 16 16" width="12" height="12"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          Mat
+        </button>
+        <button class="finish-btn" onclick="setFinish('satine', this)" title="Soie, satin, polyester">
+          <svg viewBox="0 0 16 16" width="12" height="12"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="6" r="2" fill="currentColor" opacity=".4"/></svg>
+          Satine
+        </button>
       </div>
 
       <div class="zone-status">
@@ -682,7 +702,7 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
           <span class="zone-value" id="currentZone">Tissu</span>
           <span class="zone-sep">·</span>
           <span class="zone-label">Couleur :</span>
-          <span class="zone-value" id="currentColor">Blanc</span>
+          <span class="zone-value" id="currentColor">Or sable</span>
         </div>
       </div>
 
@@ -1095,7 +1115,7 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
       <div class="c-pills">
         <div class="c-pill"><div class="c-pill-text"><strong>Localisation</strong>Casablanca, Maroc</div></div>
         <div class="c-pill"><div class="c-pill-text"><strong>GITEX Africa</strong>Marrakech, 7-9 Avril 2026</div></div>
-        <div class="c-pill"><div class="c-pill-text"><strong>Email</strong><a href="mailto:hasnaa@lazxr.com">hasnaa@lazxr.com</a></div></div>
+        <div class="c-pill"><div class="c-pill-text"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#563e3725383737163a372c2e247835393b"><span class="__cf_email__" data-cfemail="5f373e2c313e3e1f333e25272d713c3032">[email&#160;protected]</span></a></div></div>
       </div>
     </div>
     <form class="c-form" onsubmit="handleSubmit(event)">
@@ -1117,7 +1137,7 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
 <footer>
   <div><div class="f-logo"><img src="lazxr-logo-white.png" alt="LAZXR" class="footer-logo"></div><div class="f-desc">The Operating System for Digital Fashion.<br>Infrastructure for Immersive Commerce.</div></div>
   <div class="f-col"><h5>Platform</h5><a href="#methode">How it works</a><a href="#offres">Impact</a><a href="#platform">Dashboard</a></div>
-  <div class="f-col"><h5>Contact</h5><a href="#contact">Request Early Access</a><a href="mailto:hasnaa@lazxr.com">hasnaa@lazxr.com</a><a href="tel:+212646634420">+212 6 46 63 44 20</a><a href="https://www.linkedin.com/company/lazxr/" target="_blank" rel="noopener">LinkedIn</a></div>
+  <div class="f-col"><h5>Contact</h5><a href="#contact">Request Early Access</a><a href="/cdn-cgi/l/email-protection#cba3aab8a5aaaa8ba7aab1b3b9e5a8a4a6"><span class="__cf_email__" data-cfemail="ec848d9f828d8dac808d96949ec28f8381">[email&#160;protected]</span></a><a href="tel:+212646634420">+212 6 46 63 44 20</a><a href="https://www.linkedin.com/company/lazxr/" target="_blank" rel="noopener">LinkedIn</a></div>
 </footer>
 <div class="f-bottom"><p>© 2026 LAZXR · Casablanca, Maroc</p><p>Conçu pour les marques mode marocaines.</p></div>
 
@@ -1127,7 +1147,7 @@ footer{padding:3rem 5vw 2rem;background:#0A0A0A;display:grid;grid-template-colum
   <span>+212 6 46 63 44 20</span>
 </a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Nav scroll behavior
 const nav = document.getElementById('navbar');
 let lastY = 0;
@@ -1244,7 +1264,12 @@ function switchProduct(name, btn) {
   // Update zone indicator
   activeZone = Object.keys(prod.zones)[0];
   document.getElementById('currentZone').textContent = prod.zones[activeZone].label;
-  document.getElementById('currentColor').textContent = 'Original';
+  document.getElementById('currentColor').textContent = 'Or sable';
+
+  // Re-activate gold swatch
+  document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+  const goldSwatch = document.querySelector('.color-swatch[data-name="Or sable"]');
+  if (goldSwatch) goldSwatch.classList.add('active');
 }
 
 function buildZoneTabs(prod) {
@@ -1267,6 +1292,23 @@ if (mvEl) {
     const prod = products[activeProduct];
     Object.values(prod.zones).forEach(z => z.materials = []);
     prod.mapMaterials(model.materials);
+
+    // Apply default Beige Dore Luxueux (#B8976A) on all zones
+    const defaultR = 0.72, defaultG = 0.59, defaultB = 0.42;
+    const props = getMaterialProps();
+    Object.keys(prod.zones).forEach(zoneKey => {
+      const indices = prod.zones[zoneKey].materials;
+      indices.forEach(i => {
+        const mat = model.materials[i];
+        if (!mat) return;
+        const pbr = mat.pbrMetallicRoughness;
+        const bc = pbr.baseColorFactor;
+        bc[0] = defaultR; bc[1] = defaultG; bc[2] = defaultB;
+        pbr.setBaseColorFactor(bc);
+        pbr.setRoughnessFactor(props.roughness);
+        pbr.setMetallicFactor(props.metallic);
+      });
+    });
   });
 }
 
@@ -1286,18 +1328,7 @@ function applyZoneColor(el) {
   const r = parseFloat(el.dataset.r);
   const g = parseFloat(el.dataset.g);
   const b = parseFloat(el.dataset.b);
-  const model = mvEl ? mvEl.model : null;
-  if (!model || !model.materials) return;
-
-  const prod = products[activeProduct];
-  const indices = prod.zones[activeZone] ? prod.zones[activeZone].materials : [];
-  indices.forEach(i => {
-    const mat = model.materials[i];
-    if (!mat) return;
-    const bc = mat.pbrMetallicRoughness.baseColorFactor;
-    bc[0] = r; bc[1] = g; bc[2] = b;
-    mat.pbrMetallicRoughness.setBaseColorFactor(bc);
-  });
+  applyColorToZone(r, g, b);
 }
 
 function applyPickerColor(hex) {
@@ -1307,16 +1338,61 @@ function applyPickerColor(hex) {
   document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
   document.querySelector('.color-picker-swatch').classList.add('active');
   document.getElementById('currentColor').textContent = hex.toUpperCase();
+  applyColorToZone(r, g, b);
+}
+
+// Material Intelligence: adjust roughness & metallic based on finish selection
+let activeFinish = 'mat'; // default: mat coton
+
+const finishPresets = {
+  mat:    { roughness: 0.85, metallic: 0.05 },  // Coton, lin, jersey
+  satine: { roughness: 0.4,  metallic: 0.5  }   // Soie, satin, polyester
+};
+
+function getMaterialProps() {
+  return finishPresets[activeFinish];
+}
+
+function setFinish(finish, btn) {
+  activeFinish = finish;
+  document.querySelectorAll('.finish-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Re-apply current color with new finish
+  reapplyCurrentMaterial();
+}
+
+function reapplyCurrentMaterial() {
   const model = mvEl ? mvEl.model : null;
   if (!model || !model.materials) return;
   const prod = products[activeProduct];
   const indices = prod.zones[activeZone] ? prod.zones[activeZone].materials : [];
+  const props = getMaterialProps();
   indices.forEach(i => {
     const mat = model.materials[i];
     if (!mat) return;
-    const bc = mat.pbrMetallicRoughness.baseColorFactor;
+    const pbr = mat.pbrMetallicRoughness;
+    pbr.setRoughnessFactor(props.roughness);
+    pbr.setMetallicFactor(props.metallic);
+  });
+}
+
+function applyColorToZone(r, g, b) {
+  const model = mvEl ? mvEl.model : null;
+  if (!model || !model.materials) return;
+  const prod = products[activeProduct];
+  const indices = prod.zones[activeZone] ? prod.zones[activeZone].materials : [];
+  const props = getMaterialProps();
+  indices.forEach(i => {
+    const mat = model.materials[i];
+    if (!mat) return;
+    const pbr = mat.pbrMetallicRoughness;
+    // Color
+    const bc = pbr.baseColorFactor;
     bc[0] = r; bc[1] = g; bc[2] = b;
-    mat.pbrMetallicRoughness.setBaseColorFactor(bc);
+    pbr.setBaseColorFactor(bc);
+    // Material properties from finish selector
+    pbr.setRoughnessFactor(props.roughness);
+    pbr.setMetallicFactor(props.metallic);
   });
 }
 
@@ -1534,14 +1610,6 @@ const ppObs = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 ppSteps.forEach(s => ppObs.observe(s));
 
-// Comparison cards reveal
-const cmpCards = document.querySelectorAll('.cmp-card');
-const cmpObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  });
-}, { threshold: 0.2 });
-cmpCards.forEach(c => cmpObs.observe(c));
 </script>
 </body>
 </html>
