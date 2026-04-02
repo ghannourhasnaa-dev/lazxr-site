@@ -12,8 +12,18 @@
 <meta property="og:url" content="https://lazxr.com/">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="lazxr-logo-carre-bordeaux-sur-blanc.png">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<!-- Performance: preconnect to external origins -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+<!-- Fonts: non-blocking with media swap trick -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet"></noscript>
+
+<!-- model-viewer: jsdelivr (faster CDN) + async loading -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.4.0/dist/model-viewer.min.js" async></script>
 <style>
 /* ═══════════════════════════════════════════════════════════════
    LAZXR · Brand Identity System v2.0 · Bordeaux × Canvas
@@ -125,6 +135,15 @@ h1 em{font-style:italic;color:var(--gold);font-weight:300}
 .config-viewer-area model-viewer{width:100%;height:100%;min-height:560px;--poster-color:transparent;display:block}
 .model-container{position:relative;width:100%;height:100%;background:linear-gradient(180deg,#141008 0%,#1C1812 50%,#141008 100%)}
 .model-container::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:80px;background:radial-gradient(ellipse 100% 100% at 50% 0%,rgba(184,151,106,.1),transparent 70%);pointer-events:none;z-index:1}
+/* 3D loading skeleton */
+model-viewer:not([loaded])::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(74,22,40,.15) 0%,transparent 60%);z-index:0}
+model-viewer:not([loaded])::after{content:'';position:absolute;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;border:2px solid rgba(184,151,106,.15);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;z-index:1}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* Loading shimmer while GLB downloads */
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+model-viewer:not([loaded]) .hotspot{display:none!important}
+.model-container::before{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,transparent 25%,rgba(184,151,106,.04) 50%,transparent 75%);background-size:200% 100%;animation:shimmer 2s infinite;pointer-events:none;transition:opacity .5s}
+.model-container.loaded::before{opacity:0}
 .model-hint{text-align:center;padding:.6rem 0 .8rem;font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(184,151,106,.35);background:#0A0806}
 
 /* Controls panel — right column */
@@ -236,7 +255,7 @@ h1 em{font-style:italic;color:var(--gold);font-weight:300}
 .gold-line{height:1px;background:linear-gradient(90deg,transparent,rgba(184,151,106,.3),transparent)}
 
 /* ── SECTIONS ── */
-.sec{padding:5rem 5vw;position:relative}
+.sec{padding:5rem 5vw;position:relative;content-visibility:auto;contain-intrinsic-size:auto 600px}
 .sec--light{background:var(--white)}
 .sec--canvas{background:var(--canvas)}
 .sec--sable{background:var(--sable)}
@@ -278,7 +297,7 @@ h3{font-family:var(--serif);font-weight:300;font-size:clamp(1.4rem,2.5vw,2rem);c
 .kv-desc{font-size:.88rem;color:var(--ink3);line-height:1.75;font-weight:300}
 
 /* ── BUSINESS VALUE ── */
-.bv-sec--light{padding:5rem 5vw;background:var(--canvas)}
+.bv-sec--light{padding:5rem 5vw;background:var(--canvas);content-visibility:auto;contain-intrinsic-size:auto 800px}
 .bv-tag{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
 .bv-tag::before{content:'';width:24px;height:1px;background:var(--gold)}
 .bv-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--ink);line-height:1.1;max-width:700px;margin-bottom:1rem;letter-spacing:-.01em}
@@ -633,12 +652,14 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
     <div class="model-container" style="flex:1">
       <model-viewer id="mv"
         src="./DG100218.glb"
+        loading="eager"
+        reveal="auto"
         camera-controls
         auto-rotate
         interaction-prompt="auto"
         rotation-per-second="14deg"
-        shadow-intensity="1"
-        shadow-softness="0.8"
+        shadow-intensity="0.4"
+        shadow-softness="0.3"
         exposure="1.5"
         environment-image="neutral"
         camera-orbit="0deg 85deg 2.5m"
@@ -709,8 +730,8 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
           </div>
 
           <div class="color-swatches">
-            <div class="color-swatch active" style="background:#FAF8F3" data-r="0.98" data-g="0.97" data-b="0.95" data-name="Blanc crème" onclick="applyZoneColor(this)" title="Blanc crème"></div>
-            <div class="color-swatch" style="background:#4A1628" data-r="0.29" data-g="0.09" data-b="0.16" data-name="Bordeaux" onclick="applyZoneColor(this)" title="Bordeaux"></div>
+            <div class="color-swatch" style="background:#FAF8F3" data-r="0.98" data-g="0.97" data-b="0.95" data-name="Blanc crème" onclick="applyZoneColor(this)" title="Blanc crème"></div>
+            <div class="color-swatch active" style="background:#4A1628" data-r="0.29" data-g="0.09" data-b="0.16" data-name="Bordeaux" onclick="applyZoneColor(this)" title="Bordeaux"></div>
             <div class="color-swatch" style="background:#111111" data-r="0.07" data-g="0.07" data-b="0.07" data-name="Encre" onclick="applyZoneColor(this)" title="Encre"></div>
             <div class="color-swatch" style="background:#B8976A" data-r="0.72" data-g="0.59" data-b="0.42" data-name="Or sable" onclick="applyZoneColor(this)" title="Or sable"></div>
             <div class="color-swatch" style="background:#EAE0D0" data-r="0.92" data-g="0.88" data-b="0.82" data-name="Sable" onclick="applyZoneColor(this)" title="Sable"></div>
@@ -726,7 +747,7 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
               <span class="zone-value" id="currentZone">Tissu</span>
               <span class="zone-sep">·</span>
               <span class="zone-label" data-fr="Couleur :" data-en="Color:">Couleur :</span>
-              <span class="zone-value" id="currentColor">Blanc crème</span>
+              <span class="zone-value" id="currentColor">Bordeaux</span>
             </div>
           </div>
 
@@ -1030,7 +1051,7 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
 <!-- FOOTER -->
 <footer>
   <div>
-    <div class="f-logo"><img src="./lazxr-logo-blanc-transparent.png" alt="LAZXR" class="footer-logo"></div>
+    <div class="f-logo"><img src="./lazxr-logo-blanc-transparent.png" alt="LAZXR" class="footer-logo" loading="lazy"></div>
     <div class="f-desc" data-fr="Infrastructure numérique visuelle<br>pour la mode marocaine." data-en="Digital visual infrastructure<br>for Moroccan fashion.">Infrastructure numérique visuelle<br>pour la mode marocaine.</div>
   </div>
   <div class="f-col">
@@ -1176,11 +1197,11 @@ function switchProduct(name, btn) {
   // Update zone indicator
   activeZone = Object.keys(prod.zones)[0];
   document.getElementById('currentZone').textContent = prod.zones[activeZone].label;
-  document.getElementById('currentColor').textContent = 'Blanc crème';
+  document.getElementById('currentColor').textContent = 'Bordeaux';
 
-  // Re-activate white swatch
+  // Re-activate bordeaux swatch
   document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
-  const goldSwatch = document.querySelector('.color-swatch[data-name="Blanc crème"]');
+  const goldSwatch = document.querySelector('.color-swatch[data-name="Bordeaux"]');
   if (goldSwatch) goldSwatch.classList.add('active');
 }
 
@@ -1199,14 +1220,19 @@ function buildZoneTabs(prod) {
 
 if (mvEl) {
   mvEl.addEventListener('load', () => {
+    // Mark container as loaded (removes shimmer)
+    mvEl.setAttribute('loaded', '');
+    const container = mvEl.closest('.model-container');
+    if (container) container.classList.add('loaded');
+
     const model = mvEl.model;
     if (!model || !model.materials) return;
     const prod = products[activeProduct];
     Object.values(prod.zones).forEach(z => z.materials = []);
     prod.mapMaterials(model.materials);
 
-    // Apply default Beige Dore Luxueux (#B8976A) on all zones
-    const defaultR = 0.98, defaultG = 0.97, defaultB = 0.95;
+    // Apply default Bordeaux (#4A1628) on all zones
+    const defaultR = 0.29, defaultG = 0.09, defaultB = 0.16;
     const props = getMaterialProps();
     Object.keys(prod.zones).forEach(zoneKey => {
       const indices = prod.zones[zoneKey].materials;
