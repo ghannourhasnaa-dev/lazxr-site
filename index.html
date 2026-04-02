@@ -709,8 +709,8 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
           </div>
 
           <div class="color-swatches">
-            <div class="color-swatch active" style="background:#FAF8F3" data-r="0.98" data-g="0.97" data-b="0.95" data-name="Blanc crème" onclick="applyZoneColor(this)" title="Blanc crème"></div>
-            <div class="color-swatch" style="background:#4A1628" data-r="0.29" data-g="0.09" data-b="0.16" data-name="Bordeaux" onclick="applyZoneColor(this)" title="Bordeaux"></div>
+            <div class="color-swatch" style="background:#FAF8F3" data-r="0.98" data-g="0.97" data-b="0.95" data-name="Blanc crème" onclick="applyZoneColor(this)" title="Blanc crème"></div>
+            <div class="color-swatch active" style="background:#4A1628" data-r="0.29" data-g="0.09" data-b="0.16" data-name="Bordeaux" onclick="applyZoneColor(this)" title="Bordeaux"></div>
             <div class="color-swatch" style="background:#111111" data-r="0.07" data-g="0.07" data-b="0.07" data-name="Encre" onclick="applyZoneColor(this)" title="Encre"></div>
             <div class="color-swatch" style="background:#B8976A" data-r="0.72" data-g="0.59" data-b="0.42" data-name="Or sable" onclick="applyZoneColor(this)" title="Or sable"></div>
             <div class="color-swatch" style="background:#EAE0D0" data-r="0.92" data-g="0.88" data-b="0.82" data-name="Sable" onclick="applyZoneColor(this)" title="Sable"></div>
@@ -726,7 +726,7 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
               <span class="zone-value" id="currentZone">Tissu</span>
               <span class="zone-sep">·</span>
               <span class="zone-label" data-fr="Couleur :" data-en="Color:">Couleur :</span>
-              <span class="zone-value" id="currentColor">Blanc crème</span>
+              <span class="zone-value" id="currentColor">Bordeaux</span>
             </div>
           </div>
 
@@ -1176,11 +1176,11 @@ function switchProduct(name, btn) {
   // Update zone indicator
   activeZone = Object.keys(prod.zones)[0];
   document.getElementById('currentZone').textContent = prod.zones[activeZone].label;
-  document.getElementById('currentColor').textContent = 'Blanc crème';
+  document.getElementById('currentColor').textContent = 'Bordeaux';
 
-  // Re-activate white swatch
+  // Re-activate bordeaux swatch
   document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
-  const goldSwatch = document.querySelector('.color-swatch[data-name="Blanc crème"]');
+  const goldSwatch = document.querySelector('.color-swatch[data-name="Bordeaux"]');
   if (goldSwatch) goldSwatch.classList.add('active');
 }
 
@@ -1205,8 +1205,8 @@ if (mvEl) {
     Object.values(prod.zones).forEach(z => z.materials = []);
     prod.mapMaterials(model.materials);
 
-    // Apply default Beige Dore Luxueux (#B8976A) on all zones
-    const defaultR = 0.98, defaultG = 0.97, defaultB = 0.95;
+    // Apply default Bordeaux (#4A1628) on all zones
+    const defaultR = 0.29, defaultG = 0.09, defaultB = 0.16;
     const props = getMaterialProps();
     Object.keys(prod.zones).forEach(zoneKey => {
       const indices = prod.zones[zoneKey].materials;
